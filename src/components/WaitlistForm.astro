@@ -1,0 +1,67 @@
+<form class="grid gap-5" method="get" action="/contact">
+	<div class="grid gap-5 sm:grid-cols-2">
+		<div>
+			<label for="name" class="block text-sm font-medium text-[#f5efe2]">Name</label>
+			<input
+				id="name"
+				name="name"
+				type="text"
+				autocomplete="name"
+				required
+				class="mt-2 w-full border border-[#d8d1c2]/20 bg-[#0c0b08] px-4 py-3 text-[#f5efe2] outline-none transition-colors placeholder:text-[#756d61] focus:border-[#b9c29c]"
+			/>
+		</div>
+		<div>
+			<label for="email" class="block text-sm font-medium text-[#f5efe2]">Email</label>
+			<input
+				id="email"
+				name="email"
+				type="email"
+				autocomplete="email"
+				required
+				class="mt-2 w-full border border-[#d8d1c2]/20 bg-[#0c0b08] px-4 py-3 text-[#f5efe2] outline-none transition-colors placeholder:text-[#756d61] focus:border-[#b9c29c]"
+			/>
+		</div>
+	</div>
+
+	<div>
+		<label for="interest" class="block text-sm font-medium text-[#f5efe2]">Primary interest</label>
+		<select
+			id="interest"
+			name="interest"
+			class="mt-2 w-full border border-[#d8d1c2]/20 bg-[#0c0b08] px-4 py-3 text-[#f5efe2] outline-none transition-colors focus:border-[#b9c29c]"
+		>
+			<option>Base layers</option>
+			<option>Mid layers</option>
+			<option>Made-to-order garments</option>
+			<option>General updates</option>
+		</select>
+	</div>
+
+	<div>
+		<label for="message" class="block text-sm font-medium text-[#f5efe2]">Message</label>
+		<textarea
+			id="message"
+			name="message"
+			rows="5"
+			class="mt-2 w-full resize-y border border-[#d8d1c2]/20 bg-[#0c0b08] px-4 py-3 text-[#f5efe2] outline-none transition-colors placeholder:text-[#756d61] focus:border-[#b9c29c]"
+		></textarea>
+	</div>
+
+	<label class="flex gap-3 text-sm leading-6 text-[#b8ae9c]">
+		<input
+			type="checkbox"
+			name="updates"
+			value="yes"
+			class="mt-1 h-4 w-4 border-[#d8d1c2]/30 bg-[#0c0b08] text-[#8f9a76]"
+		/>
+		<span>Send me launch updates and small-batch release notes.</span>
+	</label>
+
+	<button
+		type="submit"
+		class="w-full border border-[#d8d1c2] bg-[#d8d1c2] px-5 py-3 text-sm font-semibold text-[#14130f] transition-colors hover:bg-[#f5efe2] sm:w-auto"
+	>
+		Join the waitlist
+	</button>
+</form>

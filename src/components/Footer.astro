@@ -1,0 +1,52 @@
+---
+const footerLinks = [
+	{ href: '/about', label: 'About' },
+	{ href: '/garments', label: 'Garments' },
+	{ href: '/process', label: 'Process' },
+	{ href: '/contact', label: 'Contact' },
+];
+---
+
+<footer class="border-t border-[#d8d1c2]/10 bg-[#0c0b08]">
+	<div class="mx-auto grid max-w-7xl gap-10 px-5 py-12 sm:px-6 md:grid-cols-[1.4fr_1fr] lg:px-8">
+		<div>
+			<a href="/" class="inline-flex items-center gap-3" aria-label="Wild Balance home">
+				<span class="flex h-9 w-9 items-center justify-center border border-[#d8d1c2]/25 bg-[#d8d1c2]/10 text-[0.65rem] font-semibold tracking-[0.16em] text-[#eee8dc]">
+					WB
+				</span>
+				<span class="text-sm font-semibold uppercase tracking-[0.2em] text-[#f5efe2]">Wild Balance</span>
+			</a>
+			<p class="mt-5 max-w-xl text-sm leading-6 text-[#b8ae9c]">
+				Handmade merino from Christchurch, New Zealand. Built for aspiring alpine hunters,
+				trampers, and long days in Southern Alps terrain.
+			</p>
+		</div>
+
+		<div class="grid gap-5 sm:grid-cols-2">
+			<nav aria-label="Footer navigation">
+				<h2 class="text-xs font-semibold uppercase tracking-[0.22em] text-[#8f9a76]">Explore</h2>
+				<ul class="mt-4 space-y-3">
+					{
+						footerLinks.map((link) => (
+							<li>
+								<a href={link.href} class="text-sm text-[#b8ae9c] transition-colors hover:text-[#f5efe2]">
+									{link.label}
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</nav>
+
+			<div>
+				<h2 class="text-xs font-semibold uppercase tracking-[0.22em] text-[#8f9a76]">Origin</h2>
+				<p class="mt-4 text-sm leading-6 text-[#b8ae9c]">
+					Christchurch made. Small batch. Merino focused.
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="border-t border-[#d8d1c2]/10 px-5 py-5 text-center text-xs text-[#8d8477]">
+		&copy; {new Date().getFullYear()} Wild Balance. Soft fibre. Hard country.
+	</div>
+</footer>

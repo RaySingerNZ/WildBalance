@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+
+const garments = [
+	{
+		name: 'Base layers',
+		description: 'Soft merino pieces for next-to-skin warmth, breathability, and long-wear comfort.',
+	},
+	{
+		name: 'Mid layers',
+		description: 'Quiet insulation for stop-start movement, exposed tops, and cold camp edges.',
+	},
+	{
+		name: 'Field pieces',
+		description: 'Small-batch garments refined around fit, pack comfort, and practical use.',
+	},
+];
+---
+
+<BaseLayout
+	title="Garments | Wild Balance"
+	description="Small-batch handmade merino garments from Christchurch, New Zealand."
+>
+	<Section
+		eyebrow="Garments"
+		title="Merino layers with a restrained outdoor vocabulary."
+		intro="The first Wild Balance pieces will focus on high-use layers: clean shapes, natural fibre, and construction details that stay useful in rough country."
+	>
+		<div class="grid gap-5 md:grid-cols-3">
+			{
+				garments.map((garment) => (
+					<article class="border border-[#d8d1c2]/12 bg-[#171510]">
+						<div class="wool-swatch h-56" aria-hidden="true"></div>
+						<div class="p-6">
+							<h2 class="text-xl font-semibold text-[#f5efe2]">{garment.name}</h2>
+							<p class="mt-4 text-sm leading-6 text-[#b8ae9c]">{garment.description}</p>
+						</div>
+					</article>
+				))
+			}
+		</div>
+	</Section>
+
+	<Section
+		tone="muted"
+		title="Range notes"
+		intro="Exact garments, colours, and sizing will be confirmed as the first patterns are refined. The direction is premium, quiet, and practical rather than seasonal or graphic-led."
+		narrow
+	/>
+</BaseLayout>

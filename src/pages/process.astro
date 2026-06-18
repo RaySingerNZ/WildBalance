@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+
+const steps = [
+	{
+		title: 'Pattern',
+		text: 'Start with movement, layering, and pack contact before settling the shape.',
+	},
+	{
+		title: 'Material',
+		text: 'Choose merino for comfort, warmth, breathability, and a natural hand feel.',
+	},
+	{
+		title: 'Make',
+		text: 'Cut and sew in Christchurch with small-batch attention to fit and finish.',
+	},
+	{
+		title: 'Refine',
+		text: 'Use feedback from real terrain to improve the next run without chasing noise.',
+	},
+];
+---
+
+<BaseLayout
+	title="Process | Wild Balance"
+	description="How Wild Balance approaches handmade merino outdoor clothing from Christchurch."
+>
+	<Section
+		eyebrow="Process"
+		title="A slower way to build outdoor clothing."
+		intro="Wild Balance keeps the process close to the makers: practical patterning, careful fabric handling, local sewing, and iterative refinement."
+	>
+		<ol class="grid gap-5 md:grid-cols-2">
+			{
+				steps.map((step, index) => (
+					<li class="border border-[#d8d1c2]/12 bg-[#171510] p-6">
+						<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#8f9a76]">
+							{String(index + 1).padStart(2, '0')}
+						</p>
+						<h2 class="mt-8 text-2xl font-semibold text-[#f5efe2]">{step.title}</h2>
+						<p class="mt-4 text-sm leading-6 text-[#b8ae9c]">{step.text}</p>
+					</li>
+				))
+			}
+		</ol>
+	</Section>
+
+	<Section
+		tone="deep"
+		title="Experience matters when details are quiet."
+		intro="With over 12 years of full-time clothing production behind the makers, the aim is not to over-design the garment. It is to make each plain detail earn its place."
+		narrow
+	/>
+</BaseLayout>

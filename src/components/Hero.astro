@@ -1,0 +1,74 @@
+---
+interface Props {
+	eyebrow?: string;
+	title: string;
+	subtitle?: string;
+	primaryHref?: string;
+	primaryLabel?: string;
+	secondaryHref?: string;
+	secondaryLabel?: string;
+}
+
+const {
+	eyebrow,
+	title,
+	subtitle,
+	primaryHref,
+	primaryLabel,
+	secondaryHref,
+	secondaryLabel,
+} = Astro.props;
+---
+
+<section class="relative isolate overflow-hidden border-b border-[#d8d1c2]/10 bg-[#11100c]">
+	<div class="hero-visual absolute inset-0" aria-hidden="true"></div>
+	<div class="absolute inset-0 bg-[#11100c]/30" aria-hidden="true"></div>
+
+	<div class="relative mx-auto flex min-h-[72vh] max-w-7xl items-end px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
+		<div class="max-w-4xl pb-4">
+			{
+				eyebrow && (
+					<p class="mb-5 text-xs font-semibold uppercase tracking-[0.24em] text-[#b9c29c]">
+						{eyebrow}
+					</p>
+				)
+			}
+			<h1 class="max-w-3xl text-5xl font-semibold leading-[0.95] tracking-normal text-[#f5efe2] sm:text-6xl lg:text-7xl">
+				{title}
+			</h1>
+			{
+				subtitle && (
+					<p class="mt-6 max-w-2xl text-lg leading-8 text-[#d8d1c2] sm:text-xl">
+						{subtitle}
+					</p>
+				)
+			}
+			{
+				(primaryHref || secondaryHref) && (
+					<div class="mt-9 flex flex-wrap gap-3">
+						{
+							primaryHref && primaryLabel && (
+								<a
+									href={primaryHref}
+									class="border border-[#d8d1c2] bg-[#d8d1c2] px-5 py-3 text-sm font-semibold text-[#14130f] transition-colors hover:bg-[#f5efe2]"
+								>
+									{primaryLabel}
+								</a>
+							)
+						}
+						{
+							secondaryHref && secondaryLabel && (
+								<a
+									href={secondaryHref}
+									class="border border-[#d8d1c2]/35 px-5 py-3 text-sm font-semibold text-[#f5efe2] transition-colors hover:border-[#d8d1c2]/70 hover:bg-[#d8d1c2]/10"
+								>
+									{secondaryLabel}
+								</a>
+							)
+						}
+					</div>
+				)
+			}
+		</div>
+	</div>
+</section>
