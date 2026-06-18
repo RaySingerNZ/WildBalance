@@ -1,14 +1,18 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
+import ImageFrame from '../components/ImageFrame.astro';
 import Section from '../components/Section.astro';
 
-const madeHere = [
-	'Designed in Christchurch',
-	'Cut in Christchurch',
-	'Sewn in Christchurch',
-	'Hand dyed in Christchurch',
-];
+// Replace these Unsplash URLs with your own field, garment, and workshop images when ready.
+const placeholderImages = {
+	hero:
+		'https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&q=80&w=1400',
+	wool:
+		'https://images.unsplash.com/photo-1550376026-7375b92bb318?auto=format&fit=crop&q=80&w=1200',
+	workshop:
+		'https://images.unsplash.com/photo-1753162659622-371949a713ec?auto=format&fit=crop&q=80&w=1400',
+};
 
 const practicalNotes = [
 	{
@@ -29,79 +33,76 @@ const hoodieUses = ['Cold mornings', 'Long climbs', 'Glassing', 'Camp', 'Around 
 ---
 
 <BaseLayout
-	title="Wild Balance | Soft fibre. Hard country."
+	title="Wild Balance | Soft Fibre. Hard Country."
 	description="Designed, cut, sewn, and hand dyed merino outdoor clothing from Christchurch, New Zealand."
 >
 	<Hero
-		eyebrow="Christchurch made merino outdoor clothing"
-		title="Soft fibre. Hard country."
-		subtitle="Designed, cut, sewn, and hand dyed in Christchurch, New Zealand."
-		support="Individually made merino outdoor clothing for alpine hunters heading into tough terrain and fast-changing weather."
+		eyebrow="Not just designed here. Made here."
+		title="Soft Fibre. Hard Country."
+		subtitle="Merino clothing designed for the hunt. Sewn, and hand dyed in Christchurch, NZ - one garment at a time."
+		support="The first Wild Balance piece is a do-it-all alpine hunting hoodie - built for cold starts, breathable for long climbs, warm while glassing, and comfortable around camp. Register your interest and help launch a proper New Zealand-made hunting brand."
+		imageSrc={placeholderImages.hero}
+		imageAlt="Placeholder image of hikers moving through alpine terrain beneath snow-covered peaks."
+		imageObjectPosition="center"
 		primaryHref="/contact"
-		primaryLabel="Join the waitlist"
+		primaryLabel="Register your interest"
 		secondaryHref="/garments"
 		secondaryLabel="First garment"
 	/>
+
+	<Section
+		tone="muted"
+		eyebrow="The Launch - one garment, done properly."
+		title="The merino hoodie handcrafted for hard country."
+	>
+		<p class="max-w-4xl text-xl font-medium leading-8 text-[#3d372d] sm:text-2xl">
+			We are starting with a hoodie because it is the layer alpine hunters live in.
+		</p>
+		<p class="mt-5 max-w-2xl text-base leading-7 text-[#625a4d] sm:text-lg">
+			The focus is simple: merino warmth without unnecessary bulk. 
+		</p> 
+		<p class="mt-5 max-w-2xl text-base leading-7 text-[#625a4d] sm:text-lg">
+			A practical hood for wind and sun, shoulder room for climbing through rough terrain, and a cut that lets you glass without fighting the garment.
+		</p>
+		<p class="mt-5 max-w-2xl text-base leading-7 text-[#625a4d] sm:text-lg">
+			Doubled-over sleeve and body cuffs add durability where it matters, with no scratchy tags or labels in the wrong spot.
+		</p>
+		<a
+			href="/contact"
+			class="mt-8 inline-flex border border-[#3a382f]/30 bg-[#f8f3e9]/70 px-5 py-3 text-sm font-semibold text-[#2c271f] transition-colors hover:border-[#3a382f]/60 hover:bg-[#f8f3e9]"
+		>
+			Get behind the first release
+		</a>
+		<br />
+		<ImageFrame
+			src={placeholderImages.wool}
+			alt="Placeholder close-up image of wool textile texture."
+			aspect="wide"
+			objectPosition="center"
+		/>
+	</Section>
 
 	<Section
 		eyebrow="Made here"
 		title="Not just designed in New Zealand. Made in New Zealand."
 		intro="A lot of hunting and outdoor clothing talks loudly about merino, performance, and New Zealand design, then goes quiet on where the garments are actually made. Wild Balance is different."
 	>
-		<div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-			<div class="border border-[#2c271f]/15 bg-[#f8f3e9] p-6 sm:p-8">
-				<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">The line</p>
+		<div class="grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
+			<div class="border-l-4 border-[#626b43] bg-[#f8f3e9] p-6 sm:p-8">
 				<h2 class="mt-5 text-4xl font-semibold leading-tight tracking-normal text-[#2c271f] sm:text-5xl">
 					We are not outsourcing the hard part.
 				</h2>
-				<p class="mt-6 text-base leading-7 text-[#625a4d]">
-					Wild Balance garments are designed, cut, sewn, and hand dyed in Christchurch. Each
-					piece is made individually, one at a time, by people who understand the clothing and
-					the country it is heading into.
-				</p>
 			</div>
 
-			<div class="grid gap-4 sm:grid-cols-2">
-				{
-					madeHere.map((item) => (
-						<div class="border border-[#2c271f]/15 bg-[#e4d8c7] p-5">
-							<p class="text-lg font-semibold text-[#2c271f]">{item}</p>
-						</div>
-					))
-				}
-				<div class="border border-[#2c271f]/15 bg-[#2c271f] p-5 sm:col-span-2">
-					<p class="text-lg font-semibold text-[#f8f3e9]">
-						Not just designed by hunters and produced in offshore factories.
-					</p>
-				</div>
-			</div>
-		</div>
-	</Section>
-
-	<Section
-		tone="muted"
-		eyebrow="The first piece"
-		title="A do-it-all merino mid-layer hoodie."
-		intro="We are not launching a huge range. The first Wild Balance garment is a mid-layer hoodie for shoulder-season and winter hunting - the layer you pull on early and keep on all day."
-	>
-		<div class="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-			<div class="material-panel min-h-[24rem]" aria-hidden="true"></div>
 			<div>
 				<p class="text-lg leading-8 text-[#4c4438]">
-					Our first piece is a do-it-all merino mid-layer hoodie for shoulder-season and winter
-					hunting - the layer you pull on early and keep on all day. Warm enough for cold
-					glassing, breathable enough for the climb, and comfortable enough around camp once
-					the light drops.
+					Each garment is designed, cut, sewn, and hand dyed in Christchurch - individually,
+					one at a time.
 				</p>
-				<ul class="mt-8 flex flex-wrap gap-3" aria-label="Hoodie use cases">
-					{
-						hoodieUses.map((use) => (
-							<li class="border border-[#2c271f]/15 bg-[#f8f3e9]/70 px-4 py-2 text-sm font-medium text-[#3d372d]">
-								{use}
-							</li>
-						))
-					}
-				</ul>
+				<p class="mt-5 text-base leading-7 text-[#625a4d]">
+					Not just designed by hunters and produced in offshore factories. Made by hunters,
+					for hunters.
+				</p>
 			</div>
 		</div>
 	</Section>
@@ -127,26 +128,41 @@ const hoodieUses = ['Cold mornings', 'Long climbs', 'Glassing', 'Camp', 'Around 
 		tone="deep"
 		eyebrow="Experience"
 		title="Twelve-plus years behind the machines."
-		intro="Before Wild Balance, the makers ran Morphic Ltd, producing custom merino and cotton garments from Christchurch and exporting around the world. Wild Balance is the next chapter: more focused, more local, and built for the country we actually hunt."
-		narrow
-	/>
+	>
+		<div class="grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+			<div>
+				<p class="max-w-3xl text-lg leading-8 text-[#d8cdbb]">
+					Before Wild Balance, the makers ran Morphic Ltd, producing custom merino and cotton
+					garments from Christchurch and exporting around the world. Wild Balance is the next
+					chapter: more focused, more local, and built for the country we actually hunt.
+				</p>
+			</div>
+			<ImageFrame
+				src={placeholderImages.workshop}
+				alt="Placeholder image of garment makers working in a sewing workshop."
+				aspect="wide"
+				objectPosition="center"
+			/>
+		</div>
+	</Section>
 
 	<section class="bg-[#efe8db] px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
 		<div class="mx-auto grid max-w-7xl gap-8 border-y border-[#2c271f]/15 py-10 md:grid-cols-[1fr_auto] md:items-center">
 			<div>
-				<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">Waitlist</p>
+				<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">Launch</p>
 				<h2 class="mt-4 max-w-2xl text-3xl font-semibold tracking-normal text-[#2c271f] sm:text-4xl">
-					Follow the first Christchurch-made hoodie.
+					Be part of the Wild Balance launch.
 				</h2>
 				<p class="mt-4 max-w-2xl text-base leading-7 text-[#625a4d]">
-					Join for launch updates, garment notes, and first availability.
+					Follow the first garment, get launch updates, and back a proper New Zealand-made
+					merino brand - designed, cut, sewn, and hand dyed in Christchurch.
 				</p>
 			</div>
 			<a
 				href="/contact"
 				class="inline-flex justify-center border border-[#2c271f] bg-[#2c271f] px-5 py-3 text-sm font-semibold text-[#f8f3e9] transition-colors hover:bg-[#3d372d]"
 			>
-				Join the waitlist
+				Register your interest
 			</a>
 		</div>
 	</section>

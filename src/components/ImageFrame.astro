@@ -1,0 +1,48 @@
+---
+interface Props {
+	src: string;
+	alt: string;
+	aspect?: 'landscape' | 'portrait' | 'wide' | 'square';
+	caption?: string;
+	loading?: 'eager' | 'lazy';
+	objectPosition?: string;
+	className?: string;
+}
+
+const {
+	src,
+	alt,
+	aspect = 'landscape',
+	caption,
+	loading = 'lazy',
+	objectPosition = 'center',
+	className = '',
+} = Astro.props;
+
+const aspectClass = {
+	landscape: 'aspect-[4/3]',
+	portrait: 'aspect-[4/5]',
+	wide: 'aspect-[16/10]',
+	square: 'aspect-square',
+}[aspect];
+---
+
+<figure class={className}>
+	<div class:list={['overflow-hidden border border-[#2c271f]/15 bg-[#d8cdbb]', aspectClass]}>
+		<img
+			src={src}
+			alt={alt}
+			loading={loading}
+			decoding="async"
+			class="h-full w-full object-cover"
+			style={`object-position: ${objectPosition};`}
+		/>
+	</div>
+	{
+		caption && (
+			<figcaption class="mt-3 text-xs leading-5 text-[#6f6658]">
+				{caption}
+			</figcaption>
+		)
+	}
+</figure>

@@ -11,10 +11,15 @@ const footerLinks = [
 	<div class="mx-auto grid max-w-7xl gap-10 px-5 py-12 sm:px-6 md:grid-cols-[1.4fr_1fr] lg:px-8">
 		<div>
 			<a href="/" class="inline-flex items-center gap-3" aria-label="Wild Balance home">
-				<span class="flex h-9 w-9 items-center justify-center border border-[#d8cdbb]/30 bg-[#d8cdbb]/10 text-[0.65rem] font-semibold tracking-[0.16em] text-[#f8f3e9]">
-					WB
-				</span>
-				<span class="text-sm font-semibold uppercase tracking-[0.2em] text-[#f8f3e9]">Wild Balance</span>
+				<img
+					src="/WILD_BALANCE_3D.png"
+					alt=""
+					width="36"
+					height="36"
+					class="h-9 w-9 shrink-0 object-contain"
+					aria-hidden="true"
+				/>
+				<span class="font-host-grotesk text-sm font-semibold uppercase tracking-[0.2em] text-[#f8f3e9]">Wild Balance</span>
 			</a>
 			<p class="mt-5 max-w-xl text-sm leading-6 text-[#d8cdbb]">
 				Designed, cut, sewn, and hand dyed in Christchurch. Merino outdoor clothing made one
@@ -47,6 +52,8 @@ const footerLinks = [
 		</div>
 	</div>
 	<div class="border-t border-[#d8cdbb]/10 px-5 py-5 text-center text-xs text-[#b9ae9c]">
-		&copy; {new Date().getFullYear()} Wild Balance. Soft fibre. Hard country.
+		&copy; {new Date().getFullYear()} <span class="font-host-grotesk text-[#f8f3e9]">Wild Balance.</span>
+		<span class="font-signpainter text-base text-[#f8f3e9]">Soft Fibre.</span>
+		<span class="font-host-grotesk">Hard Country.</span>
 	</div>
 </footer>

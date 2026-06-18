@@ -4,6 +4,7 @@ interface Props {
 	eyebrow?: string;
 	title?: string;
 	intro?: string;
+	introClass?: string;
 	tone?: 'default' | 'muted' | 'deep';
 	narrow?: boolean;
 }
@@ -13,9 +14,12 @@ const {
 	eyebrow,
 	title,
 	intro,
+	introClass = '',
 	tone = 'default',
 	narrow = false,
 } = Astro.props;
+
+const titleParts = title?.split('Wild Balance') ?? [];
 ---
 
 <section
@@ -38,8 +42,37 @@ const {
 							</p>
 						)
 					}
-					{title && <h2 class:list={['text-3xl font-semibold tracking-normal sm:text-4xl', tone === 'deep' ? 'text-[#f8f3e9]' : 'text-[#2c271f]']}>{title}</h2>}
-					{intro && <p class:list={['mt-5 text-base leading-7 sm:text-lg', tone === 'deep' ? 'text-[#d8cdbb]' : 'text-[#625a4d]']}>{intro}</p>}
+					{
+						title && (
+							<h2 class:list={['text-3xl font-semibold tracking-normal sm:text-4xl', tone === 'deep' ? 'text-[#f8f3e9]' : 'text-[#2c271f]']}>
+								{
+									titleParts.length > 1
+										? titleParts.map((part, index) => (
+												<>
+													{part}
+													{
+														index < titleParts.length - 1 && (
+															<span class="font-host-grotesk">Wild Balance</span>
+														)
+													}
+												</>
+											))
+										: title
+								}
+							</h2>
+						)
+					}
+					{intro && (
+						<p
+							class:list={[
+								'mt-5',
+								introClass || 'text-base leading-7 sm:text-lg',
+								tone === 'deep' ? 'text-[#d8cdbb]' : 'text-[#625a4d]',
+							]}
+						>
+							{intro}
+						</p>
+					)}
 				</header>
 			)
 		}
