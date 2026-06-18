@@ -3,131 +3,148 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import Section from '../components/Section.astro';
 
-const principles = [
+const madeHere = [
+	'Designed in Christchurch',
+	'Cut in Christchurch',
+	'Sewn in Christchurch',
+	'Hand dyed in Christchurch',
+];
+
+const practicalNotes = [
 	{
-		title: 'Merino first',
-		text: 'Natural fibre selected for warmth, breathability, and comfort across changing alpine conditions.',
+		title: 'One at a time',
+		text: 'This is not standard off-the-shelf clothing with a local logo stitched on. Each garment is individually made by people who know the work.',
 	},
 	{
-		title: 'Made by hand',
-		text: 'Cut and sewn in Christchurch by makers with deep production experience and a close eye for fit.',
+		title: 'By hunters, for hunters',
+		text: 'The first pieces are aimed at real hunting days: early starts, long climbs, glassing, camp, and cold weather that shifts quickly.',
 	},
 	{
-		title: 'Quietly capable',
-		text: 'Purposeful layers without loud graphics, tactical styling, or disposable seasonal noise.',
+		title: 'Built on experience',
+		text: 'The makers have over 12 years of full-time clothing experience, including running Morphic Ltd from Christchurch.',
 	},
 ];
 
-const garmentTypes = [
-	'Base layers for long climbs and cold glassing sessions',
-	'Mid layers for stop-start weather and high-output movement',
-	'Small-batch pieces shaped by field use and customer feedback',
-];
+const hoodieUses = ['Cold mornings', 'Long climbs', 'Glassing', 'Camp', 'Around the fire'];
 ---
 
 <BaseLayout
 	title="Wild Balance | Soft fibre. Hard country."
-	description="Handmade New Zealand merino outdoor clothing from Christchurch for alpine hunters, trampers, and Southern Alps terrain."
+	description="Designed, cut, sewn, and hand dyed merino outdoor clothing from Christchurch, New Zealand."
 >
 	<Hero
-		eyebrow="Handmade merino from Christchurch, New Zealand"
+		eyebrow="Christchurch made merino outdoor clothing"
 		title="Soft fibre. Hard country."
-		subtitle="Premium merino outdoor clothing for aspiring alpine hunters, trampers, and people who spend their time where weather turns quickly."
+		subtitle="Designed, cut, sewn, and hand dyed in Christchurch, New Zealand."
+		support="Individually made merino outdoor clothing for alpine hunters heading into tough terrain and fast-changing weather."
 		primaryHref="/contact"
 		primaryLabel="Join the waitlist"
 		secondaryHref="/garments"
-		secondaryLabel="View garments"
+		secondaryLabel="First garment"
 	/>
 
 	<Section
-		eyebrow="Wild Balance"
-		title="Built for Southern Alps terrain, made with a lighter hand."
-		intro="Wild Balance is the next chapter from makers with more than 12 years of full-time clothing experience. The work is restrained, tactile, and focused on merino layers that earn their place in a pack."
+		eyebrow="Made here"
+		title="Not just designed in New Zealand. Made in New Zealand."
+		intro="A lot of hunting and outdoor clothing talks loudly about merino, performance, and New Zealand design, then goes quiet on where the garments are actually made. Wild Balance is different."
 	>
-		<div class="grid gap-5 md:grid-cols-3">
-			{
-				principles.map((item) => (
-					<article class="border border-[#d8d1c2]/12 bg-[#171510] p-6">
-						<h3 class="text-lg font-semibold text-[#f5efe2]">{item.title}</h3>
-						<p class="mt-4 text-sm leading-6 text-[#b8ae9c]">{item.text}</p>
-					</article>
-				))
-			}
+		<div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+			<div class="border border-[#2c271f]/15 bg-[#f8f3e9] p-6 sm:p-8">
+				<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">The line</p>
+				<h2 class="mt-5 text-4xl font-semibold leading-tight tracking-normal text-[#2c271f] sm:text-5xl">
+					We are not outsourcing the hard part.
+				</h2>
+				<p class="mt-6 text-base leading-7 text-[#625a4d]">
+					Wild Balance garments are designed, cut, sewn, and hand dyed in Christchurch. Each
+					piece is made individually, one at a time, by people who understand the clothing and
+					the country it is heading into.
+				</p>
+			</div>
+
+			<div class="grid gap-4 sm:grid-cols-2">
+				{
+					madeHere.map((item) => (
+						<div class="border border-[#2c271f]/15 bg-[#e4d8c7] p-5">
+							<p class="text-lg font-semibold text-[#2c271f]">{item}</p>
+						</div>
+					))
+				}
+				<div class="border border-[#2c271f]/15 bg-[#2c271f] p-5 sm:col-span-2">
+					<p class="text-lg font-semibold text-[#f8f3e9]">
+						Not just designed by hunters and produced in offshore factories.
+					</p>
+				</div>
+			</div>
 		</div>
 	</Section>
 
 	<Section
 		tone="muted"
-		eyebrow="Material feel"
-		title="Warmth, movement, and comfort without bulk."
-		intro="Merino has a rare balance: soft against skin, warm when the air drops, and steady through mixed effort. The design language stays plain so the fibre and construction can do the work."
+		eyebrow="The first piece"
+		title="A do-it-all merino mid-layer hoodie."
+		intro="We are not launching a huge range. The first Wild Balance garment is a mid-layer hoodie for shoulder-season and winter hunting - the layer you pull on early and keep on all day."
 	>
-		<div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-			<div class="material-panel min-h-[22rem]" aria-hidden="true"></div>
-			<div class="grid gap-5 sm:grid-cols-2">
-				<div class="border-l border-[#8f9a76]/45 pl-5">
-					<h3 class="text-base font-semibold text-[#f5efe2]">Tactile by design</h3>
-					<p class="mt-3 text-sm leading-6 text-[#b8ae9c]">
-						Raw wool tones, clean seams, and careful proportions for garments that feel considered
-						before they feel technical.
-					</p>
-				</div>
-				<div class="border-l border-[#8f9a76]/45 pl-5">
-					<h3 class="text-base font-semibold text-[#f5efe2]">Terrain aware</h3>
-					<p class="mt-3 text-sm leading-6 text-[#b8ae9c]">
-						Shaped for changing pace, scrub edges, exposed ridgelines, and weather that rarely
-						stays polite.
-					</p>
-				</div>
-				<div class="border-l border-[#8f9a76]/45 pl-5">
-					<h3 class="text-base font-semibold text-[#f5efe2]">Small batch</h3>
-					<p class="mt-3 text-sm leading-6 text-[#b8ae9c]">
-						Focused runs allow fit, fabric, and construction choices to keep improving without
-						drifting into mass production.
-					</p>
-				</div>
-				<div class="border-l border-[#8f9a76]/45 pl-5">
-					<h3 class="text-base font-semibold text-[#f5efe2]">Christchurch made</h3>
-					<p class="mt-3 text-sm leading-6 text-[#b8ae9c]">
-						The work starts close to the hills, with local patterning, sewing, and practical
-						refinement.
-					</p>
-				</div>
+		<div class="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+			<div class="material-panel min-h-[24rem]" aria-hidden="true"></div>
+			<div>
+				<p class="text-lg leading-8 text-[#4c4438]">
+					Our first piece is a do-it-all merino mid-layer hoodie for shoulder-season and winter
+					hunting - the layer you pull on early and keep on all day. Warm enough for cold
+					glassing, breathable enough for the climb, and comfortable enough around camp once
+					the light drops.
+				</p>
+				<ul class="mt-8 flex flex-wrap gap-3" aria-label="Hoodie use cases">
+					{
+						hoodieUses.map((use) => (
+							<li class="border border-[#2c271f]/15 bg-[#f8f3e9]/70 px-4 py-2 text-sm font-medium text-[#3d372d]">
+								{use}
+							</li>
+						))
+					}
+				</ul>
 			</div>
 		</div>
 	</Section>
 
 	<Section
-		eyebrow="Garments"
-		title="Early pieces will focus on dependable merino layers."
-		intro="The first range is being shaped around the pieces that see the most use: simple layers, strong fabric choices, and patterns that move cleanly under packs and outer shells."
+		eyebrow="How we work"
+		title="Plain talk, proper making."
+		intro="The clothing has to do the work. Not the logo, not the story, not a pile of imported stock dressed up as local craft."
 	>
 		<div class="grid gap-5 md:grid-cols-3">
 			{
-				garmentTypes.map((item) => (
-					<article class="flex min-h-48 flex-col justify-between border border-[#d8d1c2]/12 bg-[#14130f] p-6">
-						<div class="wool-swatch mb-8 h-24" aria-hidden="true"></div>
-						<h3 class="text-lg font-semibold leading-7 text-[#f5efe2]">{item}</h3>
+				practicalNotes.map((item) => (
+					<article class="border border-[#2c271f]/15 bg-[#f8f3e9] p-6">
+						<h3 class="text-lg font-semibold text-[#2c271f]">{item.title}</h3>
+						<p class="mt-4 text-sm leading-6 text-[#625a4d]">{item.text}</p>
 					</article>
 				))
 			}
 		</div>
 	</Section>
 
-	<section class="bg-[#0c0b08] px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
-		<div class="mx-auto grid max-w-7xl gap-8 border-y border-[#d8d1c2]/10 py-10 md:grid-cols-[1fr_auto] md:items-center">
+	<Section
+		tone="deep"
+		eyebrow="Experience"
+		title="Twelve-plus years behind the machines."
+		intro="Before Wild Balance, the makers ran Morphic Ltd, producing custom merino and cotton garments from Christchurch and exporting around the world. Wild Balance is the next chapter: more focused, more local, and built for the country we actually hunt."
+		narrow
+	/>
+
+	<section class="bg-[#efe8db] px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
+		<div class="mx-auto grid max-w-7xl gap-8 border-y border-[#2c271f]/15 py-10 md:grid-cols-[1fr_auto] md:items-center">
 			<div>
-				<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#8f9a76]">Waitlist</p>
-				<h2 class="mt-4 max-w-2xl text-3xl font-semibold tracking-normal text-[#f5efe2] sm:text-4xl">
-					Follow the first Wild Balance release.
+				<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">Waitlist</p>
+				<h2 class="mt-4 max-w-2xl text-3xl font-semibold tracking-normal text-[#2c271f] sm:text-4xl">
+					Follow the first Christchurch-made hoodie.
 				</h2>
-				<p class="mt-4 max-w-2xl text-base leading-7 text-[#b8ae9c]">
-					Join for launch updates, early garment notes, and made-to-order availability.
+				<p class="mt-4 max-w-2xl text-base leading-7 text-[#625a4d]">
+					Join for launch updates, garment notes, and first availability.
 				</p>
 			</div>
 			<a
 				href="/contact"
-				class="inline-flex justify-center border border-[#d8d1c2] bg-[#d8d1c2] px-5 py-3 text-sm font-semibold text-[#14130f] transition-colors hover:bg-[#f5efe2]"
+				class="inline-flex justify-center border border-[#2c271f] bg-[#2c271f] px-5 py-3 text-sm font-semibold text-[#f8f3e9] transition-colors hover:bg-[#3d372d]"
 			>
 				Join the waitlist
 			</a>

@@ -3,6 +3,7 @@ interface Props {
 	eyebrow?: string;
 	title: string;
 	subtitle?: string;
+	support?: string;
 	primaryHref?: string;
 	primaryLabel?: string;
 	secondaryHref?: string;
@@ -13,6 +14,7 @@ const {
 	eyebrow,
 	title,
 	subtitle,
+	support,
 	primaryHref,
 	primaryLabel,
 	secondaryHref,
@@ -20,29 +22,30 @@ const {
 } = Astro.props;
 ---
 
-<section class="relative isolate overflow-hidden border-b border-[#d8d1c2]/10 bg-[#11100c]">
+<section class="relative isolate overflow-hidden border-b border-[#2c271f]/10 bg-[#efe8db]">
 	<div class="hero-visual absolute inset-0" aria-hidden="true"></div>
-	<div class="absolute inset-0 bg-[#11100c]/30" aria-hidden="true"></div>
+	<div class="absolute inset-0 bg-[#efe8db]/30" aria-hidden="true"></div>
 
-	<div class="relative mx-auto flex min-h-[72vh] max-w-7xl items-end px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
+	<div class="relative mx-auto grid min-h-[74vh] max-w-7xl items-end gap-10 px-5 py-16 sm:px-6 sm:py-20 lg:grid-cols-[1.08fr_0.72fr] lg:px-8">
 		<div class="max-w-4xl pb-4">
 			{
 				eyebrow && (
-					<p class="mb-5 text-xs font-semibold uppercase tracking-[0.24em] text-[#b9c29c]">
+					<p class="mb-5 text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">
 						{eyebrow}
 					</p>
 				)
 			}
-			<h1 class="max-w-3xl text-5xl font-semibold leading-[0.95] tracking-normal text-[#f5efe2] sm:text-6xl lg:text-7xl">
+			<h1 class="max-w-3xl text-5xl font-semibold leading-[0.95] tracking-normal text-[#2c271f] sm:text-6xl lg:text-7xl">
 				{title}
 			</h1>
 			{
 				subtitle && (
-					<p class="mt-6 max-w-2xl text-lg leading-8 text-[#d8d1c2] sm:text-xl">
+					<p class="mt-6 max-w-2xl text-xl font-medium leading-8 text-[#3d372d] sm:text-2xl">
 						{subtitle}
 					</p>
 				)
 			}
+			{support && <p class="mt-5 max-w-2xl text-base leading-7 text-[#625a4d] sm:text-lg">{support}</p>}
 			{
 				(primaryHref || secondaryHref) && (
 					<div class="mt-9 flex flex-wrap gap-3">
@@ -50,7 +53,7 @@ const {
 							primaryHref && primaryLabel && (
 								<a
 									href={primaryHref}
-									class="border border-[#d8d1c2] bg-[#d8d1c2] px-5 py-3 text-sm font-semibold text-[#14130f] transition-colors hover:bg-[#f5efe2]"
+									class="border border-[#2c271f] bg-[#2c271f] px-5 py-3 text-sm font-semibold text-[#f8f3e9] transition-colors hover:bg-[#3d372d]"
 								>
 									{primaryLabel}
 								</a>
@@ -60,7 +63,7 @@ const {
 							secondaryHref && secondaryLabel && (
 								<a
 									href={secondaryHref}
-									class="border border-[#d8d1c2]/35 px-5 py-3 text-sm font-semibold text-[#f5efe2] transition-colors hover:border-[#d8d1c2]/70 hover:bg-[#d8d1c2]/10"
+									class="border border-[#3a382f]/30 bg-[#f8f3e9]/70 px-5 py-3 text-sm font-semibold text-[#2c271f] transition-colors hover:border-[#3a382f]/60 hover:bg-[#f8f3e9]"
 								>
 									{secondaryLabel}
 								</a>
@@ -69,6 +72,17 @@ const {
 					</div>
 				)
 			}
+		</div>
+		<div class="hidden pb-4 lg:block">
+			<div class="hero-panel p-6">
+				<p class="text-xs font-semibold uppercase tracking-[0.22em] text-[#626b43]">Made here</p>
+				<ul class="mt-6 space-y-4 text-lg font-semibold leading-7 text-[#2c271f]">
+					<li>Designed in Christchurch.</li>
+					<li>Cut in Christchurch.</li>
+					<li>Sewn in Christchurch.</li>
+					<li>Hand dyed in Christchurch.</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </section>

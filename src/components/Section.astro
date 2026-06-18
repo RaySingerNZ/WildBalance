@@ -21,10 +21,10 @@ const {
 <section
 	id={id}
 	class:list={[
-		'border-b border-[#d8d1c2]/10 py-16 sm:py-20',
-		tone === 'default' && 'bg-[#11100c]',
-		tone === 'muted' && 'bg-[#171510]',
-		tone === 'deep' && 'bg-[#0c0b08]',
+		'border-b border-[#2c271f]/10 py-16 sm:py-20',
+		tone === 'default' && 'bg-[#efe8db]',
+		tone === 'muted' && 'bg-[#e4d8c7]',
+		tone === 'deep' && 'bg-[#2c271f]',
 	]}
 >
 	<div class:list={['mx-auto px-5 sm:px-6 lg:px-8', narrow ? 'max-w-4xl' : 'max-w-7xl']}>
@@ -33,13 +33,13 @@ const {
 				<header class="mb-10 max-w-3xl">
 					{
 						eyebrow && (
-							<p class="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-[#8f9a76]">
+							<p class:list={['mb-4 text-xs font-semibold uppercase tracking-[0.24em]', tone === 'deep' ? 'text-[#b8c08c]' : 'text-[#626b43]']}>
 								{eyebrow}
 							</p>
 						)
 					}
-					{title && <h2 class="text-3xl font-semibold tracking-normal text-[#f5efe2] sm:text-4xl">{title}</h2>}
-					{intro && <p class="mt-5 text-base leading-7 text-[#b8ae9c] sm:text-lg">{intro}</p>}
+					{title && <h2 class:list={['text-3xl font-semibold tracking-normal sm:text-4xl', tone === 'deep' ? 'text-[#f8f3e9]' : 'text-[#2c271f]']}>{title}</h2>}
+					{intro && <p class:list={['mt-5 text-base leading-7 sm:text-lg', tone === 'deep' ? 'text-[#d8cdbb]' : 'text-[#625a4d]']}>{intro}</p>}
 				</header>
 			)
 		}

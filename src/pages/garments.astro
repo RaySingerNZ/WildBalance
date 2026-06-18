@@ -4,37 +4,37 @@ import Section from '../components/Section.astro';
 
 const garments = [
 	{
-		name: 'Base layers',
-		description: 'Soft merino pieces for next-to-skin warmth, breathability, and long-wear comfort.',
+		name: 'Merino mid-layer hoodie',
+		description: 'The first Wild Balance piece: a do-it-all layer for shoulder-season and winter hunting.',
 	},
 	{
-		name: 'Mid layers',
-		description: 'Quiet insulation for stop-start movement, exposed tops, and cold camp edges.',
+		name: 'Made one at a time',
+		description: 'Designed, cut, sewn, and hand dyed in Christchurch rather than produced offshore.',
 	},
 	{
-		name: 'Field pieces',
-		description: 'Small-batch garments refined around fit, pack comfort, and practical use.',
+		name: 'Built for big country',
+		description: 'Warm for glassing, breathable for the climb, and comfortable around camp after dark.',
 	},
 ];
 ---
 
 <BaseLayout
 	title="Garments | Wild Balance"
-	description="Small-batch handmade merino garments from Christchurch, New Zealand."
+	description="The first Wild Balance garment is a Christchurch-made merino mid-layer hoodie for hunting."
 >
 	<Section
 		eyebrow="Garments"
-		title="Merino layers with a restrained outdoor vocabulary."
-		intro="The first Wild Balance pieces will focus on high-use layers: clean shapes, natural fibre, and construction details that stay useful in rough country."
+		title="First up: a merino mid-layer hoodie."
+		intro="This is not a full range yet. The first piece is a do-it-all hoodie for shoulder-season and winter hunting - the one you put on early and keep on all day."
 	>
 		<div class="grid gap-5 md:grid-cols-3">
 			{
 				garments.map((garment) => (
-					<article class="border border-[#d8d1c2]/12 bg-[#171510]">
+					<article class="border border-[#2c271f]/15 bg-[#f8f3e9]">
 						<div class="wool-swatch h-56" aria-hidden="true"></div>
 						<div class="p-6">
-							<h2 class="text-xl font-semibold text-[#f5efe2]">{garment.name}</h2>
-							<p class="mt-4 text-sm leading-6 text-[#b8ae9c]">{garment.description}</p>
+							<h2 class="text-xl font-semibold text-[#2c271f]">{garment.name}</h2>
+							<p class="mt-4 text-sm leading-6 text-[#625a4d]">{garment.description}</p>
 						</div>
 					</article>
 				))
@@ -45,7 +45,7 @@ const garments = [
 	<Section
 		tone="muted"
 		title="Range notes"
-		intro="Exact garments, colours, and sizing will be confirmed as the first patterns are refined. The direction is premium, quiet, and practical rather than seasonal or graphic-led."
+		intro="Colours, sizing, and release timing will be confirmed as the first hoodie is finished. No e-commerce yet - join the waitlist for first availability."
 		narrow
 	/>
 </BaseLayout>

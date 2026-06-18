@@ -4,20 +4,20 @@ import Section from '../components/Section.astro';
 
 const steps = [
 	{
-		title: 'Pattern',
-		text: 'Start with movement, layering, and pack contact before settling the shape.',
+		title: 'Design',
+		text: 'Start with the hunting day: climbing, glassing, layering, cold starts, and pack contact.',
 	},
 	{
-		title: 'Material',
-		text: 'Choose merino for comfort, warmth, breathability, and a natural hand feel.',
+		title: 'Cut',
+		text: 'Cut the fabric in Christchurch, with the pattern and material handled by the same people making the garment.',
 	},
 	{
-		title: 'Make',
-		text: 'Cut and sew in Christchurch with small-batch attention to fit and finish.',
+		title: 'Sew',
+		text: 'Sew each piece one at a time, with practical attention to fit, comfort, and durability.',
 	},
 	{
-		title: 'Refine',
-		text: 'Use feedback from real terrain to improve the next run without chasing noise.',
+		title: 'Hand dye',
+		text: 'Finish the garment by hand dyeing it here, keeping the colour and feel tied to the making process.',
 	},
 ];
 ---
@@ -28,18 +28,18 @@ const steps = [
 >
 	<Section
 		eyebrow="Process"
-		title="A slower way to build outdoor clothing."
-		intro="Wild Balance keeps the process close to the makers: practical patterning, careful fabric handling, local sewing, and iterative refinement."
+		title="Designed, cut, sewn, and hand dyed in Christchurch."
+		intro="Wild Balance keeps the hard work close. Not just the idea. The making."
 	>
 		<ol class="grid gap-5 md:grid-cols-2">
 			{
 				steps.map((step, index) => (
-					<li class="border border-[#d8d1c2]/12 bg-[#171510] p-6">
-						<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#8f9a76]">
+					<li class="border border-[#2c271f]/15 bg-[#f8f3e9] p-6">
+						<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">
 							{String(index + 1).padStart(2, '0')}
 						</p>
-						<h2 class="mt-8 text-2xl font-semibold text-[#f5efe2]">{step.title}</h2>
-						<p class="mt-4 text-sm leading-6 text-[#b8ae9c]">{step.text}</p>
+						<h2 class="mt-8 text-2xl font-semibold text-[#2c271f]">{step.title}</h2>
+						<p class="mt-4 text-sm leading-6 text-[#625a4d]">{step.text}</p>
 					</li>
 				))
 			}
@@ -48,8 +48,8 @@ const steps = [
 
 	<Section
 		tone="deep"
-		title="Experience matters when details are quiet."
-		intro="With over 12 years of full-time clothing production behind the makers, the aim is not to over-design the garment. It is to make each plain detail earn its place."
+		title="We are not outsourcing the hard part."
+		intro="The making is the point. More than 12 years of full-time clothing production sits behind the first Wild Balance garments, from pattern through to the final hand-dyed finish."
 		narrow
 	/>
 </BaseLayout>

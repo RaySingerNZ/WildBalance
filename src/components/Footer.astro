@@ -7,29 +7,29 @@ const footerLinks = [
 ];
 ---
 
-<footer class="border-t border-[#d8d1c2]/10 bg-[#0c0b08]">
+<footer class="border-t border-[#2c271f]/10 bg-[#2c271f]">
 	<div class="mx-auto grid max-w-7xl gap-10 px-5 py-12 sm:px-6 md:grid-cols-[1.4fr_1fr] lg:px-8">
 		<div>
 			<a href="/" class="inline-flex items-center gap-3" aria-label="Wild Balance home">
-				<span class="flex h-9 w-9 items-center justify-center border border-[#d8d1c2]/25 bg-[#d8d1c2]/10 text-[0.65rem] font-semibold tracking-[0.16em] text-[#eee8dc]">
+				<span class="flex h-9 w-9 items-center justify-center border border-[#d8cdbb]/30 bg-[#d8cdbb]/10 text-[0.65rem] font-semibold tracking-[0.16em] text-[#f8f3e9]">
 					WB
 				</span>
-				<span class="text-sm font-semibold uppercase tracking-[0.2em] text-[#f5efe2]">Wild Balance</span>
+				<span class="text-sm font-semibold uppercase tracking-[0.2em] text-[#f8f3e9]">Wild Balance</span>
 			</a>
-			<p class="mt-5 max-w-xl text-sm leading-6 text-[#b8ae9c]">
-				Handmade merino from Christchurch, New Zealand. Built for aspiring alpine hunters,
-				trampers, and long days in Southern Alps terrain.
+			<p class="mt-5 max-w-xl text-sm leading-6 text-[#d8cdbb]">
+				Designed, cut, sewn, and hand dyed in Christchurch. Merino outdoor clothing made one
+				at a time for big country and rough weather.
 			</p>
 		</div>
 
 		<div class="grid gap-5 sm:grid-cols-2">
 			<nav aria-label="Footer navigation">
-				<h2 class="text-xs font-semibold uppercase tracking-[0.22em] text-[#8f9a76]">Explore</h2>
+				<h2 class="text-xs font-semibold uppercase tracking-[0.22em] text-[#b8c08c]">Explore</h2>
 				<ul class="mt-4 space-y-3">
 					{
 						footerLinks.map((link) => (
 							<li>
-								<a href={link.href} class="text-sm text-[#b8ae9c] transition-colors hover:text-[#f5efe2]">
+								<a href={link.href} class="text-sm text-[#d8cdbb] transition-colors hover:text-[#f8f3e9]">
 									{link.label}
 								</a>
 							</li>
@@ -39,14 +39,14 @@ const footerLinks = [
 			</nav>
 
 			<div>
-				<h2 class="text-xs font-semibold uppercase tracking-[0.22em] text-[#8f9a76]">Origin</h2>
-				<p class="mt-4 text-sm leading-6 text-[#b8ae9c]">
-					Christchurch made. Small batch. Merino focused.
+				<h2 class="text-xs font-semibold uppercase tracking-[0.22em] text-[#b8c08c]">Origin</h2>
+				<p class="mt-4 text-sm leading-6 text-[#d8cdbb]">
+					Christchurch made. One at a time. Merino focused.
 				</p>
 			</div>
 		</div>
 	</div>
-	<div class="border-t border-[#d8d1c2]/10 px-5 py-5 text-center text-xs text-[#8d8477]">
+	<div class="border-t border-[#d8cdbb]/10 px-5 py-5 text-center text-xs text-[#b9ae9c]">
 		&copy; {new Date().getFullYear()} Wild Balance. Soft fibre. Hard country.
 	</div>
 </footer>
