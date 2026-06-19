@@ -7,7 +7,7 @@ import Section from '../components/Section.astro';
 // Replace these Unsplash URLs with your own field, garment, and workshop images when ready.
 const placeholderImages = {
 	hero:
-		'https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&q=80&w=1400',
+		'https://unsplash.com/photos/HVKyHqiXcbw/download?force=true',
 	wool:
 		'https://images.unsplash.com/photo-1550376026-7375b92bb318?auto=format&fit=crop&q=80&w=1200',
 	workshop:
@@ -42,7 +42,7 @@ const hoodieUses = ['Cold mornings', 'Long climbs', 'Glassing', 'Camp', 'Around 
 		subtitle="Merino clothing designed for the hunt. Sewn, and hand dyed in Christchurch, NZ - one garment at a time."
 		support="The first Wild Balance piece is a do-it-all alpine hunting hoodie - built for cold starts, breathable for long climbs, warm while glassing, and comfortable around camp. Register your interest and help launch a proper New Zealand-made hunting brand."
 		imageSrc={placeholderImages.hero}
-		imageAlt="Placeholder image of hikers moving through alpine terrain beneath snow-covered peaks."
+		imageAlt="Placeholder image of a hunter in a hoodie standing in front of a rock wall."
 		imageObjectPosition="center"
 		primaryHref="/contact"
 		primaryLabel="Register your interest"
@@ -146,6 +146,36 @@ const hoodieUses = ['Cold mornings', 'Long climbs', 'Glassing', 'Camp', 'Around 
 			</li>
 		</ol>
 	</Section>
+
+	<section class="bg-[#efe8db] px-5 py-6 sm:px-6 lg:px-8">
+		<h2 class="sr-only">Garments in action</h2>
+		<div class="mx-auto grid max-w-7xl gap-4 md:grid-cols-3">
+			<a href={placeholderImages.hero} target="_blank" rel="noreferrer" class="block">
+				<ImageFrame
+					src={placeholderImages.hero}
+					alt="Placeholder image of hikers moving through alpine terrain beneath snow-covered peaks."
+					aspect="square"
+					objectPosition="center"
+				/>
+			</a>
+			<a href={placeholderImages.wool} target="_blank" rel="noreferrer" class="block">
+				<ImageFrame
+					src={placeholderImages.wool}
+					alt="Placeholder close-up image of wool textile texture."
+					aspect="square"
+					objectPosition="center"
+				/>
+			</a>
+			<a href={placeholderImages.workshop} target="_blank" rel="noreferrer" class="block">
+				<ImageFrame
+					src={placeholderImages.workshop}
+					alt="Placeholder image of garment makers working in a sewing workshop."
+					aspect="square"
+					objectPosition="center"
+				/>
+			</a>
+		</div>
+	</section>
 
 	<Section
 		eyebrow="FEW AND FAR BETWEEN"

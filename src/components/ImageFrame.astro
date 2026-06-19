@@ -2,7 +2,8 @@
 interface Props {
 	src: string;
 	alt: string;
-	aspect?: 'landscape' | 'portrait' | 'wide' | 'square';
+	aspect?: 'landscape' | 'portrait' | 'hero' | 'wide' | 'square';
+	aspectClassName?: string;
 	caption?: string;
 	loading?: 'eager' | 'lazy';
 	objectPosition?: string;
@@ -13,6 +14,7 @@ const {
 	src,
 	alt,
 	aspect = 'landscape',
+	aspectClassName,
 	caption,
 	loading = 'lazy',
 	objectPosition = 'center',
@@ -22,13 +24,14 @@ const {
 const aspectClass = {
 	landscape: 'aspect-[4/3]',
 	portrait: 'aspect-[4/5]',
+	hero: 'aspect-[3/4]',
 	wide: 'aspect-[16/10]',
 	square: 'aspect-square',
 }[aspect];
 ---
 
 <figure class={className}>
-	<div class:list={['overflow-hidden border border-[#2c271f]/15 bg-[#d8cdbb]', aspectClass]}>
+	<div class:list={['overflow-hidden border border-[#2c271f]/15 bg-[#d8cdbb]', aspectClassName || aspectClass]}>
 		<img
 			src={src}
 			alt={alt}
