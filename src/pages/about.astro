@@ -1,38 +1,120 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Section from '../components/Section.astro';
+
+const introParagraphs = [
+	`Wild Balance is made by us - Ray, Halee, and our daughter Quinn.`,
+	`It started with two things we love: making clothing and spending time in New Zealand’s outdoors.`,
+	`We have spent years designing, cutting, sewing, dyeing, and refining garments. We have also spent years hunting, hiking, camping, and learning what clothing needs to do in real weather, on real hills, with real miles under your feet.`,
+	`Wild Balance is where those two worlds meet.`,
+];
+
+const storySections = [
+	{
+		title: 'Our clothing story',
+		tone: 'default',
+		paragraphs: [
+			`Halee grew up in a family who manufactured and sewed. Horse covers, canvas and outdoor gear. She learnt to sew at a young age, and before long was making clothing for friends in the North Island. What started small became a steady stream of custom garments and orders.`,
+			`Ray came to clothing through design. While studying in Dunedin, clothing became another creative medium - practical, functional, and full of possibility. A garment could be useful and expressive at the same time.`,
+			`At first, we ran separate labels. Then we decided to go all in together.`,
+			`That became Morphic.`,
+			`Morphic started from home, although the house quickly turned into something much closer to a small factory. We sold at the Arts Centre market in Christchurch and online, making custom merino hoodies in one-off colours and designs.`,
+			`At the time, that was not common. Custom clothing, ordered online, made in New Zealand, and shipped around the world.`,
+			`Within a couple of years, Morphic had a loyal customer base, with garments heading to New Zealand customers and overseas to places like Germany, France, Canada, and the United States.`,
+			`What we were proudest of was not just the reach. It was that people kept coming back, kept wearing the clothing, and kept making it part of their lives.`,
+		],
+	},
+	{
+		title: 'After the earthquakes',
+		tone: 'muted',
+		paragraphs: [
+			`The Christchurch earthquakes changed everything.`,
+			`Our house was badly damaged, production stopped, supply chains were disrupted, the Arts Centre market closed, and many local customers left Christchurch.`,
+			`We kept making custom pieces where we could, but life moved in other directions. Quinn came along, and Halee went deeper into natural fibres, spinning, weaving, and dye work through the Christchurch spinning and weaving community.`,
+			`The clothing business paused, but the making did not. The skills kept growing. Halee’s dye work developed into something unique: rich, colourfast, practical, and genuinely stunning.`,
+			`Years later, we reconnected with our fabric supplier from the Morphic days. It felt like picking up a thread we had never really put down.`,
+			`Wild Balance is that thread carried forward.`,
+		],
+	},
+	{
+		title: 'Why hunting clothing',
+		tone: 'default',
+		paragraphs: [
+			`We have always spent time outside - surfing, hiking, camping, hunting, and exploring new country.`,
+			`Ray grew up on a farm and hunted small game as a kid, but deer hunting in the Canterbury high country became something different. That passion grew later, and now getting into big country with family is a major part of our life.`,
+			`Quinn loves hunting tahr and is now chasing her first chamois. Halee loves the hike, the country, and the adventure - though she would usually rather shoot a fish than a deer. Between us, there is a good spread of wild protein and a lot of time outdoors.`,
+			`We are out in the hills most weekends, testing ideas, learning, and paying attention to the details.`,
+			`The more time we spent hunting and hiking seriously, the more obvious it became that clothing still matters in the same way it always has: good materials, good fit, good construction, and no unnecessary fuss.`,
+		],
+	},
+	{
+		title: 'Why merino',
+		tone: 'muted',
+		paragraphs: [
+			`Merino makes sense to us.`,
+			`It is warm, breathable, comfortable, naturally odour-resistant, and easy to live in across changing conditions. On long trips, that matters.`,
+			`One remote roar trip made it especially clear. Five days out, a long walk in, and a synthetic hoodie that was good in the sun and quick to dry - but the smell never really came out, even after washing it in the creek. It also did not regulate temperature the way merino does.`,
+			`Merino has balance. It works with you when you are hot, cold, moving, resting, climbing, or glassing.`,
+			`For people who love the outdoors, natural fibre makes sense. We like that merino comes from the natural world and can return to it. We also care about keeping the garment as honest as possible, which is why we are focused on pure merino rather than polyester-cored blends.`,
+			`Wild Balance is built around that idea: natural fibre, practical design, and clothing that feels good to wear for a long time.`,
+		],
+	},
+	{
+		title: 'Why Wild Balance now',
+		tone: 'default',
+		paragraphs: [
+			`Wild Balance is the next chapter after Morphic.`,
+			`The patterns have been refined. The sewing studio has been rebuilt. Halee’s dye work has reached a level we are genuinely excited to share. And we are back working with a fabric supplier we trusted from years ago.`,
+			`But this is not just Morphic again.`,
+			`Wild Balance is more focused. It brings together our clothing background, our love of natural fibre, our dye work, and the time we now spend hunting and hiking in New Zealand’s mountains.`,
+			`We want people to feel the difference of clothing made personally, not anonymously.`,
+			`Something that fits well. Works properly. Carries the care that went into it. And feels connected to the place it is made for.`,
+			`That is Wild Balance.`,
+		],
+	},
+] as const;
 ---
 
 <BaseLayout
 	title="About | Wild Balance"
-	description="The story behind Wild Balance, merino outdoor clothing designed, cut, sewn, and hand dyed in Christchurch, New Zealand."
+	description="The story behind Wild Balance, where handmade clothing and New Zealand’s outdoors meet."
 >
 	<section class="border-b border-[#2c271f]/10 bg-[#efe8db] px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
 		<div class="mx-auto max-w-7xl">
-			<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">About</p>
+			<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">About Wild Balance</p>
 			<h1 class="mt-5 max-w-3xl text-4xl font-semibold leading-tight tracking-normal text-[#2c271f] sm:text-6xl">
-				Merino outdoor clothing made here, not just designed here.
+				Where clothing and the outdoors meet.
 			</h1>
+			<div class="mt-8 max-w-3xl space-y-5 text-lg leading-8 text-[#4c4438]">
+				{
+					introParagraphs.map((paragraph, index) => (
+						<p class:list={[index === introParagraphs.length - 1 && 'font-semibold text-[#3d372d]']}>
+							{paragraph}
+						</p>
+					))
+				}
+			</div>
 		</div>
 	</section>
 
-	<Section
-		title="The next chapter after Morphic Ltd."
-		intro="Wild Balance is led by makers with over 12 years of full-time clothing experience. Before this, they ran Morphic Ltd, producing custom merino and cotton garments from Christchurch and exporting around the world."
-	>
-		<div class="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-start">
-			<div class="material-panel hidden min-h-[24rem] md:block" aria-hidden="true"></div>
-			<div class="space-y-6 text-base leading-8 text-[#625a4d]">
-				<p>
-					That background matters. Patterning, cutting, sewing, fabric handling, dye work, and
-					production are not side details. They are the hard part.
-				</p>
-				<p>
-					Wild Balance puts that work in Christchurch. The garments are designed, cut, sewn,
-					and hand dyed here by people who understand the clothing and the country it is heading
-					into.
-				</p>
-			</div>
-		</div>
-	</Section>
+	{
+		storySections.map((storySection) => (
+			<Section title={storySection.title} tone={storySection.tone}>
+				<div class="max-w-3xl space-y-5 text-base leading-7 text-[#625a4d] sm:text-lg sm:leading-8">
+					{
+						storySection.paragraphs.map((paragraph, index) => (
+							<p
+								class:list={[
+									paragraph === 'That became Morphic.' && 'text-xl font-semibold text-[#3d372d]',
+									index === storySection.paragraphs.length - 1 && 'font-medium text-[#4c4438]',
+								]}
+							>
+								{paragraph}
+							</p>
+						))
+					}
+				</div>
+			</Section>
+		))
+	}
 </BaseLayout>

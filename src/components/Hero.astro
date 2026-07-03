@@ -5,7 +5,9 @@ interface Props {
 	eyebrow?: string;
 	title: string;
 	subtitle?: string;
+	subtitleParagraphs?: string[];
 	support?: string;
+	supportParagraphs?: string[];
 	imageSrc?: string;
 	imageAlt?: string;
 	imageObjectPosition?: string;
@@ -19,7 +21,9 @@ const {
 	eyebrow,
 	title,
 	subtitle,
+	subtitleParagraphs,
 	support,
+	supportParagraphs,
 	imageSrc,
 	imageAlt = '',
 	imageObjectPosition = 'center',
@@ -29,7 +33,9 @@ const {
 	secondaryLabel,
 } = Astro.props;
 
-const isBrandTagline = title === 'Soft Fibre. Hard Country.';
+const isBrandTagline = title.toLowerCase() === 'soft fibre. hard country.';
+const subtitleBlocks = subtitleParagraphs ?? (subtitle ? [subtitle] : []);
+const supportBlocks = supportParagraphs ?? (support ? [support] : []);
 ---
 
 <section class="relative isolate overflow-hidden border-b border-[#2c271f]/10 bg-[#efe8db]">
@@ -52,10 +58,10 @@ const isBrandTagline = title === 'Soft Fibre. Hard Country.';
 				{
 					isBrandTagline ? (
 						<>
-							<span class="font-signpainter block text-[1.16em] font-normal leading-[0.82] sm:inline">
-								Soft Fibre.
-							</span>{' '}
-							<span class="font-host-grotesk block sm:inline">Hard Country.</span>
+							<span class="font-signpainter block whitespace-nowrap text-[1.16em] font-normal leading-[0.82]">
+								Soft fibre.
+							</span>
+							<span class="font-host-grotesk block whitespace-nowrap">Hard country.</span>
 						</>
 					) : (
 						title
@@ -63,13 +69,19 @@ const isBrandTagline = title === 'Soft Fibre. Hard Country.';
 				}
 			</h1>
 			{
-				subtitle && (
-					<p class="mt-6 max-w-2xl text-xl font-medium leading-8 text-[#3d372d] sm:text-2xl">
-						{subtitle}
-					</p>
+				subtitleBlocks.length > 0 && (
+					<div class="mt-6 max-w-2xl space-y-4 text-xl font-medium leading-8 text-[#3d372d] sm:text-2xl">
+						{subtitleBlocks.map((paragraph) => <p>{paragraph}</p>)}
+					</div>
 				)
 			}
-			{support && <p class="mt-5 max-w-2xl text-base leading-7 text-[#625a4d] sm:text-lg">{support}</p>}
+			{
+				supportBlocks.length > 0 && (
+					<div class="mt-5 max-w-2xl space-y-4 text-base leading-7 text-[#625a4d] sm:text-lg">
+						{supportBlocks.map((paragraph) => <p>{paragraph}</p>)}
+					</div>
+				)
+			}
 			{
 				(primaryHref || secondaryHref) && (
 					<div class="mt-8 flex flex-wrap gap-3">
