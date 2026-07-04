@@ -13,6 +13,7 @@ interface Props {
 	imageObjectPosition?: string;
 	primaryHref?: string;
 	primaryLabel?: string;
+	primaryOpensModal?: boolean;
 	secondaryHref?: string;
 	secondaryLabel?: string;
 }
@@ -29,6 +30,7 @@ const {
 	imageObjectPosition = 'center',
 	primaryHref,
 	primaryLabel,
+	primaryOpensModal = false,
 	secondaryHref,
 	secondaryLabel,
 } = Astro.props;
@@ -43,10 +45,10 @@ const supportBlocks = supportParagraphs ?? (support ? [support] : []);
 	<div class="absolute inset-0 bg-[#efe8db]/30" aria-hidden="true"></div>
 
 	<div class:list={[
-		'relative mx-auto max-w-7xl gap-10 px-5 py-12 sm:px-6 sm:py-16 lg:min-h-[72vh] lg:items-end lg:px-8 lg:py-24',
+		'relative mx-auto max-w-7xl gap-10 px-5 py-12 sm:px-6 sm:py-16 lg:min-h-[72vh] lg:items-start lg:px-8 lg:py-16',
 		imageSrc ? 'lg:grid lg:grid-cols-[1fr_0.78fr]' : 'lg:flex',
 	]}>
-		<div class="max-w-4xl lg:pb-4">
+		<div class="max-w-4xl lg:pt-4">
 			{
 				eyebrow && (
 					<p class="mb-5 text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">
@@ -89,7 +91,10 @@ const supportBlocks = supportParagraphs ?? (support ? [support] : []);
 							primaryHref && primaryLabel && (
 								<a
 									href={primaryHref}
-									class="border border-[#2c271f] bg-[#2c271f] px-5 py-3 text-sm font-semibold text-[#f8f3e9] transition-colors hover:bg-[#3d372d]"
+									data-register-open={primaryOpensModal ? true : undefined}
+									aria-haspopup={primaryOpensModal ? 'dialog' : undefined}
+									aria-controls={primaryOpensModal ? 'register-interest-modal' : undefined}
+									class="cta-primary cta-attention inline-flex justify-center px-5 py-3 text-sm font-semibold"
 								>
 									{primaryLabel}
 								</a>
@@ -117,7 +122,7 @@ const supportBlocks = supportParagraphs ?? (support ? [support] : []);
 					aspectClassName="aspect-[16/10] lg:aspect-square"
 					loading="eager"
 					objectPosition={imageObjectPosition}
-					className="mt-10 lg:mt-0 lg:self-end"
+					className="-mx-5 -mb-12 mt-10 sm:-mx-6 sm:-mb-16 lg:mx-0 lg:mb-0 lg:mt-0 lg:self-end"
 				/>
 			)
 		}

@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import ImageFrame from '../components/ImageFrame.astro';
+import RegisterInterestModal from '../components/RegisterInterestModal.astro';
 import Section from '../components/Section.astro';
 
 // Replace these Unsplash URLs with your own field, garment, and workshop images when ready.
@@ -51,9 +52,8 @@ const hoodieUses = ['Cold mornings', 'Long climbs', 'Glassing', 'Camp', 'Around 
 		imageAlt="Placeholder image of a hunter in a hoodie standing in front of a rock wall."
 		imageObjectPosition="center"
 		primaryHref="/contact"
-		primaryLabel="Register your interest"
-		secondaryHref="/garments"
-		secondaryLabel="First garment"
+		primaryLabel="Register Your Interest"
+		primaryOpensModal
 	/>
 
 	<Section
@@ -72,11 +72,14 @@ const hoodieUses = ['Cold mornings', 'Long climbs', 'Glassing', 'Camp', 'Around 
 		</p>
 		<a
 			href="/contact"
-			class="mt-8 inline-flex border border-[#3a382f]/30 bg-[#f8f3e9]/70 px-5 py-3 text-sm font-semibold text-[#2c271f] transition-colors hover:border-[#3a382f]/60 hover:bg-[#f8f3e9]"
+			data-register-open
+			aria-haspopup="dialog"
+			aria-controls="register-interest-modal"
+			class="mt-8 inline-flex rounded-[6px] border border-[#3a382f]/30 bg-[#f8f3e9]/70 px-5 py-3 text-sm font-semibold text-[#2c271f] transition-colors hover:border-[#3a382f]/60 hover:bg-[#f8f3e9]"
 		>
 			Get behind the first release
 		</a>
-		<div class="mt-10 grid gap-4 md:grid-cols-3">
+		<div class="-mx-5 -mb-16 mt-10 grid gap-4 sm:-mx-6 sm:-mb-20 md:mx-0 md:mb-0 md:grid-cols-3">
 			<a href={placeholderImages.hero} target="_blank" rel="noreferrer" class="block">
 				<ImageFrame
 					src={placeholderImages.hero}
@@ -196,6 +199,7 @@ Now, with new patterns refined and a sewing studio rebuilt, we are ready to make
 				alt="Placeholder image of garment makers working in a sewing workshop."
 				aspect="wide"
 				objectPosition="center"
+				className="-mx-5 -mb-16 sm:-mx-6 sm:-mb-20 lg:mx-0 lg:mb-0"
 			/>
 		</div>
 	</Section>
@@ -215,12 +219,16 @@ Now, with new patterns refined and a sewing studio rebuilt, we are ready to make
 				</div>
 				<a
 					href="/contact"
-					class="inline-flex justify-center bg-[#2c271f] px-5 py-3 text-sm font-semibold text-[#f8f3e9] transition-colors hover:bg-[#3d372d]"
+					data-register-open
+					aria-haspopup="dialog"
+					aria-controls="register-interest-modal"
+					class="cta-primary cta-attention inline-flex justify-center px-5 py-3 text-sm font-semibold"
 				>
-					Register your interest
+					Register Your Interest
 				</a>
 			</div>
 		</div>
 	</section>
 
+	<RegisterInterestModal />
 </BaseLayout>

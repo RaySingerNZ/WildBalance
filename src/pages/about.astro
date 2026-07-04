@@ -79,20 +79,22 @@ const storySections = [
 	title="About | Wild Balance"
 	description="The story behind Wild Balance, where handmade clothing and New Zealand’s outdoors meet."
 >
-	<section class="border-b border-[#2c271f]/10 bg-[#efe8db] px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
-		<div class="mx-auto max-w-7xl">
-			<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">About Wild Balance</p>
-			<h1 class="mt-5 max-w-3xl text-4xl font-semibold leading-tight tracking-normal text-[#2c271f] sm:text-6xl">
-				Where clothing and the outdoors meet.
-			</h1>
-			<div class="mt-8 max-w-3xl space-y-5 text-lg leading-8 text-[#4c4438]">
-				{
-					introParagraphs.map((paragraph, index) => (
-						<p class:list={[index === introParagraphs.length - 1 && 'font-semibold text-[#3d372d]']}>
-							{paragraph}
-						</p>
-					))
-				}
+	<section class="border-b border-[#2c271f]/10 bg-[#efe8db] py-12 sm:py-16">
+		<div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+			<div class="max-w-3xl">
+				<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">About Wild Balance</p>
+				<h1 class="mt-5 text-4xl font-semibold leading-tight tracking-normal text-[#2c271f] sm:text-5xl">
+					Where clothing and the outdoors meet.
+				</h1>
+				<div class="mt-8 space-y-5 text-lg leading-8 text-[#4c4438]">
+					{
+						introParagraphs.map((paragraph, index) => (
+							<p class:list={[index === introParagraphs.length - 1 && 'font-semibold text-[#3d372d]']}>
+								{paragraph}
+							</p>
+						))
+					}
+				</div>
 			</div>
 		</div>
 	</section>

@@ -2,12 +2,11 @@
 const navItems = [
 	{ href: '/', label: 'Home' },
 	{ href: '/about', label: 'About' },
-	{ href: '/garments', label: 'Garments' },
-	{ href: '/process', label: 'Process' },
 	{ href: '/contact', label: 'Contact' },
 ];
 
 const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
+const registerOpensModal = pathname === '/';
 ---
 
 <header class="font-host-grotesk sticky top-0 z-50 border-b border-[#2c271f]/10 bg-[#efe8db]/95 backdrop-blur">
@@ -52,9 +51,12 @@ const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
 
 		<a
 			href="/contact"
-			class="hidden border border-[#3a382f]/25 bg-[#f8f3e9] px-4 py-2 text-sm font-medium text-[#2c271f] transition-colors hover:border-[#3a382f]/45 hover:bg-[#e2d7c4] md:inline-flex"
+			data-register-open={registerOpensModal ? true : undefined}
+			aria-haspopup={registerOpensModal ? 'dialog' : undefined}
+			aria-controls={registerOpensModal ? 'register-interest-modal' : undefined}
+			class="cta-primary hidden justify-center px-4 py-2 text-sm font-medium md:inline-flex"
 		>
-			Register your interest
+			Register Your Interest
 		</a>
 	</div>
 

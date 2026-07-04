@@ -1,4 +1,40 @@
-<form class="grid gap-5" method="get" action="/contact">
+---
+interface Props {
+	buttonLabel?: string;
+	showIntro?: boolean;
+}
+
+const { buttonLabel = 'Register your interest', showIntro = true } = Astro.props;
+---
+
+<form
+	class="grid gap-5"
+	name="register-interest"
+	method="POST"
+	action="/thanks"
+	data-netlify="true"
+	netlify-honeypot="bot-field"
+>
+	<input type="hidden" name="form-name" value="register-interest" />
+	<p class="hidden">
+		<label>
+			Don’t fill this out if you’re human:
+			<input name="bot-field" />
+		</label>
+	</p>
+
+	{
+		showIntro && (
+			<div class="space-y-3">
+				<h2 class="text-xl font-semibold text-[#2c271f]">Register your interest in the first Wild Balance release.</h2>
+				<p class="text-sm leading-6 text-[#625a4d]">
+					Send us your name, email, and anything useful about what you are after - size, fit,
+					hunting use, colours, or whether you just want launch updates.
+				</p>
+			</div>
+		)
+	}
+
 	<div class="grid gap-5 sm:grid-cols-2">
 		<div>
 			<label for="name" class="block text-sm font-medium text-[#2c271f]">Name</label>
@@ -8,7 +44,7 @@
 				type="text"
 				autocomplete="name"
 				required
-				class="mt-2 w-full border border-[#2c271f]/20 bg-[#f8f3e9] px-4 py-3 text-[#2c271f] outline-none transition-colors placeholder:text-[#8b8172] focus:border-[#626b43]"
+				class="mt-2 w-full rounded-[6px] border border-[#2c271f]/20 bg-[#f8f3e9] px-4 py-3 text-[#2c271f] outline-none transition-colors placeholder:text-[#8b8172] focus:border-[#626b43]"
 			/>
 		</div>
 		<div>
@@ -19,49 +55,25 @@
 				type="email"
 				autocomplete="email"
 				required
-				class="mt-2 w-full border border-[#2c271f]/20 bg-[#f8f3e9] px-4 py-3 text-[#2c271f] outline-none transition-colors placeholder:text-[#8b8172] focus:border-[#626b43]"
+				class="mt-2 w-full rounded-[6px] border border-[#2c271f]/20 bg-[#f8f3e9] px-4 py-3 text-[#2c271f] outline-none transition-colors placeholder:text-[#8b8172] focus:border-[#626b43]"
 			/>
 		</div>
 	</div>
 
 	<div>
-		<label for="interest" class="block text-sm font-medium text-[#2c271f]">Primary interest</label>
-		<select
-			id="interest"
-			name="interest"
-			class="mt-2 w-full border border-[#2c271f]/20 bg-[#f8f3e9] px-4 py-3 text-[#2c271f] outline-none transition-colors focus:border-[#626b43]"
-		>
-			<option>Merino mid-layer hoodie</option>
-			<option>Made-to-order enquiry</option>
-			<option>Hand dyed garments</option>
-			<option>General updates</option>
-		</select>
-	</div>
-
-	<div>
-		<label for="message" class="block text-sm font-medium text-[#2c271f]">Message</label>
+		<label for="message" class="block text-sm font-medium text-[#2c271f]">Message <span class="font-normal text-[#625a4d]">(optional)</span></label>
 		<textarea
 			id="message"
 			name="message"
-			rows="5"
-			class="mt-2 w-full resize-y border border-[#2c271f]/20 bg-[#f8f3e9] px-4 py-3 text-[#2c271f] outline-none transition-colors placeholder:text-[#8b8172] focus:border-[#626b43]"
+			rows="4"
+			class="mt-2 w-full resize-y rounded-[6px] border border-[#2c271f]/20 bg-[#f8f3e9] px-4 py-3 text-[#2c271f] outline-none transition-colors placeholder:text-[#8b8172] focus:border-[#626b43]"
 		></textarea>
 	</div>
 
-	<label class="flex gap-3 text-sm leading-6 text-[#625a4d]">
-		<input
-			type="checkbox"
-			name="updates"
-			value="yes"
-			class="mt-1 h-4 w-4 border-[#2c271f]/30 bg-[#f8f3e9] text-[#626b43]"
-		/>
-		<span>Send me launch updates and notes on the first Christchurch-made garments.</span>
-	</label>
-
 	<button
 		type="submit"
-		class="w-full border border-[#2c271f] bg-[#2c271f] px-5 py-3 text-sm font-semibold text-[#f8f3e9] transition-colors hover:bg-[#3d372d] sm:w-auto"
+		class="cta-primary cta-attention inline-flex w-full justify-center px-5 py-3 text-sm font-semibold sm:w-auto"
 	>
-		Register your interest
+		{buttonLabel}
 	</button>
 </form>

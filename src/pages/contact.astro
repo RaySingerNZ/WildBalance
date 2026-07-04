@@ -1,23 +1,92 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Section from '../components/Section.astro';
 import InterestForm from '../components/InterestForm.astro';
 ---
 
 <BaseLayout
-	title="Contact / Register Interest | Wild Balance"
-	description="Register your interest in Wild Balance handmade merino clothing from Christchurch, New Zealand."
+	title="Contact | Wild Balance"
+	description="Contact Wild Balance in Christchurch, New Zealand."
 >
-	<Section
-		eyebrow="Contact / Register interest"
-		title="Be part of the Wild Balance launch."
-		intro="Follow the first garment, get launch updates, and back a proper New Zealand-made merino brand. For made-to-order enquiries, include the terrain, season, and layer you are thinking about."
-	>
-		<div class="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
-			<div class="material-panel hidden min-h-[24rem] md:block" aria-hidden="true"></div>
-			<div class="border border-[#2c271f]/15 bg-[#e4d8c7] p-6 sm:p-8">
-				<InterestForm />
+	<section class="border-b border-[#2c271f]/10 bg-[#efe8db] py-10 sm:py-14 lg:py-16">
+		<div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+			<div class="max-w-3xl">
+				<header class="max-w-2xl">
+					<h1 class="text-3xl font-semibold tracking-normal text-[#2c271f] sm:text-4xl">
+						Get in touch
+					</h1>
+					<p class="mt-4 text-base leading-7 text-[#625a4d]">
+						Give us a yell, shoots us through a question or connect with us on Instagram.
+					</p>
+				</header>
+
+				<div class="mt-6 grid gap-3 text-sm leading-6 text-[#2c271f]">
+					<div class="flex items-center gap-3">
+						<svg
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="1.8"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							class="h-4 w-4 shrink-0 text-[#626b43]"
+							aria-hidden="true"
+						>
+							<rect x="3.5" y="5.5" width="17" height="13" rx="2"></rect>
+							<path d="m4.5 7 7.5 6 7.5-6"></path>
+						</svg>
+						<a
+							href="mailto:ray@wildbalance.nz"
+							class="font-semibold text-[#2c271f] transition-colors hover:text-[#626b43]"
+						>
+							ray@wildbalance.nz
+						</a>
+					</div>
+					<div class="flex items-center gap-3">
+						<svg
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="1.8"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							class="h-4 w-4 shrink-0 text-[#626b43]"
+							aria-hidden="true"
+						>
+							<rect x="4.5" y="4.5" width="15" height="15" rx="4"></rect>
+							<circle cx="12" cy="12" r="3.5"></circle>
+							<path d="M16.5 7.5h.01"></path>
+						</svg>
+						<a
+							href="https://www.instagram.com/wildbalance.nz/"
+							target="_blank"
+							rel="noreferrer"
+							class="font-semibold text-[#2c271f] transition-colors hover:text-[#626b43]"
+						>
+							@wildbalance.nz
+						</a>
+					</div>
+					<div class="flex items-center gap-3">
+						<svg
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="1.8"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							class="h-4 w-4 shrink-0 text-[#626b43]"
+							aria-hidden="true"
+						>
+							<path d="M12 21s6-5.1 6-11a6 6 0 0 0-12 0c0 5.9 6 11 6 11Z"></path>
+							<circle cx="12" cy="10" r="2"></circle>
+						</svg>
+						<p class="font-semibold">Christchurch, New Zealand</p>
+					</div>
+				</div>
+
+				<div class="-mx-5 mt-6 border border-[#2c271f]/15 bg-[#e4d8c7] p-5 sm:mx-0 sm:p-6">
+					<InterestForm buttonLabel="Submit" showIntro={false} />
+				</div>
 			</div>
 		</div>
-	</Section>
+	</section>
 </BaseLayout>
