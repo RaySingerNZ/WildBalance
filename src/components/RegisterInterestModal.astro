@@ -1,0 +1,162 @@
+<dialog
+	id="register-interest-modal"
+	class="register-modal w-[min(92vw,32rem)] border border-[#2c271f]/15 bg-[#efe8db] p-0 text-[#2c271f] shadow-2xl"
+	data-register-modal
+	data-state="idle"
+>
+	<div class="register-modal__panel">
+		<form
+			class="register-modal__form grid gap-5"
+			name="register-interest"
+			method="POST"
+			action="/thanks"
+			data-netlify="true"
+			netlify-honeypot="bot-field"
+			data-register-form
+		>
+			<input type="hidden" name="form-name" value="register-interest" />
+			<p class="hidden">
+				<label>
+					Don’t fill this out if you’re human:
+					<input name="bot-field" />
+				</label>
+			</p>
+
+			<div class="register-modal__fields grid gap-4">
+				<div>
+					<label for="modal-name" class="block text-sm font-medium text-[#2c271f]">Name</label>
+					<input
+						id="modal-name"
+						name="name"
+						type="text"
+						autocomplete="name"
+						required
+						class="mt-2 w-full rounded-[6px] border border-[#2c271f]/20 bg-[#f8f3e9] px-4 py-3 text-[#2c271f] outline-none transition-colors placeholder:text-[#8b8172] focus:border-[#626b43]"
+					/>
+				</div>
+				<div>
+					<label for="modal-email" class="block text-sm font-medium text-[#2c271f]">Email</label>
+					<input
+						id="modal-email"
+						name="email"
+						type="email"
+						autocomplete="email"
+						required
+						class="mt-2 w-full rounded-[6px] border border-[#2c271f]/20 bg-[#f8f3e9] px-4 py-3 text-[#2c271f] outline-none transition-colors placeholder:text-[#8b8172] focus:border-[#626b43]"
+					/>
+				</div>
+			</div>
+
+			<div class="register-modal__status" aria-live="polite">
+				<div class="register-modal__loading">
+					<span class="register-modal__spinner" aria-hidden="true"></span>
+					<span>Sending your details…</span>
+				</div>
+				<div class="register-modal__success">
+					<span class="register-modal__tick" aria-hidden="true"></span>
+					<span>Thanks, we’ve got you on the list.</span>
+				</div>
+				<p class="register-modal__error">
+					That didn’t send. Please try again, or email Ray at
+					<a href="mailto:ray@wildbalance.nz">ray@wildbalance.nz</a>.
+				</p>
+			</div>
+
+			<button
+				type="submit"
+				class="cta-primary inline-flex w-full justify-center px-5 py-3 text-sm font-semibold"
+				data-register-submit
+			>
+				Register Interest
+			</button>
+
+			<p class="text-center text-xs leading-5 text-[#625a4d]">
+				Or email Ray at
+				<a href="mailto:ray@wildbalance.nz" class="font-medium text-[#2c271f] transition-colors hover:text-[#626b43]">
+					ray@wildbalance.nz
+				</a>
+			</p>
+		</form>
+	</div>
+</dialog>
+
+<script>
+	const modal = document.querySelector('[data-register-modal]');
+	const form = modal?.querySelector('[data-register-form]');
+	const openButtons = document.querySelectorAll('[data-register-open]');
+	const submitButton = modal?.querySelector('[data-register-submit]');
+	let successTimer;
+
+	const encode = (formData) => new URLSearchParams(formData).toString();
+	const wait = (duration) => new Promise((resolve) => window.setTimeout(resolve, duration));
+
+	const setState = (state) => {
+		if (!modal || !submitButton) return;
+
+		modal.dataset.state = state;
+		submitButton.disabled = state === 'loading' || state === 'success';
+	};
+
+	const resetModal = () => {
+		window.clearTimeout(successTimer);
+		setState('idle');
+	};
+
+	const closeModal = () => {
+		if (!modal) return;
+
+		modal.close();
+		resetModal();
+	};
+
+	openButtons.forEach((button) => {
+		button.addEventListener('click', (event) => {
+			if (!modal || !form || typeof modal.showModal !== 'function') return;
+
+			event.preventDefault();
+			resetModal();
+			modal.showModal();
+			form.querySelector('input[name="name"]')?.focus();
+		});
+	});
+
+	modal?.addEventListener('click', (event) => {
+		if (event.target === modal) {
+			closeModal();
+		}
+	});
+
+	modal?.addEventListener('close', resetModal);
+
+	form?.addEventListener('submit', async (event) => {
+		event.preventDefault();
+
+		if (!(form instanceof HTMLFormElement) || !form.reportValidity()) {
+			return;
+		}
+
+		setState('loading');
+
+		try {
+			const body = encode(new FormData(form));
+			const [response] = await Promise.all([
+				fetch('/', {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+					body,
+				}),
+				wait(550),
+			]);
+
+			if (!response.ok) {
+				throw new Error('Form submission failed.');
+			}
+
+			setState('success');
+			form.reset();
+			successTimer = window.setTimeout(closeModal, 1600);
+		} catch {
+			setState('error');
+		}
+	});
+</script>
