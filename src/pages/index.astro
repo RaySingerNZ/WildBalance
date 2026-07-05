@@ -5,10 +5,13 @@ import ImageFrame from '../components/ImageFrame.astro';
 import RegisterInterestModal from '../components/RegisterInterestModal.astro';
 import Section from '../components/Section.astro';
 
+import heroImage from '../assets/img/WildBalance_Hero1.jpg';
+import heroNarrowLandscapeImage from '../assets/img/WildBalance_Hero1_NarrowLandscape.jpg';
+
 // Replace these Unsplash URLs with your own field, garment, and workshop images when ready.
 const placeholderImages = {
 	hero:
-		'https://unsplash.com/photos/HVKyHqiXcbw/download?force=true',
+		heroImage.src,
 	wool:
 		'https://images.unsplash.com/photo-1550376026-7375b92bb318?auto=format&fit=crop&q=80&w=1200',
 	workshop:
@@ -41,11 +44,11 @@ const hoodieUses = ['Cold mornings', 'Long climbs', 'Glassing', 'Camp', 'Around 
 		eyebrow="Not just designed here. Made here."
 		title="Soft fibre. Hard country."
 		subtitleParagraphs={[
-			'Wild Balance started with two things we love: making clothing and spending time in New Zealand’s outdoors.',
-			'We believe the best hunting clothing is made by people who understand it firsthand - how it should fit, how it should move, and what it needs to do in our southern alpine environment.',
+			'Wild Balance started with two things we love: making clothing and exploring New Zealand’s outdoors.',
+			'Our first release is a do-it-all alpine hunting hoodie, tailor-made by us in Christchurch.',
 		]}
 		supportParagraphs={[
-			'Our first release is a do-it-all alpine hunting hoodie. Built for cold starts, breathable on long climbs, and warm while glassing the tops.',
+			'Built for cold starts, breathable on long climbs, and warm while glassing the tops. Each hoodie is cut, sewn, and hand dyed by us, creating natural variation in tone and pattern. No two garments are exactly the same.',
 			'Register your interest and help launch Wild Balance. A New Zealand-made hunting brand shaped by years behind the machines and time in the hills.',
 		]}
 		imageSrc={placeholderImages.hero}
@@ -64,10 +67,10 @@ const hoodieUses = ['Cold mornings', 'Long climbs', 'Glassing', 'Camp', 'Around 
 		<p class="max-w-4xl text-xl font-medium leading-8 text-[#3d372d] sm:text-2xl">
 			We are starting with a hoodie because it is the layer us alpine hunters live in.
 		</p>
-		<p class="mt-5 max-w-2xl text-base leading-7 text-[#625a4d] sm:text-lg">
+		<p class="mt-5 max-w-3xl text-base leading-7 text-[#625a4d] sm:text-lg">
 			A practical hood for protection from the wind and sun, reduced bulk to stop you getting snagged on the ascent, and a cut that lets you glass without fighting the garment.
 		</p>
-		<p class="mt-5 max-w-2xl text-base leading-7 text-[#625a4d] sm:text-lg">
+		<p class="mt-5 max-w-3xl text-base leading-7 text-[#625a4d] sm:text-lg">
 			Doubled-over sleeve and body cuffs add durability where it matters, with no scratchy tags or labels in the wrong spot.
 		</p>
 		<a
