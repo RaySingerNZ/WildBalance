@@ -45,7 +45,7 @@ const supportBlocks = supportParagraphs ?? (support ? [support] : []);
 	<div class="absolute inset-0 bg-[#efe8db]/30" aria-hidden="true"></div>
 
 	<div class:list={[
-		'relative mx-auto max-w-7xl gap-10 px-5 py-12 sm:px-6 sm:py-16 lg:min-h-[72vh] lg:items-start lg:px-8 lg:py-16',
+		'relative mx-auto max-w-7xl gap-10 px-5 pb-12 pt-8 sm:px-6 sm:pb-16 sm:pt-10 lg:min-h-[72vh] lg:items-start lg:px-8 lg:py-16',
 		imageSrc ? 'lg:grid lg:grid-cols-[1fr_0.78fr]' : 'lg:flex',
 	]}>
 		<div class="max-w-4xl lg:pt-4">
@@ -75,6 +75,18 @@ const supportBlocks = supportParagraphs ?? (support ? [support] : []);
 					<div class="mt-6 max-w-3xl space-y-4 text-xl font-medium leading-8 text-[#3d372d] sm:text-2xl">
 						{subtitleBlocks.map((paragraph) => <p>{paragraph}</p>)}
 					</div>
+				)
+			}
+			{
+				imageSrc && (
+					<ImageFrame
+						src={imageSrc}
+						alt={imageAlt}
+						aspectClassName="aspect-[5/2]"
+						loading="eager"
+						objectPosition={imageObjectPosition}
+						className="-mx-5 mt-8 sm:-mx-6 lg:hidden"
+					/>
 				)
 			}
 			{
@@ -119,10 +131,10 @@ const supportBlocks = supportParagraphs ?? (support ? [support] : []);
 				<ImageFrame
 					src={imageSrc}
 					alt={imageAlt}
-					aspectClassName="aspect-[5/2] lg:aspect-square"
+					aspectClassName="aspect-square"
 					loading="eager"
 					objectPosition={imageObjectPosition}
-					className="-mx-5 -mb-12 mt-10 sm:-mx-6 sm:-mb-16 lg:mx-0 lg:mb-0 lg:mt-0 lg:self-end"
+					className="hidden lg:block lg:self-end"
 				/>
 			)
 		}
