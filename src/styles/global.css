@@ -147,8 +147,9 @@ input[type="checkbox"] {
 .register-modal {
 	position: fixed;
 	inset: 0;
-	margin: auto;
-	max-height: calc(100dvh - 2rem);
+	margin: 4vw auto auto;
+	max-height: calc(100dvh - 8vw);
+	overflow-y: auto;
 	border-radius: 8px;
 }
 
@@ -265,6 +266,11 @@ input[type="checkbox"] {
 }
 
 @media (min-width: 640px) {
+	.register-modal {
+		margin: auto;
+		max-height: calc(100dvh - 4rem);
+	}
+
 	.register-modal__panel {
 		padding: 2rem;
 	}

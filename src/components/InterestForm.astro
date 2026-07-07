@@ -9,13 +9,13 @@ const { buttonLabel = 'Register your interest', showIntro = true } = Astro.props
 
 <form
 	class="grid gap-5"
-	name="register-interest"
+	name="contact-page"
 	method="POST"
 	action="/thanks"
 	data-netlify="true"
 	netlify-honeypot="bot-field"
 >
-	<input type="hidden" name="form-name" value="register-interest" />
+	<input type="hidden" name="source" value="contact-page" />
 	<p class="hidden">
 		<label>
 			Don’t fill this out if you’re human:
