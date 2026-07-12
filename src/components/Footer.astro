@@ -1,4 +1,6 @@
 ---
+import wordmarkLogo from '../assets/logo/WildBalance_WordOnly_Brown_SVG.svg';
+
 const footerLinks = [
 	{ href: '/about', label: 'About' },
 	{ href: '/contact', label: 'Contact' },
@@ -10,14 +12,10 @@ const footerLinks = [
 		<div>
 			<a href="/" class="inline-flex items-center gap-3" aria-label="Wild Balance home">
 				<img
-					src="/WILD_BALANCE_3D.png"
-					alt=""
-					width="36"
-					height="36"
-					class="h-9 w-9 shrink-0 object-contain"
-					aria-hidden="true"
+					src={wordmarkLogo.src}
+					alt="Wild Balance"
+					class="h-8 w-auto shrink-0 object-contain brightness-0 invert"
 				/>
-				<span class="font-host-grotesk text-sm font-semibold uppercase tracking-[0.2em] text-[#f8f3e9]">Wild Balance</span>
 			</a>
 			<p class="mt-5 max-w-xl text-sm leading-6 text-[#d8cdbb]">
 				Designed, cut, sewn, and hand dyed in Christchurch. Merino outdoor clothing made one

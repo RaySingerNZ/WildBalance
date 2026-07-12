@@ -5,19 +5,20 @@ import ImageFrame from '../components/ImageFrame.astro';
 import RegisterInterestModal from '../components/RegisterInterestModal.astro';
 import Section from '../components/Section.astro';
 
-import heroImage from '../assets/img/WildBalance_Hero1.jpg';
-import heroNarrowLandscapeImage from '../assets/img/WildBalance_Hero1_NarrowLandscape.jpg';
+import hero1Image from '../assets/img/WildBalance_Hero1.jpg';
+import hero1LandscapeImage from '../assets/img/WildBalance_Hero1_NarrowLandscape.jpg';
+import hero2Image from '../assets/img/WildBalance_Hero2.jpg';
+import lakeShotImage from '../assets/img/lifestyle/WildBalance_AlpineTerrain_LakeShot.jpg';
+import riverShotImage from '../assets/img/lifestyle/WildBalance_AlpineTerrain_RiverShot.jpg';
 
-// Replace these Unsplash URLs with your own field, garment, and workshop images when ready.
 const placeholderImages = {
-	hero:
-		heroImage.src,
-	herowide:
-	    heroNarrowLandscapeImage.src,
+	hero1: hero1Image.src,
+	hero1Landscape: hero1LandscapeImage.src,
+	hero2: hero2Image.src,
+	lakeShot: lakeShotImage.src,
+	riverShot: riverShotImage.src,
 	wool:
 		'https://images.unsplash.com/photo-1550376026-7375b92bb318?auto=format&fit=crop&q=80&w=1200',
-	workshop:
-		'https://images.unsplash.com/photo-1753162659622-371949a713ec?auto=format&fit=crop&q=80&w=1400',
 };
 
 const practicalNotes = [
@@ -46,16 +47,18 @@ const hoodieUses = ['Cold mornings', 'Long climbs', 'Glassing', 'Camp', 'Around 
 		eyebrow="Not just designed here. Made here."
 		title="Soft fibre. Hard country."
 		subtitleParagraphs={[
-			'Wild Balance started with two things we love: making clothing and exploring New Zealand’s outdoors.',
+			'Wild Balance started with two things we love, sewing clothes and exploring New Zealand’s outdoors.',
 			'Our first release is a do-it-all alpine hunting hoodie, tailor-made by us in Christchurch.',
 		]}
 		supportParagraphs={[
 			'Built for cold starts, breathable on long climbs, and warm while glassing the tops. Each hoodie is cut, sewn, and hand dyed, creating natural variation in tone and pattern. No two garments are exactly the same.',
 			'Register your interest to follow the first release, share feedback, and hear when orders open. There’s no payment and no commitment to buy.',
 		]}
-		imageSrc={placeholderImages.herowide }
+		imageSrc={placeholderImages.hero1}
+		imageMobileSrc={placeholderImages.hero1Landscape}
+		imageDesktopSrc={placeholderImages.hero1}
 		imageAlt="Placeholder image of a hunter in a hoodie standing in front of a rock wall."
-		imageObjectPosition="left"
+		imageObjectPosition="center"
 		primaryHref="/contact"
 		primaryLabel="Register Your Interest"
 		primaryOpensModal
@@ -79,26 +82,26 @@ const hoodieUses = ['Cold mornings', 'Long climbs', 'Glassing', 'Camp', 'Around 
 			We're excited to bring you merino gear shaped by years behind the machines and time in the hills.
 		</p>
 		<div class="-mx-5 -mb-16 mt-10 grid gap-4 sm:-mx-6 sm:-mb-20 md:mx-0 md:mb-0 md:grid-cols-3">
-			<a href={placeholderImages.hero} target="_blank" rel="noreferrer" class="block">
+			<a href={placeholderImages.lakeShot} target="_blank" rel="noreferrer" class="block">
 				<ImageFrame
-					src={placeholderImages.hero}
-					alt="Placeholder image of hikers moving through alpine terrain beneath snow-covered peaks."
+					src={placeholderImages.lakeShot}
+					alt="Wild Balance alpine terrain lake shot."
 					aspect="square"
 					objectPosition="center"
 				/>
 			</a>
-			<a href={placeholderImages.wool} target="_blank" rel="noreferrer" class="block">
+			<a href={placeholderImages.hero2} target="_blank" rel="noreferrer" class="block">
 				<ImageFrame
-					src={placeholderImages.wool}
-					alt="Placeholder close-up image of wool textile texture."
+					src={placeholderImages.hero2}
+					alt="Placeholder image of a hunter in a hoodie standing in front of a rock wall."
 					aspect="square"
 					objectPosition="center"
 				/>
 			</a>
-			<a href={placeholderImages.workshop} target="_blank" rel="noreferrer" class="block">
+			<a href={placeholderImages.riverShot} target="_blank" rel="noreferrer" class="block">
 				<ImageFrame
-					src={placeholderImages.workshop}
-					alt="Placeholder image of garment makers working in a sewing workshop."
+					src={placeholderImages.riverShot}
+					alt="Wild Balance alpine terrain river shot."
 					aspect="square"
 					objectPosition="center"
 				/>
@@ -162,7 +165,7 @@ Wild Balance is where those two worlds meet.				</p>
 Before Wild Balance, in pre-earthquake Christchurch we ran <i>Morphic</i>, a cutting-edge clothing business exporting merino hoodies around the world.
 </p>
 <p class="text-base leading-7 text-[#625a4d]">
-Now, with new patterns refined and a sewing studio rebuilt, we are ready to make something worth backing: handmade merino hoodies for mountain missions, made one at a time in Christchurch.</p>
+Now, with new patterns refined and a sewing studio rebuilt, we are ready to make something worth backing. Handmade merino hoodies for mountain missions, made one at a time in Christchurch.</p>
 			</div>
 
 			<ImageFrame

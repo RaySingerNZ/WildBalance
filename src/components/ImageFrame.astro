@@ -2,6 +2,8 @@
 interface Props {
 	src: string;
 	alt: string;
+	mobileSrc?: string;
+	desktopSrc?: string;
 	aspect?: 'landscape' | 'portrait' | 'hero' | 'wide' | 'square';
 	aspectClassName?: string;
 	caption?: string;
@@ -13,6 +15,8 @@ interface Props {
 const {
 	src,
 	alt,
+	mobileSrc,
+	desktopSrc,
 	aspect = 'landscape',
 	aspectClassName,
 	caption,
@@ -32,14 +36,30 @@ const aspectClass = {
 
 <figure class={className}>
 	<div class:list={['overflow-hidden border border-[#2c271f]/15 bg-[#d8cdbb]', aspectClassName || aspectClass]}>
-		<img
-			src={src}
-			alt={alt}
-			loading={loading}
-			decoding="async"
-			class="h-full w-full object-cover"
-			style={`object-position: ${objectPosition};`}
-		/>
+		{
+			mobileSrc || desktopSrc ? (
+				<picture>
+					{desktopSrc && <source media="(min-width: 1024px)" srcset={desktopSrc} />}
+					<img
+						src={mobileSrc || src}
+						alt={alt}
+						loading={loading}
+						decoding="async"
+						class="h-full w-full object-cover"
+						style={`object-position: ${objectPosition};`}
+					/>
+				</picture>
+			) : (
+				<img
+					src={src}
+					alt={alt}
+					loading={loading}
+					decoding="async"
+					class="h-full w-full object-cover"
+					style={`object-position: ${objectPosition};`}
+				/>
+			)
+		}
 	</div>
 	{
 		caption && (

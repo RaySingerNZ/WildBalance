@@ -1,4 +1,6 @@
 ---
+import wordmarkLogo from '../assets/logo/WildBalance_WordOnly_Brown_SVG.svg';
+
 const navItems = [
 	{ href: '/', label: 'Home' },
 	{ href: '/about', label: 'About' },
@@ -10,22 +12,8 @@ const registerOpensModal = pathname === '/';
 ---
 
 <header class="font-host-grotesk sticky top-0 z-50 border-b border-[#2c271f]/10 bg-[#efe8db]/95 backdrop-blur">
-	<div class="mx-auto flex max-w-7xl items-center justify-between gap-5 px-5 py-3.5 sm:px-6 lg:px-8">
-		<a href="/" class="flex min-w-0 items-center gap-3" aria-label="Wild Balance home">
-			<img
-				src="/WILD_BALANCE_3D.png"
-				alt=""
-				width="40"
-				height="40"
-				class="h-10 w-10 shrink-0 object-contain"
-				aria-hidden="true"
-			/>
-			<span class="min-w-0">
-				<span class="font-host-grotesk block text-xl font-semibold uppercase tracking-[0.16em] text-[#2c271f]">Wild Balance</span>
-			</span>
-		</a>
-
-		<nav class="hidden items-center gap-1 md:flex" aria-label="Primary navigation">
+	<div class="mx-auto flex max-w-7xl items-center justify-between gap-5 px-5 py-3.5 sm:px-6 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:items-center lg:px-8">
+		<nav class="hidden items-center gap-1 md:flex lg:col-start-1 lg:justify-self-start" aria-label="Primary navigation">
 			{
 				navItems.map((item) => {
 					const itemPath = item.href.replace(/\/$/, '') || '/';
@@ -36,7 +24,7 @@ const registerOpensModal = pathname === '/';
 							href={item.href}
 							aria-current={isActive ? 'page' : undefined}
 							class:list={[
-								'border-b border-transparent px-3 py-2 text-sm transition-colors',
+								'border-b border-transparent px-3 py-2 text-sm font-medium transition-colors lg:text-base lg:font-semibold',
 								isActive
 									? 'border-[#626b43] text-[#2c271f]'
 									: 'text-[#6f6658] hover:text-[#2c271f]',
@@ -49,12 +37,20 @@ const registerOpensModal = pathname === '/';
 			}
 		</nav>
 
+		<a href="/" class="flex min-w-0 items-center gap-3 lg:col-start-2 lg:justify-self-center" aria-label="Wild Balance home">
+			<img
+				src={wordmarkLogo.src}
+				alt="Wild Balance"
+				class="h-8 w-auto shrink-0 object-contain sm:h-9"
+			/>
+		</a>
+
 		<a
 			href="/contact"
 			data-register-open={registerOpensModal ? true : undefined}
 			aria-haspopup={registerOpensModal ? 'dialog' : undefined}
 			aria-controls={registerOpensModal ? 'register-interest-modal' : undefined}
-			class="cta-primary hidden justify-center px-4 py-2 text-sm font-medium md:inline-flex"
+			class="cta-primary hidden justify-center px-4 py-2 text-sm font-medium md:inline-flex lg:col-start-3 lg:justify-self-end"
 		>
 			Register Your Interest
 		</a>

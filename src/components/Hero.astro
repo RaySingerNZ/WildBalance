@@ -9,6 +9,8 @@ interface Props {
 	support?: string;
 	supportParagraphs?: string[];
 	imageSrc?: string;
+	imageMobileSrc?: string;
+	imageDesktopSrc?: string;
 	imageAlt?: string;
 	imageObjectPosition?: string;
 	primaryHref?: string;
@@ -26,6 +28,8 @@ const {
 	support,
 	supportParagraphs,
 	imageSrc,
+	imageMobileSrc,
+	imageDesktopSrc,
 	imageAlt = '',
 	imageObjectPosition = 'center',
 	primaryHref,
@@ -81,6 +85,8 @@ const supportBlocks = supportParagraphs ?? (support ? [support] : []);
 				imageSrc && (
 					<ImageFrame
 						src={imageSrc}
+						mobileSrc={imageMobileSrc}
+						desktopSrc={imageDesktopSrc}
 						alt={imageAlt}
 						aspectClassName="aspect-[5/2]"
 						loading="eager"
@@ -126,13 +132,15 @@ const supportBlocks = supportParagraphs ?? (support ? [support] : []);
 				)
 			}
 		</div>
-		{
-			imageSrc && (
-				<ImageFrame
-					src={imageSrc}
-					alt={imageAlt}
-					aspectClassName="aspect-square"
-					loading="eager"
+			{
+				imageSrc && (
+					<ImageFrame
+						src={imageSrc}
+						mobileSrc={imageMobileSrc}
+						desktopSrc={imageDesktopSrc}
+						alt={imageAlt}
+						aspectClassName="aspect-square"
+						loading="eager"
 					objectPosition={imageObjectPosition}
 					className="hidden lg:block lg:self-end"
 				/>
