@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Section from '../components/Section.astro';
+import hero1Image from '../assets/img/WildBalance_Hero1.jpg';
 
 const introParagraphs = [
 	`Wild Balance is made by us - Ray, Halee, and our daughter Quinn.`,
@@ -67,6 +68,7 @@ const storySections = [
 <BaseLayout
 	title="About | Wild Balance"
 	description="The story behind Wild Balance, where handmade clothing and New Zealand’s outdoors meet."
+	image={hero1Image.src}
 >
 	<section class="border-b border-[#2c271f]/10 bg-[#efe8db] pb-12 pt-8 sm:pb-16 sm:pt-10 lg:py-16">
 		<div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
