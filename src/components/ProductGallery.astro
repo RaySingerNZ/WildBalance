@@ -1,0 +1,115 @@
+---
+interface GalleryImage {
+	alt: string;
+	desktopSrc: string;
+	mobileSrc: string;
+}
+
+interface Props {
+	images: GalleryImage[];
+	className?: string;
+}
+
+const { images, className = '' } = Astro.props;
+---
+
+<div class:list={['product-gallery relative w-full overflow-hidden', className]} data-product-gallery data-zoomed="false">
+	<div class="product-gallery__stage">
+		<button type="button" class="product-gallery__main" data-gallery-main-toggle aria-label="Zoom image">
+			<picture class="block h-full w-full">
+				<source data-gallery-desktop-source media="(min-width: 1024px)" srcset={images[0]?.desktopSrc} />
+				<img
+					data-gallery-main-image
+					src={images[0]?.mobileSrc}
+					alt={images[0]?.alt}
+					loading="eager"
+					decoding="async"
+					class="product-gallery__image"
+					draggable="false"
+				/>
+			</picture>
+		</button>
+
+		<button type="button" class="product-gallery__nav product-gallery__nav--left" data-gallery-prev aria-label="Previous image">
+			<svg viewBox="0 0 24 24" aria-hidden="true" class="h-8 w-8">
+				<path d="M15 6 9 12l6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" />
+			</svg>
+		</button>
+
+		<button type="button" class="product-gallery__nav product-gallery__nav--right" data-gallery-next aria-label="Next image">
+			<svg viewBox="0 0 24 24" aria-hidden="true" class="h-8 w-8">
+				<path d="m9 6 6 6-6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" />
+			</svg>
+		</button>
+	</div>
+
+	<div class="product-gallery__thumbs pt-4">
+		<div class="grid grid-cols-4 gap-3 sm:gap-4">
+			{images.map((image, index) => (
+				<button
+					type="button"
+					class="product-gallery__thumb"
+					data-gallery-thumb
+					data-gallery-index={index}
+					aria-label={`Show image ${index + 1}`}
+				>
+					<img src={image.mobileSrc} alt={image.alt} class="product-gallery__thumb-image" loading="lazy" decoding="async" />
+				</button>
+			))}
+		</div>
+	</div>
+</div>
+
+<script define:vars={{ images }}>
+	const root = document.querySelector('[data-product-gallery]');
+	const galleryMainImage = root?.querySelector('[data-gallery-main-image]');
+	const galleryDesktopSource = root?.querySelector('[data-gallery-desktop-source]');
+	const galleryMainToggle = root?.querySelector('[data-gallery-main-toggle]');
+	const prevButton = root?.querySelector('[data-gallery-prev]');
+	const nextButton = root?.querySelector('[data-gallery-next]');
+	const thumbButtons = Array.from(root?.querySelectorAll('[data-gallery-thumb]') ?? []);
+
+	if (root && galleryMainImage && galleryDesktopSource && galleryMainToggle) {
+		let currentIndex = 0;
+
+		const setZoom = (zoomed) => {
+			root.dataset.zoomed = zoomed ? 'true' : 'false';
+			galleryMainToggle.setAttribute('aria-label', zoomed ? 'Zoom out image' : 'Zoom image');
+		};
+
+		const setCurrent = (nextIndex) => {
+			currentIndex = (nextIndex + images.length) % images.length;
+			const image = images[currentIndex];
+
+			galleryDesktopSource.setAttribute('srcset', image.desktopSrc);
+			galleryMainImage.setAttribute('src', image.mobileSrc);
+			galleryMainImage.setAttribute('alt', image.alt);
+
+			thumbButtons.forEach((button, index) => {
+				button.dataset.active = index === currentIndex ? 'true' : 'false';
+			});
+
+			setZoom(false);
+		};
+
+		galleryMainToggle.addEventListener('click', () => {
+			setZoom(root.dataset.zoomed !== 'true');
+		});
+
+		prevButton?.addEventListener('click', () => {
+			setCurrent(currentIndex - 1);
+		});
+
+		nextButton?.addEventListener('click', () => {
+			setCurrent(currentIndex + 1);
+		});
+
+		thumbButtons.forEach((button, index) => {
+			button.addEventListener('click', () => {
+				setCurrent(index);
+			});
+		});
+
+		setCurrent(0);
+	}
+</script>

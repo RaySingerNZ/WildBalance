@@ -1,0 +1,467 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ImageFrame from './ImageFrame.astro';
+import ProductGallery from './ProductGallery.astro';
+
+import hero1Image from '../assets/img/products/mens-merino-hoodie/hero-1.jpg';
+import hero1LandscapeImage from '../assets/img/products/mens-merino-hoodie/hero-1-landscape.jpg';
+import hero2Image from '../assets/img/products/mens-merino-hoodie/hero-2.jpg';
+import historyImage from '../assets/img/products/mens-merino-hoodie/our-history.jpg';
+
+interface Props {
+	variant: 1 | 2 | 3 | 4 | 5;
+}
+
+const { variant } = Astro.props as Props;
+
+const sizes = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
+
+const galleryImages = [
+	{
+		alt: "Wild Balance men's merino hoodie hero image.",
+		desktopSrc: hero1Image.src,
+		mobileSrc: hero1LandscapeImage.src,
+	},
+	{
+		alt: "Wild Balance men's merino hoodie alternate image.",
+		desktopSrc: hero2Image.src,
+		mobileSrc: hero2Image.src,
+	},
+	{
+		alt: 'Wild Balance sewing machine and maker history image.',
+		desktopSrc: historyImage.src,
+		mobileSrc: historyImage.src,
+	},
+	{
+		alt: "Wild Balance men's merino hoodie landscape image.",
+		desktopSrc: hero1LandscapeImage.src,
+		mobileSrc: hero1LandscapeImage.src,
+	},
+];
+
+const sizeGuideRows = [
+	['XS', '87.5–88 cm', '—', '—'],
+	['S', '94 cm', '+6–6.5 cm', '7%'],
+	['M', '100–100.5 cm', '+6–6.5 cm', '6.5–7%'],
+	['L', '107–107.5 cm', '+7 cm', '7%'],
+	['XL', '116–117 cm', '+9–9.5 cm', '8.5%'],
+	['XXL', '126–128 cm', '+10–11 cm', '9%'],
+];
+
+const productSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Product',
+	name: 'Men’s Merino Hoodie',
+	description:
+		'The first Wild Balance release: a handmade merino hoodie for hunting, hiking, and cold mornings in the New Zealand hills.',
+	brand: {
+		'@type': 'Brand',
+		name: 'Wild Balance',
+	},
+	category: 'Outdoor clothing',
+	material: 'Merino wool',
+	image: [hero1Image.src, hero1LandscapeImage.src, hero2Image.src, historyImage.src],
+};
+---
+
+<BaseLayout
+	title={`Men’s Merino Hoodie ${variant} | Wild Balance`}
+	description="The first Wild Balance release: a handmade merino hoodie for hunting, hiking, and cold mornings in the New Zealand hills."
+	image={hero1Image.src}
+>
+	<section class="border-b border-[#2c271f]/10 bg-[#efe8db] pt-0 pb-10 sm:py-14">
+		{variant === 1 && (
+			<div class="mx-auto flex max-w-7xl flex-col gap-0 px-5 sm:px-6 lg:flex-row lg:items-start lg:gap-12 lg:px-8">
+				<div class="product-gallery-wrap w-full min-w-0 flex-[1.08] space-y-6">
+					<ProductGallery images={galleryImages} />
+				</div>
+
+				<div class="w-full min-w-0 flex-[0.92] space-y-4 lg:pt-1">
+					<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">Variant 1</p>
+					<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">Not just designed here. Made here.</p>
+					<h1 class="max-w-xl font-semibold leading-[0.95] tracking-normal text-[#2c271f] sm:text-2xl md:text-2xl lg:text-3xl">
+						Men’s Merino Hoodie
+					</h1>
+					<p class="max-w-2xl text-base leading-7 text-[#4c4438] sm:text-lg">The first Wild Balance hoodie.</p>
+					<p class="max-w-3xl text-sm leading-6 text-[#625a4d]">
+						A practical alpine layer designed for hard-wearing days outside.
+					</p>
+
+					<div class="max-w-xl">
+						<p class="text-sm font-semibold uppercase tracking-[0.24em] text-[#626b43]">Size</p>
+
+						<div class="mt-3 flex flex-wrap gap-2">
+							{sizes.map((size, index) => (
+								<button
+									type="button"
+									class:list={[
+										'min-w-10 rounded-[6px] border px-3 py-2 text-sm font-semibold transition-colors',
+										index === 1
+											? 'border-[#2c271f] bg-[#2c271f] text-[#f8f3e9]'
+											: 'border-[#2c271f]/15 bg-[#efe8db] text-[#2c271f] hover:border-[#2c271f]/25 hover:bg-[#e9e0d1]',
+									]}
+								>
+									{size}
+								</button>
+							))}
+						</div>
+
+						<button
+							type="button"
+							data-size-guide-open
+							aria-haspopup="dialog"
+							aria-controls="size-guide-modal"
+							class="mt-4 inline-flex text-sm font-semibold text-[#626b43] underline decoration-[#626b43]/40 underline-offset-4 hover:text-[#4e5631]"
+						>
+							View size chart
+						</button>
+
+						<div class="mt-8 grid gap-3">
+							<button type="button" class="cta-primary inline-flex items-center justify-center px-5 py-3 text-sm font-semibold">
+								Add to cart
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		)}
+
+		{variant === 2 && (
+			<div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+				<div class="max-w-3xl">
+					<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">Variant 2</p>
+					<h1 class="mt-3 max-w-2xl text-3xl font-semibold leading-[0.95] tracking-normal text-[#2c271f] sm:text-4xl lg:text-5xl">
+						Men’s Merino Hoodie
+					</h1>
+					<p class="mt-4 max-w-2xl text-base leading-7 text-[#4c4438] sm:text-lg">
+						Not just designed here. Made here. A simple, well-built hoodie with room for more story.
+					</p>
+				</div>
+
+				<div class="product-gallery-wrap mt-8 w-full">
+					<ProductGallery images={galleryImages} />
+				</div>
+
+				<div class="mt-6 grid gap-6 md:grid-cols-[1.2fr_0.8fr] md:items-end">
+					<p class="max-w-2xl text-sm leading-6 text-[#625a4d]">
+						This version keeps the commerce layer lighter and lets the images and description do most of the work.
+					</p>
+
+					<div class="max-w-xl md:ml-auto">
+						<p class="text-sm font-semibold uppercase tracking-[0.24em] text-[#626b43]">Size</p>
+						<div class="mt-3 flex flex-wrap gap-2">
+							{sizes.map((size) => (
+								<button type="button" class="min-w-10 rounded-[6px] border border-[#2c271f]/15 bg-[#efe8db] px-3 py-2 text-sm font-semibold text-[#2c271f]">
+									{size}
+								</button>
+							))}
+						</div>
+						<button
+							type="button"
+							data-size-guide-open
+							aria-haspopup="dialog"
+							aria-controls="size-guide-modal"
+							class="mt-4 inline-flex text-sm font-semibold text-[#626b43] underline decoration-[#626b43]/40 underline-offset-4 hover:text-[#4e5631]"
+						>
+							View size chart
+						</button>
+					</div>
+				</div>
+			</div>
+		)}
+
+		{variant === 3 && (
+			<div class="mx-auto flex max-w-7xl flex-col px-5 sm:px-6 lg:flex-row lg:items-start lg:gap-12 lg:px-8">
+				<div class="product-gallery-wrap w-full min-w-0 flex-[1.12] space-y-6">
+					<ProductGallery images={galleryImages} className="product-gallery--variant-3" />
+				</div>
+
+				<aside class="w-full min-w-0 flex-[0.88] lg:sticky lg:top-24">
+					<div class="space-y-4">
+						<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">Greywacke / Black / Shibori Dye</p>
+						<h1 class="max-w-xl text-3xl font-semibold leading-[0.95] tracking-normal text-[#2c271f] sm:text-4xl lg:text-4xl">
+							Men’s Merino Hoodie
+						</h1>
+						<p class="max-w-2xl text-base leading-7 text-[#4c4438] sm:text-lg">Clear product info, with the buy area kept visible while you read.</p>
+						<p class="max-w-3xl text-sm leading-6 text-[#625a4d]">
+							This version leans toward a cleaner shopping flow and a simpler summary panel.
+						</p>
+
+						<div class="pt-2">
+							<p class="text-sm font-semibold uppercase tracking-[0.24em] text-[#626b43]">Size</p>
+							<div class="mt-3 flex flex-wrap gap-2">
+								{sizes.map((size) => (
+									<button type="button" class="min-w-10 rounded-[6px] border border-[#2c271f]/15 bg-[#efe8db] px-3 py-2 text-sm font-semibold text-[#2c271f]">
+										{size}
+									</button>
+								))}
+							</div>
+							<button
+								type="button"
+								data-size-guide-open
+								aria-haspopup="dialog"
+								aria-controls="size-guide-modal"
+								class="mt-4 inline-flex text-sm font-semibold text-[#626b43] underline decoration-[#626b43]/40 underline-offset-4 hover:text-[#4e5631]"
+							>
+								View size chart
+							</button>
+							<div class="mt-8 grid gap-3">
+								<button type="button" class="cta-primary inline-flex items-center justify-center px-5 py-3 text-sm font-semibold">
+									Add to cart
+								</button>
+							</div>
+						</div>
+					</div>
+				</aside>
+			</div>
+		)}
+
+		{variant === 4 && (
+			<div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+				<div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+					<div class="space-y-4">
+						<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">Variant 4</p>
+						<h1 class="max-w-xl text-3xl font-semibold leading-[0.95] tracking-normal text-[#2c271f] sm:text-4xl lg:text-5xl">
+							Men’s Merino Hoodie
+						</h1>
+						<p class="max-w-2xl text-base leading-7 text-[#4c4438] sm:text-lg">
+							A story-first layout with the description and buying details kept out of the way until after the images.
+						</p>
+						<p class="max-w-3xl text-sm leading-6 text-[#625a4d]">
+							This version gives more breathing room to the copy and pushes the image content closer to the top.
+						</p>
+
+						<div class="pt-2">
+							<p class="text-sm font-semibold uppercase tracking-[0.24em] text-[#626b43]">Size</p>
+							<div class="mt-3 flex flex-wrap gap-2">
+								{sizes.map((size) => (
+									<button type="button" class="min-w-10 rounded-[6px] border border-[#2c271f]/15 bg-[#efe8db] px-3 py-2 text-sm font-semibold text-[#2c271f]">
+										{size}
+									</button>
+								))}
+							</div>
+						</div>
+					</div>
+
+					<div class="product-gallery-wrap">
+						<ProductGallery images={galleryImages} />
+					</div>
+				</div>
+
+				<div class="mt-6 flex flex-wrap items-center gap-3">
+					<button
+						type="button"
+						data-size-guide-open
+						aria-haspopup="dialog"
+						aria-controls="size-guide-modal"
+						class="inline-flex text-sm font-semibold text-[#626b43] underline decoration-[#626b43]/40 underline-offset-4 hover:text-[#4e5631]"
+					>
+						View size chart
+					</button>
+					<button type="button" class="cta-primary inline-flex items-center justify-center px-5 py-3 text-sm font-semibold">
+						Add to cart
+					</button>
+				</div>
+			</div>
+		)}
+
+		{variant === 5 && (
+			<div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+				<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">Variant 5</p>
+				<div class="mt-3 grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+					<div class="space-y-4">
+						<h1 class="max-w-xl text-3xl font-semibold leading-[0.95] tracking-normal text-[#2c271f] sm:text-4xl lg:text-5xl">
+							Men’s Merino Hoodie
+						</h1>
+						<p class="max-w-2xl text-base leading-7 text-[#4c4438] sm:text-lg">
+							The most stripped-back version: gallery first, summary second, and the rest of the page left for detail.
+						</p>
+						<p class="max-w-3xl text-sm leading-6 text-[#625a4d]">
+							This one is built to feel simple and direct on mobile and desktop alike.
+						</p>
+					</div>
+
+					<div class="product-gallery-wrap">
+						<ProductGallery images={galleryImages} />
+					</div>
+				</div>
+
+				<div class="mt-6 grid gap-6 md:grid-cols-[1.1fr_0.9fr] md:items-end">
+						<div></div>
+					<div class="max-w-xl md:ml-auto">
+						<p class="text-sm font-semibold uppercase tracking-[0.24em] text-[#626b43]">Size</p>
+						<div class="mt-3 flex flex-wrap gap-2">
+							{sizes.map((size) => (
+								<button type="button" class="min-w-10 rounded-[6px] border border-[#2c271f]/15 bg-[#efe8db] px-3 py-2 text-sm font-semibold text-[#2c271f]">
+									{size}
+								</button>
+							))}
+						</div>
+						<div class="mt-5 flex items-center gap-4">
+							<button
+								type="button"
+								data-size-guide-open
+								aria-haspopup="dialog"
+								aria-controls="size-guide-modal"
+								class="inline-flex text-sm font-semibold text-[#626b43] underline decoration-[#626b43]/40 underline-offset-4 hover:text-[#4e5631]"
+							>
+								View size chart
+							</button>
+							<button type="button" class="cta-primary inline-flex items-center justify-center px-5 py-3 text-sm font-semibold">
+								Add to cart
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		)}
+	</section>
+
+	<section class="border-b border-[#2c271f]/10 bg-[#efe8db] py-14 sm:py-16">
+		<div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+			<div class="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+				<div class="space-y-6">
+					<ImageFrame
+						src={hero1Image.src}
+						desktopSrc={hero1Image.src}
+						mobileSrc={hero1LandscapeImage.src}
+						alt="Wild Balance men's merino hoodie in use."
+						aspect="wide"
+						objectPosition="center top"
+					/>
+					<ImageFrame
+						src={hero2Image.src}
+						desktopSrc={hero2Image.src}
+						mobileSrc={hero2Image.src}
+						alt="Wild Balance men's merino hoodie alternate view."
+						aspect="wide"
+						objectPosition="center"
+					/>
+				</div>
+
+				<div class="space-y-6">
+					<div class="aspect-[16/9] overflow-hidden border border-[#2c271f]/15 bg-[#d8cdbb]">
+						<div class="flex h-full w-full items-center justify-center px-6 text-center">
+							<div>
+								<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">Video placeholder</p>
+								<p class="mt-3 text-2xl font-semibold text-[#2c271f]">Wild Balance Hunting</p>
+								<p class="mt-3 text-sm leading-6 text-[#625a4d]">Use this space for a clip of the hoodie in use.</p>
+							</div>
+						</div>
+					</div>
+					<ImageFrame
+						src={historyImage.src}
+						alt="Singer sewing machine and Wild Balance history image."
+						aspect="portrait"
+						objectPosition="center"
+					/>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="border-b border-[#2c271f]/10 bg-[#efe8db] py-14 sm:py-16">
+		<div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+			<div class="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+				<div class="space-y-5">
+					<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">Our story</p>
+					<h2 class="text-3xl font-semibold tracking-normal text-[#2c271f] sm:text-4xl">Why we made it</h2>
+				</div>
+
+				<div class="space-y-4 text-sm leading-7 text-[#625a4d] sm:text-base sm:leading-8">
+					<p>
+						Wild Balance started with two things we love: making clothing and spending time in New Zealand’s outdoors.
+					</p>
+					<p>
+						We wanted a hoodie that could handle cold starts, breathing on the climb, and warmth when you stop to glass the hills.
+					</p>
+					<p>
+						This first release is the starting point. The details will keep tightening, but the idea stays simple: build clothing properly and keep it close to the place it’s made for.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<dialog id="size-guide-modal" class="size-guide-modal text-[#2c271f]" data-size-guide-modal>
+		<div class="size-guide-modal__panel">
+			<div class="size-guide-modal__shell">
+				<div class="flex items-start justify-between gap-6 border-b border-[#2c271f]/10 px-5 py-4 sm:px-6">
+					<div>
+						<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">Size guide</p>
+						<h2 class="mt-2 text-2xl font-semibold text-[#2c271f]">Men’s Merino Hoodie</h2>
+					</div>
+					<button type="button" class="size-guide-modal__close" data-size-guide-close aria-label="Close size guide">
+						×
+					</button>
+				</div>
+
+				<div class="px-5 py-5 sm:px-6">
+					<div class="overflow-x-auto">
+						<table class="min-w-[760px] w-full border-collapse text-left">
+							<thead class="bg-[#e4d8c7]">
+								<tr class="text-xs font-semibold uppercase tracking-[0.22em] text-[#626b43]">
+									<th scope="col" class="px-4 py-4">Size</th>
+									<th scope="col" class="px-4 py-4">Proposed sewn chest</th>
+									<th scope="col" class="px-4 py-4">Increase</th>
+									<th scope="col" class="px-4 py-4">Approx. increase</th>
+								</tr>
+							</thead>
+							<tbody class="divide-y divide-[#2c271f]/10 bg-[#f8f3e9]">
+								{sizeGuideRows.map((row, index) => (
+									<tr class={index === 0 ? 'bg-[#f8f3e9]' : 'bg-[#fcfaf5]'}>
+										<th scope="row" class="px-4 py-4 text-sm font-semibold text-[#2c271f]">
+											{row[0]}
+										</th>
+										<td class="px-4 py-4 text-sm text-[#625a4d]">{row[1]}</td>
+										<td class="px-4 py-4 text-sm text-[#625a4d]">{row[2]}</td>
+										<td class="px-4 py-4 text-sm text-[#625a4d]">{row[3]}</td>
+									</tr>
+								))}
+							</tbody>
+						</table>
+					</div>
+
+					<div class="mt-6 grid gap-4 md:grid-cols-2">
+						<div class="border-t border-[#2c271f]/10 pt-4 text-sm leading-6 text-[#625a4d]">
+							<p class="font-semibold text-[#2c271f]">Fit note</p>
+							<p class="mt-2">The hoodie is intended to sit as a practical alpine layer with enough room to move.</p>
+						</div>
+						<div class="border-t border-[#2c271f]/10 pt-4 text-sm leading-6 text-[#625a4d]">
+							<p class="font-semibold text-[#2c271f]">Between sizes</p>
+							<p class="mt-2">If you want more room for a base layer, sizing up will usually be the safer call.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</dialog>
+
+	<script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
+	<script>
+		const sizeGuideModal = document.querySelector('[data-size-guide-modal]');
+		const sizeGuideOpen = document.querySelector('[data-size-guide-open]');
+		const sizeGuideClose = sizeGuideModal?.querySelector('[data-size-guide-close]');
+
+		const closeSizeGuide = () => {
+			if (!sizeGuideModal) return;
+
+			sizeGuideModal.close();
+		};
+
+		sizeGuideOpen?.addEventListener('click', () => {
+			if (!sizeGuideModal || typeof sizeGuideModal.showModal !== 'function') return;
+
+			sizeGuideModal.showModal();
+			sizeGuideClose?.focus();
+		});
+
+		sizeGuideClose?.addEventListener('click', closeSizeGuide);
+
+		sizeGuideModal?.addEventListener('click', (event) => {
+			if (event.target === sizeGuideModal) {
+				closeSizeGuide();
+			}
+		});
+	</script>
+</BaseLayout>

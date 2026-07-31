@@ -26,7 +26,7 @@ const structuredData = [
 		'@context': 'https://schema.org',
 		'@type': 'Organization',
 		name: siteName,
-		url: canonicalUrl,
+		url: new URL('/', Astro.site ?? 'https://wildbalance.nz').href,
 		logo: new URL('/favicon.svg', Astro.site ?? 'https://wildbalance.nz').href,
 		description,
 	},
