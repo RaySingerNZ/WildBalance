@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
 import Section from '../components/Section.astro';
 import hero1Image from '../assets/img/WildBalance_Hero1.jpg';
 
@@ -72,20 +73,15 @@ const storySections = [
 >
 	<section class="border-b border-[#2c271f]/10 bg-[#efe8db] pb-12 pt-8 sm:pb-16 sm:pt-10 lg:py-16">
 		<div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-			<div class="max-w-3xl">
-				<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">About Wild Balance</p>
-				<h1 class="mt-5 text-4xl font-semibold leading-tight tracking-normal text-[#2c271f] sm:text-5xl">
-					Designed here. Made here.
-				</h1>
-				<div class="mt-8 space-y-5 text-lg leading-8 text-[#4c4438]">
-					{
-						introParagraphs.map((paragraph, index) => (
-							<p class:list={[index === introParagraphs.length - 1 && 'font-semibold text-[#3d372d]']}>
-								{paragraph}
-							</p>
-						))
-					}
-				</div>
+			<PageHeader eyebrow="About Wild Balance" title="Designed here. Made here." />
+			<div class="mt-8 space-y-5 text-lg leading-8 text-[#4c4438]">
+				{
+					introParagraphs.map((paragraph, index) => (
+						<p class:list={[index === introParagraphs.length - 1 && 'font-semibold text-[#3d372d]']}>
+							{paragraph}
+						</p>
+					))
+				}
 			</div>
 		</div>
 	</section>

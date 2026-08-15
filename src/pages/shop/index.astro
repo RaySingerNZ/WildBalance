@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ImageFrame from '../../components/ImageFrame.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import { rangitataProducts } from '../../data/rangitataProducts';
+
+const shopItems = [
+	{
+		href: '/shop/rangitata-merino-hoodie-mens-beech-green-tussock',
+		product: rangitataProducts.mensBeech,
+	},
+	{
+		href: '/shop/rangitata-merino-hoodie-mens-greywacke-black-shibori',
+		product: rangitataProducts.mensGreywacke,
+	},
+	{
+		href: '/shop/rangitata-merino-hoodie-womens-beech-green-tussock',
+		product: rangitataProducts.womensBeech,
+	},
+	{
+		href: '/shop/rangitata-merino-hoodie-womens-greywacke-black-shibori',
+		product: rangitataProducts.womensGreywacke,
+	},
+];
+---
+
+<BaseLayout
+	title="Shop | Wild Balance"
+	description="The first Wild Balance release, available in men's and women's fit with two colourways."
+	image={rangitataProducts.mensBeech.galleryImages[0].desktopSrc}
+>
+	<section class="border-b border-[#2c271f]/10 bg-[#efe8db] pb-12 pt-8 sm:pb-16 sm:pt-10 lg:py-16">
+		<div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+			<PageHeader
+				eyebrow="Shop"
+				title="Wild Balance launch collection"
+				intro="Each merino hoodie is made to order in Christchurch and confirmed with you before we start making it."
+			/>
+
+			<div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+				{shopItems.map(({ href, product }) => (
+					<a href={href} class="group block">
+						<div class="space-y-3">
+							<ImageFrame
+								src={product.galleryImages[0].desktopSrc}
+								mobileSrc={product.galleryImages[0].mobileSrc}
+								desktopSrc={product.galleryImages[0].desktopSrc}
+								alt={product.galleryImages[0].alt}
+								aspect="square"
+								objectPosition="center top"
+							/>
+							<div class="space-y-1.5">
+								<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">
+									{product.fitLabel === 'Men’s Fit' ? 'MEN’S MERINO' : 'WOMEN’S MERINO'}
+								</p>
+								<p class="text-sm leading-6 text-[#625a4d]">
+									{product.colourwayLabel === 'Greywacke / Black Shibori' ? 'Greywacke / Black / Shibori Dye' : product.colourwayLabel}
+								</p>
+								<p class="text-sm font-semibold leading-6 text-[#626b43] underline decoration-[#626b43]/40 underline-offset-4">
+									View / Order
+								</p>
+							</div>
+						</div>
+					</a>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="border-b border-[#2c271f]/10 bg-[#e4d8c7] py-14 sm:py-16">
+		<div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+			<div class="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+				<div class="max-w-3xl">
+					<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">Made to order in Christchurch</p>
+					<h2 class="mt-4 text-3xl font-semibold leading-[0.95] tracking-normal text-[#2c271f] sm:text-4xl">
+						Each hoodie is cut and sewn after you order.
+					</h2>
+					<p class="mt-4 text-base leading-7 text-[#625a4d] sm:text-lg">
+						We do not hold a warehouse of finished hoodies. When you place an order, we cut the garment, sew it here in Christchurch, and send it on once it is ready. We're doing this to ensure a great fit, high quality construction and a focus on direct service with us the designers and manufacturers.
+					</p>
+				</div>
+
+				<div class="flex items-center">
+					<div class="w-full border-t border-[#2c271f]/15 pt-5 text-sm text-[#2c271f] sm:text-base">
+						<div class="grid gap-5 sm:grid-cols-3">
+							<div class="space-y-2">
+								<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">01</p>
+								<h3 class="text-lg font-semibold leading-tight text-[#2c271f]">Place your order</h3>
+								<p class="text-sm leading-6 text-[#625a4d]">
+									Choose the hoodie and colourway you want. Your selected size is only a starting point.
+								</p>
+							</div>
+							<div class="space-y-2">
+								<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">02</p>
+								<h3 class="text-lg font-semibold leading-tight text-[#2c271f]">We get the fit right</h3>
+								<p class="text-sm leading-6 text-[#625a4d]">
+									We will work with you on sizing and fit before we cut your garment.
+								</p>
+							</div>
+							<div class="space-y-2">
+								<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">03</p>
+								<h3 class="text-lg font-semibold leading-tight text-[#2c271f]">We make it here</h3>
+								<p class="text-sm leading-6 text-[#625a4d]">
+									Once the fit is sorted, we cut and sew your hoodie here in Christchurch.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</BaseLayout>

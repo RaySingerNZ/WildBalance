@@ -3,12 +3,12 @@ import wordmarkLogo from '../assets/logo/WildBalance_WordOnly_Brown_SVG.svg';
 
 const navItems = [
 	{ href: '/', label: 'Home' },
+	{ href: '/shop', label: 'Shop' },
 	{ href: '/about', label: 'About' },
 	{ href: '/contact', label: 'Contact' },
 ];
 
 const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
-const registerOpensModal = pathname === '/';
 ---
 
 <header class="font-host-grotesk sticky top-0 z-50 border-b border-[#2c271f]/10 bg-[#efe8db]/95 backdrop-blur">
@@ -45,15 +45,6 @@ const registerOpensModal = pathname === '/';
 			/>
 		</a>
 
-		<a
-			href="/contact"
-			data-register-open={registerOpensModal ? true : undefined}
-			aria-haspopup={registerOpensModal ? 'dialog' : undefined}
-			aria-controls={registerOpensModal ? 'register-interest-modal' : undefined}
-			class="cta-primary hidden justify-center px-4 py-2 text-sm font-medium md:inline-flex lg:col-start-3 lg:justify-self-end"
-		>
-			Register Your Interest
-		</a>
 	</div>
 
 	<nav class="flex gap-1 overflow-x-auto border-t border-[#2c271f]/10 px-4 py-2 md:hidden" aria-label="Mobile navigation">

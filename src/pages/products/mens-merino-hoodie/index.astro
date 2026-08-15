@@ -1,5 +1,19 @@
 ---
-import MensMerinoHoodieVariant from '../../../components/MensMerinoHoodieVariant.astro';
+const target = '/shop/rangitata-merino-hoodie-mens-beech-green-tussock';
 ---
 
-<MensMerinoHoodieVariant variant={3} />
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta http-equiv="refresh" content={`0; url=${target}`} />
+		<link rel="canonical" href={target} />
+		<title>Redirecting to Shop | Wild Balance</title>
+	</head>
+	<body>
+		<p>
+			<a href={target}>Continue to the shop</a>
+		</p>
+	</body>
+</html>

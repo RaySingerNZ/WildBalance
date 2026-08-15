@@ -2,8 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import ImageFrame from '../components/ImageFrame.astro';
-import RegisterInterestModal from '../components/RegisterInterestModal.astro';
 import Section from '../components/Section.astro';
+import { rangitataProducts } from '../data/rangitataProducts';
 
 import hero1Image from '../assets/img/WildBalance_Hero1.jpg';
 import hero1LandscapeImage from '../assets/img/WildBalance_Hero1_NarrowLandscape.jpg';
@@ -50,26 +50,26 @@ const hoodieUses = ['Cold mornings', 'Long climbs', 'Glassing', 'Camp', 'Around 
 		eyebrow="Not just designed here. Made here."
 		title="Soft fibre. Hard country."
 		subtitleParagraphs={[
-			'Wild Balance started with two things we love, sewing clothes and exploring New Zealand’s outdoors.',
-			'Our first release is a do-it-all alpine hunting hoodie, tailor-made by us in Christchurch.',
+			"The vision: New Zealand-made clothing born from alpine hunting and made with purpose.",
+			'Our first release is the Rangitata Merino Hoodie, made to order in Christchurch in men\'s and women\'s styles.',
 		]}
 		supportParagraphs={[
-			'Built for cold starts, breathable on long climbs, and warm while glassing the tops. Each hoodie is cut, sewn, and hand dyed, creating natural variation in tone and pattern. No two garments are exactly the same.',
-			'Register your interest to follow the first release, share feedback, and hear when orders open. There’s no payment and no commitment to buy.',
+			'At a time when more and more outdoor clothing is made in offshore factories, we’re offering a point of difference. Get behind the launch of a true kiwi clothing manufacturing brand.',
+			'The launch edition features two styles of our Rangitata hoodie: a beech-green/tussock version in block colours, and a greywacke/black version that’s carefully hand-dyed in our studio to create natural variation in tone and pattern.',
+			'Limited numbers. Made one at a time to ensure a perfect fit.',
 		]}
 		imageSrc={placeholderImages.hero1}
 		imageMobileSrc={placeholderImages.hero1Landscape}
 		imageDesktopSrc={placeholderImages.hero1}
 		imageAlt="Placeholder image of a hunter in a hoodie standing in front of a rock wall."
 		imageObjectPosition="center"
-		primaryHref="/contact"
-		primaryLabel="Register Your Interest"
-		primaryOpensModal
+		primaryHref="/shop"
+		primaryLabel="Shop the Launch"
 	/>
 
 	<Section
 		tone="muted"
-		eyebrow="The Launch - one garment, done properly."
+		eyebrow="The Launch - The Rangitata Hoodie"
 		title="The merino hoodie handcrafted for backcountry adventure."
 	>
 		<p class="max-w-4xl text-xl font-medium leading-8 text-[#3d372d] sm:text-2xl">
@@ -79,7 +79,7 @@ const hoodieUses = ['Cold mornings', 'Long climbs', 'Glassing', 'Camp', 'Around 
 			A practical hood for protection from the wind and sun, reduced bulk to stop you getting snagged on the ascent, and a cut that lets you glass without fighting the garment.
 		</p>
 		<p class="mt-5 max-w-3xl text-base leading-7 text-[#625a4d] sm:text-lg">
-			Doubled-over sleeve and body cuffs add durability where it matters, with no scratchy tags or labels in the wrong spot.
+			Doubled-over sleeve and body cuffs add durability where it matters, with no scratchy internal tags you'll experience a high level of comfort and adaptability.
 		</p>
 		<p class="mt-5 max-w-3xl text-base leading-7 text-[#625a4d] sm:text-lg">
 			We're excited to bring you merino gear shaped by years behind the machines and time in the hills.
@@ -112,41 +112,71 @@ const hoodieUses = ['Cold mornings', 'Long climbs', 'Glassing', 'Camp', 'Around 
 		</div>
 	</Section>
 
-	<Section
-		eyebrow="GET BEHIND THE FIRST HOODIE"
-		title="Stay in the loop with the first release."
-		intro="We’re getting ready to launch our first handmade merino alpine hoodie. Register your interest to follow the build, share feedback, and hear when orders open. There’s no payment and no commitment to buy."
-	>
-		<ol class="grid gap-5 md:grid-cols-3">
-			<li class="border border-[#2c271f]/15 bg-[#f8f3e9] p-6">
-				<h3 class="text-lg font-semibold text-[#2c271f]">
-					<span class="mr-2 text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">1.</span>
-					Register Your Interest
-				</h3>
-				<p class="mt-3 text-sm leading-6 text-[#625a4d]">
-					Tell us you’re keen and we’ll add you to the first-release list. No payment, no pressure, and no commitment.
+	<section class="border-b border-[#2c271f]/10 bg-[#efe8db] py-14 sm:py-16">
+		<div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+			<div class="max-w-3xl">
+				<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">Limited Edition First Release</p>
+				<h2 class="mt-4 text-3xl font-semibold leading-[0.95] tracking-normal text-[#2c271f] sm:text-4xl">
+					The Rangitata Merino Hoodie
+				</h2>
+				<p class="mt-4 max-w-2xl text-base leading-7 text-[#625a4d] sm:text-lg">
+					Two colourways, men’s and women’s styles, made to order in Christchurch.
 				</p>
-			</li>
-			<li class="border border-[#2c271f]/15 bg-[#f8f3e9] p-6">
-				<h3 class="text-lg font-semibold text-[#2c271f]">
-					<span class="mr-2 text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">2.</span>
-					Help Shape The Release
-				</h3>
-				<p class="mt-3 text-sm leading-6 text-[#625a4d]">
-					We’ll keep you updated as the hoodies come together and may ask for feedback on colours, sizing, fit, and design choices.
-				</p>
-			</li>
-			<li class="border border-[#2c271f]/15 bg-[#f8f3e9] p-6">
-				<h3 class="text-lg font-semibold text-[#2c271f]">
-					<span class="mr-2 text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">3.</span>
-					Hear When Orders Open
-				</h3>
-				<p class="mt-3 text-sm leading-6 text-[#625a4d]">
-					When the first release is ready, we’ll let you know how to order. You can decide then whether it’s right for you.
-				</p>
-			</li>
-		</ol>
-	</Section>
+			</div>
+
+			<div class="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+				{[
+					{
+						href: '/shop/rangitata-merino-hoodie-mens-beech-green-tussock',
+						product: rangitataProducts.mensBeech,
+					},
+					{
+						href: '/shop/rangitata-merino-hoodie-mens-greywacke-black-shibori',
+						product: rangitataProducts.mensGreywacke,
+					},
+					{
+						href: '/shop/rangitata-merino-hoodie-womens-beech-green-tussock',
+						product: rangitataProducts.womensBeech,
+					},
+					{
+						href: '/shop/rangitata-merino-hoodie-womens-greywacke-black-shibori',
+						product: rangitataProducts.womensGreywacke,
+					},
+				].map(({ href, product }) => (
+					<a href={href} class="group block">
+						<div class="space-y-3">
+							<ImageFrame
+								src={product.galleryImages[0].desktopSrc}
+								mobileSrc={product.galleryImages[0].mobileSrc}
+								desktopSrc={product.galleryImages[0].desktopSrc}
+								alt={product.galleryImages[0].alt}
+								aspect="square"
+								objectPosition="center top"
+							/>
+							<div class="space-y-1.5">
+								<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">
+									{product.fitLabel === 'Men’s Fit' ? 'MEN’S MERINO' : 'WOMEN’S MERINO'}
+								</p>
+								<p class="text-sm leading-6 text-[#625a4d]">
+									{product.colourwayLabel === 'Greywacke / Black Shibori' ? 'Greywacke / Black / Shibori Dye' : product.colourwayLabel}
+								</p>
+								<p class="text-sm font-semibold leading-6 text-[#626b43] underline decoration-[#626b43]/40 underline-offset-4">
+									View / Order
+								</p>
+							</div>
+						</div>
+					</a>
+				))}
+			</div>
+
+			<a
+				href="/shop"
+				class="mt-8 inline-flex items-center text-sm font-semibold text-[#626b43] underline decoration-[#626b43]/40 underline-offset-4 hover:text-[#4e5631]"
+			>
+				View the full launch collection →
+			</a>
+		</div>
+	</section>
 
 	<Section
 		tone="muted"
@@ -183,29 +213,22 @@ Now, with new patterns refined and a sewing studio rebuilt, we are ready to make
 
 	<section class="bg-[#efe8db] py-16 sm:py-20">
 		<div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-			<div class="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-				<div>
-					<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">Launch</p>
-					<h2 class="mt-4 max-w-3xl text-3xl font-semibold tracking-normal text-[#2c271f] sm:text-4xl">
-						Be part of the Wild Balance launch.
-					</h2>
-					<p class="mt-4 max-w-3xl text-base leading-7 text-[#625a4d]">
-						Follow the first garment, get launch updates, and back a proper New Zealand-made
-						merino brand - designed, cut, sewn, and hand dyed in Christchurch.
-					</p>
-				</div>
+			<div class="max-w-3xl">
+				<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">THE LAUNCH</p>
+				<h2 class="mt-4 text-3xl font-semibold leading-[0.95] tracking-normal text-[#2c271f] sm:text-4xl">
+					The Rangitata is ready.
+				</h2>
+				<p class="mt-4 max-w-3xl text-base leading-7 text-[#625a4d] sm:text-lg">
+					Men’s and women’s fits, two colourways, made to order in Christchurch in limited numbers.
+				</p>
 				<a
-					href="/contact"
-					data-register-open
-					aria-haspopup="dialog"
-					aria-controls="register-interest-modal"
-					class="cta-primary cta-attention inline-flex justify-center px-5 py-3 text-sm font-semibold"
+					href="/shop"
+					class="cta-primary cta-attention mt-8 inline-flex justify-center px-5 py-3 text-sm font-semibold"
 				>
-					Register Your Interest
+					Shop the Launch
 				</a>
 			</div>
 		</div>
 	</section>
 
-	<RegisterInterestModal />
 </BaseLayout>

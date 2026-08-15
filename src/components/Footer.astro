@@ -2,6 +2,7 @@
 import wordmarkLogo from '../assets/logo/WildBalance_WordOnly_Brown_SVG.svg';
 
 const footerLinks = [
+	{ href: '/shop', label: 'Shop' },
 	{ href: '/about', label: 'About' },
 	{ href: '/contact', label: 'Contact' },
 ];
@@ -14,12 +15,13 @@ const footerLinks = [
 				<img
 					src={wordmarkLogo.src}
 					alt="Wild Balance"
-					class="h-8 w-auto shrink-0 object-contain brightness-0 invert"
+					class="h-8 w-auto shrink-0 object-contain"
+					style="filter: brightness(0) invert(0.78) sepia(0.18) saturate(0.55); opacity: 0.9;"
 				/>
 			</a>
 			<p class="mt-5 max-w-xl text-sm leading-6 text-[#d8cdbb]">
 				Designed, cut, sewn, and hand dyed in Christchurch. Merino outdoor clothing made one
-				at a time for big country and rough weather.
+				at a time for the wild.
 			</p>
 		</div>
 
@@ -38,13 +40,6 @@ const footerLinks = [
 					}
 				</ul>
 			</nav>
-
-			<div>
-				<h2 class="text-xs font-semibold uppercase tracking-[0.22em] text-[#b8c08c]">Origin</h2>
-				<p class="mt-4 text-sm leading-6 text-[#d8cdbb]">
-					Christchurch made. One at a time. Merino focused.
-				</p>
-			</div>
 		</div>
 	</div>
 	<div class="border-t border-[#d8cdbb]/10 px-5 py-5 text-center text-xs text-[#b9ae9c]">

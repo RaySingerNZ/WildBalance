@@ -3,10 +3,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ImageFrame from './ImageFrame.astro';
 import ProductGallery from './ProductGallery.astro';
 
-import hero1Image from '../assets/img/products/mens-merino-hoodie/hero-1.jpg';
-import hero1LandscapeImage from '../assets/img/products/mens-merino-hoodie/hero-1-landscape.jpg';
-import hero2Image from '../assets/img/products/mens-merino-hoodie/hero-2.jpg';
-import historyImage from '../assets/img/products/mens-merino-hoodie/our-history.jpg';
+import frontHoodUpImage from '../assets/img/products/Mens_RangitataHoodie_BeechGreenAndTussock/WildBalance_Mens200_FrontHoodUp_Alpine.jpg';
+import frontHoodDownImage from '../assets/img/products/Mens_RangitataHoodie_BeechGreenAndTussock/WildBalance_Mens200_FrontHoodDown_Alpine.jpg';
+import backHoodUpImage from '../assets/img/products/Mens_RangitataHoodie_BeechGreenAndTussock/WildBalance_Mens200_BackHoodUp_Alpine.jpg';
+import backHoodDownImage from '../assets/img/products/Mens_RangitataHoodie_BeechGreenAndTussock/WildBalance_Mens200_BackHoodDown_Alpine.jpg';
+import sideCloseUpImage from '../assets/img/products/Mens_RangitataHoodie_BeechGreenAndTussock/WildBalance_Mens200_SideCloseUp_Alpine.jpg';
 
 interface Props {
 	variant: 1 | 2 | 3 | 4 | 5;
@@ -18,24 +19,29 @@ const sizes = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
 
 const galleryImages = [
 	{
-		alt: "Wild Balance men's merino hoodie hero image.",
-		desktopSrc: hero1Image.src,
-		mobileSrc: hero1LandscapeImage.src,
+		alt: "Wild Balance men's merino hoodie front view with hood down.",
+		desktopSrc: frontHoodDownImage.src,
+		mobileSrc: frontHoodDownImage.src,
 	},
 	{
-		alt: "Wild Balance men's merino hoodie alternate image.",
-		desktopSrc: hero2Image.src,
-		mobileSrc: hero2Image.src,
+		alt: "Wild Balance men's merino hoodie front view with hood up.",
+		desktopSrc: frontHoodUpImage.src,
+		mobileSrc: frontHoodUpImage.src,
 	},
 	{
-		alt: 'Wild Balance sewing machine and maker history image.',
-		desktopSrc: historyImage.src,
-		mobileSrc: historyImage.src,
+		alt: 'Wild Balance men’s merino hoodie side close-up.',
+		desktopSrc: sideCloseUpImage.src,
+		mobileSrc: sideCloseUpImage.src,
 	},
 	{
-		alt: "Wild Balance men's merino hoodie landscape image.",
-		desktopSrc: hero1LandscapeImage.src,
-		mobileSrc: hero1LandscapeImage.src,
+		alt: "Wild Balance men's merino hoodie back view with hood down.",
+		desktopSrc: backHoodDownImage.src,
+		mobileSrc: backHoodDownImage.src,
+	},
+	{
+		alt: "Wild Balance men's merino hoodie back view with hood up.",
+		desktopSrc: backHoodUpImage.src,
+		mobileSrc: backHoodUpImage.src,
 	},
 ];
 
@@ -51,23 +57,29 @@ const sizeGuideRows = [
 const productSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Product',
-	name: 'Men’s Merino Hoodie',
+	name: 'Rangitata Merino Hoodie',
 	description:
-		'The first Wild Balance release: a handmade merino hoodie for hunting, hiking, and cold mornings in the New Zealand hills.',
+		'Made to order in Christchurch, New Zealand. Designed and sewn by passionate outdoors people for real alpine adventure with a close but comfortable fit, breathable warmth, and layering-friendly practicality.',
 	brand: {
 		'@type': 'Brand',
 		name: 'Wild Balance',
 	},
 	category: 'Outdoor clothing',
 	material: 'Merino wool',
-	image: [hero1Image.src, hero1LandscapeImage.src, hero2Image.src, historyImage.src],
+	image: [
+		frontHoodDownImage.src,
+		frontHoodUpImage.src,
+		sideCloseUpImage.src,
+		backHoodDownImage.src,
+		backHoodUpImage.src,
+	],
 };
 ---
 
 <BaseLayout
-	title={`Men’s Merino Hoodie ${variant} | Wild Balance`}
-	description="The first Wild Balance release: a handmade merino hoodie for hunting, hiking, and cold mornings in the New Zealand hills."
-	image={hero1Image.src}
+	title={`Rangitata Merino Hoodie ${variant} | Wild Balance`}
+	description="Made to order in Christchurch, New Zealand. Designed and sewn by passionate outdoors people for real alpine adventure with a close but comfortable fit, breathable warmth, and layering-friendly practicality."
+	image={frontHoodDownImage.src}
 >
 	<section class="border-b border-[#2c271f]/10 bg-[#efe8db] pt-0 pb-10 sm:py-14">
 		{variant === 1 && (
@@ -80,7 +92,7 @@ const productSchema = {
 					<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">Variant 1</p>
 					<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">Not just designed here. Made here.</p>
 					<h1 class="max-w-xl font-semibold leading-[0.95] tracking-normal text-[#2c271f] sm:text-2xl md:text-2xl lg:text-3xl">
-						Men’s Merino Hoodie
+						Rangitata Merino Hoodie
 					</h1>
 					<p class="max-w-2xl text-base leading-7 text-[#4c4438] sm:text-lg">The first Wild Balance hoodie.</p>
 					<p class="max-w-3xl text-sm leading-6 text-[#625a4d]">
@@ -131,7 +143,7 @@ const productSchema = {
 				<div class="max-w-3xl">
 					<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">Variant 2</p>
 					<h1 class="mt-3 max-w-2xl text-3xl font-semibold leading-[0.95] tracking-normal text-[#2c271f] sm:text-4xl lg:text-5xl">
-						Men’s Merino Hoodie
+						Rangitata Merino Hoodie
 					</h1>
 					<p class="mt-4 max-w-2xl text-base leading-7 text-[#4c4438] sm:text-lg">
 						Not just designed here. Made here. A simple, well-built hoodie with room for more story.
@@ -178,14 +190,36 @@ const productSchema = {
 
 				<aside class="w-full min-w-0 flex-[0.88] lg:sticky lg:top-24">
 					<div class="space-y-4">
-						<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">Greywacke / Black / Shibori Dye</p>
+						<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">Beech Green / Tussock</p>
 						<h1 class="max-w-xl text-3xl font-semibold leading-[0.95] tracking-normal text-[#2c271f] sm:text-4xl lg:text-4xl">
-							Men’s Merino Hoodie
+							Rangitata Merino Hoodie
 						</h1>
-						<p class="max-w-2xl text-base leading-7 text-[#4c4438] sm:text-lg">Clear product info, with the buy area kept visible while you read.</p>
-						<p class="max-w-3xl text-sm leading-6 text-[#625a4d]">
-							This version leans toward a cleaner shopping flow and a simpler summary panel.
+						<div>
+							<span class="inline-flex rounded-full bg-[#d9e0c9] px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-[#556043]">
+								Men’s Fit
+							</span>
+						</div>
+						<p class="max-w-3xl text-base leading-7 text-[#4c4438] sm:text-lg">
+							Made to order in Christchurch, New Zealand. Designed and sewn by passionate outdoors people for real alpine adventure.
 						</p>
+						<div class="max-w-3xl space-y-4 text-sm leading-6 text-[#625a4d] sm:text-base sm:leading-7">
+							<p>
+								Our 200gsm merino hoodie is pure, breathable merino wool, with a close but comfortable fit that works on its own or as part of a layering system.
+							</p>
+							<p>
+								The lightweight fabric helps regulate temperature, moves moisture away from the skin, and stays comfortable across changing conditions.
+							</p>
+							<p>
+								A generous hood gives extra coverage from the sun or when the weather turns, while the long sleeves provide protection without the bulk of a heavier mid-layer.
+							</p>
+						</div>
+						<ul class="list-disc space-y-2 pl-5 pt-1 text-sm leading-6 text-[#625a4d] sm:text-base">
+							<li>200gsm merino wool</li>
+							<li>Lightweight, breathable and naturally temperature-regulating</li>
+							<li>Long sleeves with extended cuffs</li>
+							<li>Designed for layering</li>
+							<li>Custom made to fit you perfectly in Christchurch, New Zealand</li>
+						</ul>
 
 						<div class="pt-2">
 							<p class="text-sm font-semibold uppercase tracking-[0.24em] text-[#626b43]">Size</p>
@@ -207,7 +241,7 @@ const productSchema = {
 							</button>
 							<div class="mt-8 grid gap-3">
 								<button type="button" class="cta-primary inline-flex items-center justify-center px-5 py-3 text-sm font-semibold">
-									Add to cart
+									Place Order
 								</button>
 							</div>
 						</div>
@@ -222,7 +256,7 @@ const productSchema = {
 					<div class="space-y-4">
 						<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">Variant 4</p>
 						<h1 class="max-w-xl text-3xl font-semibold leading-[0.95] tracking-normal text-[#2c271f] sm:text-4xl lg:text-5xl">
-							Men’s Merino Hoodie
+							Rangitata Merino Hoodie
 						</h1>
 						<p class="max-w-2xl text-base leading-7 text-[#4c4438] sm:text-lg">
 							A story-first layout with the description and buying details kept out of the way until after the images.
@@ -271,7 +305,7 @@ const productSchema = {
 				<div class="mt-3 grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
 					<div class="space-y-4">
 						<h1 class="max-w-xl text-3xl font-semibold leading-[0.95] tracking-normal text-[#2c271f] sm:text-4xl lg:text-5xl">
-							Men’s Merino Hoodie
+							Rangitata Merino Hoodie
 						</h1>
 						<p class="max-w-2xl text-base leading-7 text-[#4c4438] sm:text-lg">
 							The most stripped-back version: gallery first, summary second, and the rest of the page left for detail.
@@ -322,18 +356,18 @@ const productSchema = {
 			<div class="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
 				<div class="space-y-6">
 					<ImageFrame
-						src={hero1Image.src}
-						desktopSrc={hero1Image.src}
-						mobileSrc={hero1LandscapeImage.src}
+						src={frontHoodDownImage.src}
+						desktopSrc={frontHoodDownImage.src}
+						mobileSrc={frontHoodDownImage.src}
 						alt="Wild Balance men's merino hoodie in use."
 						aspect="wide"
 						objectPosition="center top"
 					/>
 					<ImageFrame
-						src={hero2Image.src}
-						desktopSrc={hero2Image.src}
-						mobileSrc={hero2Image.src}
-						alt="Wild Balance men's merino hoodie alternate view."
+						src={backHoodUpImage.src}
+						desktopSrc={backHoodUpImage.src}
+						mobileSrc={backHoodUpImage.src}
+						alt="Wild Balance men's merino hoodie back view."
 						aspect="wide"
 						objectPosition="center"
 					/>
@@ -350,8 +384,8 @@ const productSchema = {
 						</div>
 					</div>
 					<ImageFrame
-						src={historyImage.src}
-						alt="Singer sewing machine and Wild Balance history image."
+						src={sideCloseUpImage.src}
+						alt="Wild Balance men's merino hoodie side close-up."
 						aspect="portrait"
 						objectPosition="center"
 					/>
@@ -389,7 +423,7 @@ const productSchema = {
 				<div class="flex items-start justify-between gap-6 border-b border-[#2c271f]/10 px-5 py-4 sm:px-6">
 					<div>
 						<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">Size guide</p>
-						<h2 class="mt-2 text-2xl font-semibold text-[#2c271f]">Men’s Merino Hoodie</h2>
+						<h2 class="mt-2 text-2xl font-semibold text-[#2c271f]">Rangitata Merino Hoodie</h2>
 					</div>
 					<button type="button" class="size-guide-modal__close" data-size-guide-close aria-label="Close size guide">
 						×

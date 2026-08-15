@@ -1,0 +1,587 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ImageFrame from './ImageFrame.astro';
+import ProductGallery from './ProductGallery.astro';
+
+interface GalleryImage {
+	alt: string;
+	desktopSrc: string;
+	mobileSrc: string;
+}
+
+interface StoryImage {
+	alt: string;
+	desktopSrc: string;
+	mobileSrc: string;
+}
+
+interface Props {
+	bulletPoints: string[];
+	colourwayLabel: string;
+	description: string;
+	fitLabel: string;
+	galleryImages: GalleryImage[];
+	pageTitle: string;
+	productName: string;
+	schemaName: string;
+	schemaDescription: string;
+	storyImages: {
+		primary: StoryImage;
+		secondary: StoryImage;
+		side: StoryImage;
+	};
+	summaryLead: string;
+	summaryParagraphs: string[];
+}
+
+const {
+	bulletPoints,
+	colourwayLabel,
+	description,
+	fitLabel,
+	galleryImages,
+	pageTitle,
+	productName,
+	schemaName,
+	schemaDescription,
+	storyImages,
+	summaryLead,
+	summaryParagraphs,
+} = Astro.props as Props;
+
+const isWomensFit = fitLabel === 'Women’s Fit';
+const sizes = isWomensFit ? ['6', '8', '10', '12', '14', '16'] : ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
+const defaultSize = isWomensFit ? '10' : 'M';
+const introSummaryParagraphs = summaryParagraphs.slice(0, 2);
+const bodySummaryParagraphs = summaryParagraphs.slice(2);
+
+const sizeGuideRows = [
+	['XS', '87.5–88 cm', '—', '—'],
+	['S', '94 cm', '+6–6.5 cm', '7%'],
+	['M', '100–100.5 cm', '+6–6.5 cm', '6.5–7%'],
+	['L', '107–107.5 cm', '+7 cm', '7%'],
+	['XL', '116–117 cm', '+9–9.5 cm', '8.5%'],
+	['XXL', '126–128 cm', '+10–11 cm', '9%'],
+];
+
+const productSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Product',
+	name: schemaName,
+	description: schemaDescription,
+	brand: {
+		'@type': 'Brand',
+		name: 'Wild Balance',
+	},
+	category: 'Outdoor clothing',
+	material: 'Merino wool',
+	image: galleryImages.map((image) => image.desktopSrc),
+};
+---
+
+<BaseLayout title={pageTitle} description={description} image={galleryImages[0]?.desktopSrc}>
+	<section class="border-b border-[#2c271f]/10 bg-[#efe8db] pt-0 pb-10 sm:py-14">
+		<div class="mx-auto flex max-w-7xl flex-col px-5 sm:px-6 lg:flex-row lg:items-start lg:gap-10 lg:px-8">
+			<div class="product-gallery-wrap w-full min-w-0 flex-[0.92] space-y-6">
+				<ProductGallery images={galleryImages} />
+			</div>
+
+			<aside class="w-full min-w-0 flex-[1.08] lg:sticky lg:top-24">
+				<div class="space-y-4">
+					<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">{colourwayLabel}</p>
+					<h1 class="max-w-xl text-3xl font-semibold leading-[0.95] tracking-normal text-[#2c271f] sm:text-4xl lg:text-4xl">
+						{productName}
+					</h1>
+					<div>
+						<span class="inline-flex rounded-full bg-[#d9e0c9] px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-[#556043]">
+							{fitLabel}
+						</span>
+					</div>
+					<p class="max-w-3xl text-base leading-7 text-[#4c4438] sm:text-lg">{summaryLead}</p>
+					<div class="max-w-3xl space-y-4 text-sm leading-6 text-[#625a4d] sm:text-base sm:leading-7">
+						{introSummaryParagraphs.map((paragraph) => <p>{paragraph}</p>)}
+					</div>
+
+					<div class="pt-2">
+						<p class="text-sm font-semibold uppercase tracking-[0.24em] text-[#626b43]">Approximate Size</p>
+						<p class="mt-3 max-w-2xl text-sm leading-6 text-[#625a4d] sm:text-base">
+							Choose the size you normally wear. We’ll work with you on the final fit before your hoodie is cut.
+						</p>
+						<div class="mt-3 flex flex-wrap gap-2">
+							{sizes.map((size, index) => (
+								<button
+									type="button"
+									class="product-size-button min-w-10 rounded-[6px] border px-3 py-2 text-sm font-semibold transition-colors"
+									data-size-choice={size}
+									data-active={index === 1 ? 'true' : 'false'}
+									aria-pressed={index === 1 ? 'true' : 'false'}
+								>
+									{size}
+								</button>
+							))}
+						</div>
+						<button
+							type="button"
+							data-size-guide-open
+							aria-haspopup="dialog"
+							aria-controls="size-guide-modal"
+							class="mt-4 inline-flex text-sm font-semibold text-[#626b43] underline decoration-[#626b43]/40 underline-offset-4 hover:text-[#4e5631]"
+						>
+							View size chart
+						</button>
+						<div class="mt-8 grid gap-3">
+							<button
+								type="button"
+								class="cta-primary inline-flex items-center justify-center px-5 py-3 text-sm font-semibold"
+								data-order-open
+								aria-haspopup="dialog"
+								aria-controls="order-request-modal"
+							>
+								Place Order
+							</button>
+						</div>
+					</div>
+
+					<div class="space-y-4 pt-4 text-sm leading-6 text-[#625a4d] sm:text-base sm:leading-7">
+						{bodySummaryParagraphs.map((paragraph) => <p>{paragraph}</p>)}
+						<ul class="list-disc space-y-2 pl-5 pt-1 text-sm leading-6 text-[#625a4d] sm:text-base">
+							{bulletPoints.map((point) => <li>{point}</li>)}
+						</ul>
+					</div>
+				</div>
+			</aside>
+		</div>
+	</section>
+
+	<section class="border-b border-[#2c271f]/10 bg-[#efe8db] py-14 sm:py-16">
+		<div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+			<div class="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+				<div class="space-y-6">
+					<ImageFrame
+						src={storyImages.primary.desktopSrc}
+						desktopSrc={storyImages.primary.desktopSrc}
+						mobileSrc={storyImages.primary.mobileSrc}
+						alt={storyImages.primary.alt}
+						aspect="wide"
+						objectPosition="center top"
+					/>
+					<ImageFrame
+						src={storyImages.secondary.desktopSrc}
+						desktopSrc={storyImages.secondary.desktopSrc}
+						mobileSrc={storyImages.secondary.mobileSrc}
+						alt={storyImages.secondary.alt}
+						aspect="wide"
+						objectPosition="center"
+					/>
+				</div>
+
+				<div class="space-y-6">
+					<div class="aspect-[16/9] overflow-hidden border border-[#2c271f]/15 bg-[#d8cdbb]">
+						<div class="flex h-full w-full items-center justify-center px-6 text-center">
+							<div>
+								<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">Video placeholder</p>
+								<p class="mt-3 text-2xl font-semibold text-[#2c271f]">Wild Balance Hunting</p>
+								<p class="mt-3 text-sm leading-6 text-[#625a4d]">Use this space for a clip of the hoodie in use.</p>
+							</div>
+						</div>
+					</div>
+					<ImageFrame
+						src={storyImages.side.desktopSrc}
+						alt={storyImages.side.alt}
+						aspect="portrait"
+						objectPosition="center"
+					/>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<dialog id="size-guide-modal" class="size-guide-modal text-[#2c271f]" data-size-guide-modal>
+		<div class="size-guide-modal__panel">
+			<div class="size-guide-modal__shell">
+				<div class="flex items-start justify-between gap-6 border-b border-[#2c271f]/10 px-5 py-4 sm:px-6">
+					<div>
+						<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">Size guide</p>
+						<h2 class="mt-2 text-2xl font-semibold text-[#2c271f]">{productName}</h2>
+					</div>
+					<button type="button" class="size-guide-modal__close" data-size-guide-close aria-label="Close size guide">
+						×
+					</button>
+				</div>
+
+				<div class="px-5 py-5 sm:px-6">
+					<div class="overflow-x-auto">
+						<table class="min-w-[760px] w-full border-collapse text-left">
+							<thead class="bg-[#e4d8c7]">
+								<tr class="text-xs font-semibold uppercase tracking-[0.22em] text-[#626b43]">
+									<th scope="col" class="px-4 py-4">Size</th>
+									<th scope="col" class="px-4 py-4">Proposed sewn chest</th>
+									<th scope="col" class="px-4 py-4">Increase</th>
+									<th scope="col" class="px-4 py-4">Approx. increase</th>
+								</tr>
+							</thead>
+							<tbody class="divide-y divide-[#2c271f]/10 bg-[#f8f3e9]">
+								{sizeGuideRows.map((row, index) => (
+									<tr class={index === 0 ? 'bg-[#f8f3e9]' : 'bg-[#fcfaf5]'}>
+										<th scope="row" class="px-4 py-4 text-sm font-semibold text-[#2c271f]">
+											{row[0]}
+										</th>
+										<td class="px-4 py-4 text-sm text-[#625a4d]">{row[1]}</td>
+										<td class="px-4 py-4 text-sm text-[#625a4d]">{row[2]}</td>
+										<td class="px-4 py-4 text-sm text-[#625a4d]">{row[3]}</td>
+									</tr>
+								))}
+							</tbody>
+						</table>
+					</div>
+
+					<div class="mt-6 grid gap-4 md:grid-cols-2">
+						<div class="border-t border-[#2c271f]/10 pt-4 text-sm leading-6 text-[#625a4d]">
+							<p class="font-semibold text-[#2c271f]">Fit note</p>
+							<p class="mt-2">The hoodie is intended to sit as a practical alpine layer with enough room to move.</p>
+						</div>
+						<div class="border-t border-[#2c271f]/10 pt-4 text-sm leading-6 text-[#625a4d]">
+							<p class="font-semibold text-[#2c271f]">Between sizes</p>
+							<p class="mt-2">If you want more room for a base layer, sizing up will usually be the safer call.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</dialog>
+
+	<dialog id="order-request-modal" class="register-modal order-modal w-[min(94vw,44rem)] border border-[#2c271f]/15 bg-[#efe8db] p-0 text-[#2c271f] shadow-2xl" data-order-modal data-state="idle">
+		<div class="register-modal__panel order-modal__panel">
+			<form
+				class="order-modal__view order-modal__view--form grid gap-4"
+				name="order-request"
+				method="POST"
+				action="/thanks"
+				data-netlify="true"
+				netlify-honeypot="bot-field"
+				data-order-form
+			>
+				<input type="hidden" name="form-name" value="order-request" />
+				<input type="hidden" name="product" value={productName} data-order-product-field />
+				<input type="hidden" name="colourway" value={colourwayLabel} data-order-colourway-field />
+				<input type="hidden" name="starting-size" value={defaultSize} data-order-starting-size-field />
+				<p class="hidden">
+					<label>
+						Don’t fill this out if you’re human:
+						<input name="bot-field" />
+					</label>
+				</p>
+
+				<div class="space-y-2">
+					<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">Order request</p>
+					<p class="max-w-2xl text-sm leading-6 text-[#625a4d]">
+						We’ll confirm sizing, delivery and payment with you before we start making your hoodie.
+					</p>
+					<div class="space-y-1">
+						<h2 class="text-2xl font-semibold text-[#2c271f]">{productName}</h2>
+						<p class="text-sm leading-6 text-[#625a4d]">
+							{colourwayLabel} · Approximate size <span data-order-summary-size>{defaultSize}</span>
+						</p>
+					</div>
+				</div>
+
+				<div class="grid gap-3 md:grid-cols-3">
+					<div>
+						<label for="order-name" class="block text-sm font-medium text-[#2c271f]">Name</label>
+						<input
+							id="order-name"
+							name="name"
+							type="text"
+							autocomplete="name"
+							required
+							class="mt-1.5 w-full rounded-[6px] border border-[#2c271f]/20 bg-[#f8f3e9] px-3.5 py-2.5 text-[#2c271f] outline-none transition-colors placeholder:text-[#8b8172] focus:border-[#626b43]"
+						/>
+					</div>
+					<div>
+						<label for="order-email" class="block text-sm font-medium text-[#2c271f]">Email</label>
+						<input
+							id="order-email"
+							name="email"
+							type="email"
+							autocomplete="email"
+							required
+							class="mt-1.5 w-full rounded-[6px] border border-[#2c271f]/20 bg-[#f8f3e9] px-3.5 py-2.5 text-[#2c271f] outline-none transition-colors placeholder:text-[#8b8172] focus:border-[#626b43]"
+						/>
+					</div>
+					<div>
+						<label for="order-mobile" class="block text-sm font-medium text-[#2c271f]">Mobile</label>
+						<input
+							id="order-mobile"
+							name="mobile"
+							type="tel"
+							autocomplete="tel"
+							required
+							class="mt-1.5 w-full rounded-[6px] border border-[#2c271f]/20 bg-[#f8f3e9] px-3.5 py-2.5 text-[#2c271f] outline-none transition-colors placeholder:text-[#8b8172] focus:border-[#626b43]"
+						/>
+					</div>
+				</div>
+
+				<div class="grid gap-3">
+					<div>
+						<label for="order-notes" class="block text-sm font-medium text-[#2c271f]">Notes / measurements</label>
+						<p class="mt-1.5 text-xs leading-5 text-[#625a4d]">
+							Optional - add any measurements or fit notes you already know.
+						</p>
+						<textarea
+							id="order-notes"
+							name="notes-measurements"
+							rows="3"
+							class="mt-2 w-full rounded-[6px] border border-[#2c271f]/20 bg-[#f8f3e9] px-3.5 py-2.5 text-[#2c271f] outline-none transition-colors placeholder:text-[#8b8172] focus:border-[#626b43] min-h-[92px]"
+						></textarea>
+					</div>
+					<div>
+						<label for="order-address" class="block text-sm font-medium text-[#2c271f]">Delivery address</label>
+						<input
+							id="order-address"
+							name="delivery-address"
+							type="text"
+							autocomplete="street-address"
+							class="mt-1.5 w-full rounded-[6px] border border-[#2c271f]/20 bg-[#f8f3e9] px-3.5 py-2.5 text-[#2c271f] outline-none transition-colors placeholder:text-[#8b8172] focus:border-[#626b43]"
+						/>
+					</div>
+				</div>
+
+				<p class="text-sm leading-6 text-[#625a4d]">
+					We’ll be in touch to confirm everything before we cut your hoodie.
+				</p>
+
+				<button
+					type="submit"
+					class="cta-primary inline-flex w-full justify-center px-5 py-3 text-sm font-semibold"
+					data-order-submit
+				>
+					Place Order Request
+				</button>
+			</form>
+
+			<section class="order-modal__view order-modal__view--loading" aria-live="polite">
+				<div class="flex items-center gap-3 text-sm leading-6 text-[#625a4d]">
+					<span class="register-modal__spinner" aria-hidden="true"></span>
+					<span>Sending your order request…</span>
+				</div>
+				<div class="space-y-1">
+					<h2 class="text-2xl font-semibold text-[#2c271f]">{productName}</h2>
+					<p class="text-sm leading-6 text-[#625a4d]">
+						{colourwayLabel} · Approximate size <span data-order-summary-size>{defaultSize}</span>
+					</p>
+				</div>
+			</section>
+
+			<section class="order-modal__view order-modal__view--success" aria-live="polite">
+				<div class="space-y-3">
+					<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">Thanks, we’ve got it.</p>
+					<p class="text-sm leading-6 text-[#625a4d]">
+						We’ll be in touch shortly to confirm your sizing, delivery details and payment before we start making your hoodie.
+					</p>
+					<div class="space-y-1">
+						<h2 class="text-2xl font-semibold text-[#2c271f]">{productName}</h2>
+						<p class="text-sm leading-6 text-[#625a4d]">
+							{colourwayLabel} · Approximate size <span data-order-summary-size>{defaultSize}</span>
+						</p>
+					</div>
+				</div>
+
+				<button
+					type="button"
+					class="cta-primary inline-flex w-full justify-center px-5 py-3 text-sm font-semibold"
+					data-order-close
+				>
+					Close
+				</button>
+			</section>
+
+			<section class="order-modal__view order-modal__view--error" aria-live="polite">
+				<div class="space-y-3">
+					<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#8d4d3a]">Something went wrong</p>
+					<p class="text-sm leading-6 text-[#625a4d]">Looks like the form didn’t send.</p>
+					<p class="text-sm leading-6 text-[#625a4d]">
+						Please try again, or contact Ray directly at
+						<a class="font-semibold text-[#2c271f] underline decoration-[#2c271f]/30 underline-offset-4 hover:text-[#626b43]" href="mailto:ray@wildbalance.nz">
+							ray@wildbalance.nz
+						</a>
+						and we’ll sort your order manually.
+					</p>
+					<div class="space-y-1">
+						<h2 class="text-2xl font-semibold text-[#2c271f]">{productName}</h2>
+						<p class="text-sm leading-6 text-[#625a4d]">
+							{colourwayLabel} · Approximate size <span data-order-summary-size>{defaultSize}</span>
+						</p>
+					</div>
+				</div>
+
+				<button
+					type="button"
+					class="cta-primary inline-flex w-full justify-center px-5 py-3 text-sm font-semibold"
+					data-order-try-again
+				>
+					Try Again
+				</button>
+			</section>
+		</div>
+	</dialog>
+
+	<script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
+	<script define:vars={{ defaultSize }}>
+		const sizeGuideModal = document.querySelector('[data-size-guide-modal]');
+		const sizeGuideOpen = document.querySelector('[data-size-guide-open]');
+		const sizeGuideClose = sizeGuideModal?.querySelector('[data-size-guide-close]');
+		const orderModal = document.querySelector('[data-order-modal]');
+		const orderForm = orderModal?.querySelector('[data-order-form]');
+		const orderOpenButtons = document.querySelectorAll('[data-order-open]');
+		const orderSubmitButton = orderModal?.querySelector('[data-order-submit]');
+		const orderCloseButton = orderModal?.querySelector('[data-order-close]');
+		const orderTryAgainButton = orderModal?.querySelector('[data-order-try-again]');
+		const startingSizeInput = orderModal?.querySelector('[data-order-starting-size-field]');
+		const orderSummarySizes = Array.from(document.querySelectorAll('[data-order-summary-size]'));
+		const sizeButtons = Array.from(document.querySelectorAll('[data-size-choice]'));
+		let selectedSize = startingSizeInput instanceof HTMLInputElement ? startingSizeInput.value : defaultSize;
+
+		const closeSizeGuide = () => {
+			if (!sizeGuideModal) return;
+
+			sizeGuideModal.close();
+		};
+
+		const setSelectedSize = (nextSize) => {
+			selectedSize = nextSize;
+
+			sizeButtons.forEach((button) => {
+				const isActive = button instanceof HTMLButtonElement && button.dataset.sizeChoice === nextSize;
+				button.dataset.active = isActive ? 'true' : 'false';
+				button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+			});
+
+			if (startingSizeInput instanceof HTMLInputElement) {
+				startingSizeInput.value = nextSize;
+			}
+
+			orderSummarySizes.forEach((summary) => {
+				summary.textContent = nextSize;
+			});
+		};
+
+		const syncOrderForm = () => {
+			if (startingSizeInput instanceof HTMLInputElement) {
+				startingSizeInput.value = selectedSize;
+			}
+
+			orderSummarySizes.forEach((summary) => {
+				summary.textContent = selectedSize;
+			});
+		};
+
+		const setOrderState = (state) => {
+			if (!orderModal || !orderSubmitButton) return;
+
+			orderModal.dataset.state = state;
+			orderSubmitButton.disabled = state === 'loading';
+		};
+
+		const closeOrderModal = () => {
+			if (!orderModal) return;
+
+			orderModal.close();
+			setOrderState('idle');
+		};
+
+		sizeGuideOpen?.addEventListener('click', () => {
+			if (!sizeGuideModal || typeof sizeGuideModal.showModal !== 'function') return;
+
+			sizeGuideModal.showModal();
+			sizeGuideClose?.focus();
+		});
+
+		sizeGuideClose?.addEventListener('click', closeSizeGuide);
+
+		sizeGuideModal?.addEventListener('click', (event) => {
+			if (event.target === sizeGuideModal) {
+				closeSizeGuide();
+			}
+		});
+
+		orderOpenButtons.forEach((button) => {
+			button.addEventListener('click', () => {
+				if (!orderModal || !orderForm || typeof orderModal.showModal !== 'function') return;
+
+				syncOrderForm();
+				setOrderState('idle');
+				orderModal.showModal();
+				orderForm.querySelector('input[name="name"]')?.focus();
+			});
+		});
+
+		orderModal?.addEventListener('click', (event) => {
+			if (event.target === orderModal) {
+				closeOrderModal();
+			}
+		});
+
+		orderCloseButton?.addEventListener('click', closeOrderModal);
+
+		orderTryAgainButton?.addEventListener('click', () => {
+			if (!orderModal || !orderForm) return;
+
+			setOrderState('idle');
+			orderForm.querySelector('input[name="name"]')?.focus();
+		});
+
+		orderModal?.addEventListener('close', () => {
+			setOrderState('idle');
+		});
+
+		sizeButtons.forEach((button) => {
+			button.addEventListener('click', () => {
+				if (!(button instanceof HTMLButtonElement)) return;
+
+				const nextSize = button.dataset.sizeChoice || defaultSize;
+				setSelectedSize(nextSize);
+			});
+		});
+
+		setSelectedSize(selectedSize || defaultSize);
+
+		orderForm?.addEventListener('submit', async (event) => {
+			event.preventDefault();
+
+			if (!(orderForm instanceof HTMLFormElement) || !orderForm.reportValidity()) {
+				return;
+			}
+
+			setSelectedSize(selectedSize || defaultSize);
+			setOrderState('loading');
+
+			try {
+				const formData = new FormData(orderForm);
+				const bodyParams = new URLSearchParams();
+
+				formData.forEach((value, key) => {
+					bodyParams.append(key, String(value));
+				});
+
+				const [response] = await Promise.all([
+					fetch('/', {
+						method: 'POST',
+						headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+						body: bodyParams.toString(),
+					}),
+					new Promise((resolve) => window.setTimeout(resolve, 550)),
+				]);
+
+				if (!response.ok) {
+					throw new Error('Order request submission failed.');
+				}
+
+				setOrderState('success');
+				orderForm.reset();
+				syncOrderForm();
+			} catch {
+				setOrderState('error');
+			}
+		});
+	</script>
+</BaseLayout>
