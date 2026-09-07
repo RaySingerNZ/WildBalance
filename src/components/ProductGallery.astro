@@ -11,6 +11,7 @@ interface Props {
 }
 
 const { images, className = '' } = Astro.props;
+const hasMultipleImages = images.length > 1;
 ---
 
 <div class:list={['product-gallery relative w-full overflow-hidden', className]} data-product-gallery data-zoomed="false">
@@ -30,34 +31,40 @@ const { images, className = '' } = Astro.props;
 			</picture>
 		</button>
 
-		<button type="button" class="product-gallery__nav product-gallery__nav--left" data-gallery-prev aria-label="Previous image">
-			<svg viewBox="0 0 24 24" aria-hidden="true" class="h-8 w-8">
-				<path d="M15 6 9 12l6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" />
-			</svg>
-		</button>
-
-		<button type="button" class="product-gallery__nav product-gallery__nav--right" data-gallery-next aria-label="Next image">
-			<svg viewBox="0 0 24 24" aria-hidden="true" class="h-8 w-8">
-				<path d="m9 6 6 6-6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" />
-			</svg>
-		</button>
-	</div>
-
-	<div class="product-gallery__thumbs pt-4">
-		<div class="grid grid-cols-4 gap-3 sm:gap-4">
-			{images.map((image, index) => (
-				<button
-					type="button"
-					class="product-gallery__thumb"
-					data-gallery-thumb
-					data-gallery-index={index}
-					aria-label={`Show image ${index + 1}`}
-				>
-					<img src={image.mobileSrc} alt={image.alt} class="product-gallery__thumb-image" loading="lazy" decoding="async" />
+		{hasMultipleImages && (
+			<>
+				<button type="button" class="product-gallery__nav product-gallery__nav--left" data-gallery-prev aria-label="Previous image">
+					<svg viewBox="0 0 24 24" aria-hidden="true" class="h-8 w-8">
+						<path d="M15 6 9 12l6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" />
+					</svg>
 				</button>
-			))}
-		</div>
+
+				<button type="button" class="product-gallery__nav product-gallery__nav--right" data-gallery-next aria-label="Next image">
+					<svg viewBox="0 0 24 24" aria-hidden="true" class="h-8 w-8">
+						<path d="m9 6 6 6-6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" />
+					</svg>
+				</button>
+			</>
+		)}
 	</div>
+
+	{hasMultipleImages && (
+		<div class="product-gallery__thumbs pt-4">
+			<div class="grid grid-cols-4 gap-3 sm:gap-4">
+				{images.map((image, index) => (
+					<button
+						type="button"
+						class="product-gallery__thumb"
+						data-gallery-thumb
+						data-gallery-index={index}
+						aria-label={`Show image ${index + 1}`}
+					>
+						<img src={image.mobileSrc} alt={image.alt} class="product-gallery__thumb-image" loading="lazy" decoding="async" />
+					</button>
+				))}
+			</div>
+		</div>
+	)}
 </div>
 
 <script define:vars={{ images }}>

@@ -1,13 +1,22 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHeader from '../components/PageHeader.astro';
+import ImageFrame from '../components/ImageFrame.astro';
 import Section from '../components/Section.astro';
 import hero1Image from '../assets/img/WildBalance_Hero1.jpg';
+import aboutWildBalanceImage from '../assets/img/about/WildBalance_About_WildBalance_Greenstone.jpg';
+import designedHereMadeHereImage from '../assets/img/about/WildBalance_About_DesignedHereMadeHere.jpg';
+import whyClothingImage from '../assets/img/about/WildBalance_About_WhyClothing.jpg';
+import ourClothingStoryImage from '../assets/img/about/WildBalance_About_OurClothingStoryCuttingPatterns.jpg';
+import threadCarriedForwardImage from '../assets/img/about/WildBalance_About_ThreadCarriedForwardChalking.jpg';
+import hikingImage from '../assets/img/about/WildBalance_About_Hiking.jpg';
+import whyMerinoImage from '../assets/img/about/WildBalance_About_WhyMerino_Stour.jpg';
+import processImage from '../assets/img/about/WildBalance_TheProcessOfMakingAHoodie.jpg';
 
 const introParagraphs = [
 	`Wild Balance is made by us - Ray, Halee, and our daughter Quinn.`,
-	`It started with two things we love to do. Sewing clothes and exploring deep into the alps.`,
-	`Wild Balance is where those two worlds meet - merino hunting clothing, made one at a time, with each garment carrying its own hand-dyed pattern.`,
+	`It started with two things we love to do. Sewing clothes and exploring the alps.`,
+	`Wild Balance is where those two worlds meet - merino clothing, made one at a time, with each garment carrying its own hand-dyed pattern.`,
 	`It is practical clothing for hunting in the hills, without needing to look like standard hunting gear.`,
 ];
 
@@ -15,6 +24,10 @@ const storySections = [
 	{
 		title: 'Our clothing story',
 		tone: 'default',
+		image: {
+			src: ourClothingStoryImage.src,
+			alt: 'Wild Balance clothing story cutting patterns.',
+		},
 		paragraphs: [
 			`Halee grew up around sewing and manufacturing - horse covers, canvas and outdoor gear. She learnt to sew when young, and before long was making custom pieces for people around her.`,
 			`Ray came to clothing through design. While studying in Dunedin, clothing became another creative medium: practical, functional, and full of possibility.`,
@@ -24,6 +37,10 @@ const storySections = [
 	{
 		title: 'The thread carried forward',
 		tone: 'muted',
+		image: {
+			src: threadCarriedForwardImage.src,
+			alt: 'Wild Balance thread carried forward chalking image.',
+		},
 		paragraphs: [
 			`The Christchurch earthquakes changed everything.`,
 			`Our house and sewing studio were badly damaged and life moved in other directions.`,
@@ -35,6 +52,10 @@ const storySections = [
 	{
 		title: 'Why clothing for the Alps',
 		tone: 'default',
+		image: {
+			src: hikingImage.src,
+			alt: 'Wild Balance hiking image for the Alps section.',
+		},
 		paragraphs: [
 			`We are always on adventures - hiking, hunting, and exploring.`,
 			`Ray grew up on a farm and hunted small game as a kid, but deer hunting in the Canterbury high country lit a spark. Quinn loves hunting tahr and is chasing her first chamois. Halee enjoys the hike, and the adventure, though she would rather shoot a fish than a deer.`,
@@ -45,6 +66,10 @@ const storySections = [
 	{
 		title: 'Why merino',
 		tone: 'muted',
+		image: {
+			src: whyMerinoImage.src,
+			alt: 'Wild Balance merino image.',
+		},
 		paragraphs: [
 			`Merino its the the ultimate, grown in the extremes for the extremes.`,
 			`It is warm, breathable, comfortable, naturally odour-resistant, and easy to live in across changing conditions. It works with you when you are hot, cold, moving, resting, climbing, or glassing.`,
@@ -54,6 +79,10 @@ const storySections = [
 	{
 		title: 'Wild Balance',
 		tone: 'default',
+		image: {
+			src: processImage.src,
+			alt: 'Wild Balance process of making a hoodie.',
+		},
 		paragraphs: [
 			`Wild Balance is the new chapter.`,
 			`The patterns have been refined. The sewing studio has been rebuilt. Halee’s dye work has reached a level we are excited to share.`,
@@ -74,14 +103,24 @@ const storySections = [
 	<section class="border-b border-[#2c271f]/10 bg-[#efe8db] pb-12 pt-8 sm:pb-16 sm:pt-10 lg:py-16">
 		<div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
 			<PageHeader eyebrow="About Wild Balance" title="Designed here. Made here." />
-			<div class="mt-8 space-y-5 text-lg leading-8 text-[#4c4438]">
-				{
-					introParagraphs.map((paragraph, index) => (
-						<p class:list={[index === introParagraphs.length - 1 && 'font-semibold text-[#3d372d]']}>
-							{paragraph}
-						</p>
-					))
-				}
+			<div class="mt-8 grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+				<div class="space-y-5 text-lg leading-8 text-[#4c4438]">
+					{
+						introParagraphs.map((paragraph, index) => (
+							<p class:list={[index === introParagraphs.length - 1 && 'font-semibold text-[#3d372d]']}>
+								{paragraph}
+							</p>
+						))
+					}
+				</div>
+				<ImageFrame
+					src={designedHereMadeHereImage.src}
+					mobileSrc={designedHereMadeHereImage.src}
+					desktopSrc={designedHereMadeHereImage.src}
+					alt="Wild Balance designed here made here."
+					aspect="square"
+					objectPosition="center"
+				/>
 			</div>
 		</div>
 	</section>
@@ -89,19 +128,29 @@ const storySections = [
 	{
 		storySections.map((storySection) => (
 			<Section title={storySection.title} tone={storySection.tone}>
-				<div class="max-w-3xl space-y-5 text-base leading-7 text-[#625a4d] sm:text-lg sm:leading-8">
-					{
-						storySection.paragraphs.map((paragraph, index) => (
-							<p
-								class:list={[
-									paragraph.includes('Morphic') && paragraph.length < 80 && 'text-xl font-semibold text-[#3d372d]',
-									index === storySection.paragraphs.length - 1 && 'font-medium text-[#4c4438]',
-								]}
-							>
-								{paragraph}
-							</p>
-						))
-					}
+				<div class="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+					<div class="space-y-5 text-base leading-7 text-[#625a4d] sm:text-lg sm:leading-8">
+						{
+							storySection.paragraphs.map((paragraph, index) => (
+								<p
+									class:list={[
+										paragraph.includes('Morphic') && paragraph.length < 80 && 'text-xl font-semibold text-[#3d372d]',
+										index === storySection.paragraphs.length - 1 && 'font-medium text-[#4c4438]',
+									]}
+								>
+									{paragraph}
+								</p>
+							))
+						}
+					</div>
+					<ImageFrame
+						src={storySection.image.src}
+						mobileSrc={storySection.image.src}
+						desktopSrc={storySection.image.src}
+						alt={storySection.image.alt}
+						aspect="square"
+						objectPosition="center"
+					/>
 				</div>
 			</Section>
 		))

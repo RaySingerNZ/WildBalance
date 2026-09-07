@@ -16,6 +16,7 @@ interface Props {
 const { variant } = Astro.props as Props;
 
 const sizes = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
+const priceLabel = 'Price: $TBA';
 
 const galleryImages = [
 	{
@@ -43,15 +44,6 @@ const galleryImages = [
 		desktopSrc: backHoodUpImage.src,
 		mobileSrc: backHoodUpImage.src,
 	},
-];
-
-const sizeGuideRows = [
-	['XS', '87.5–88 cm', '—', '—'],
-	['S', '94 cm', '+6–6.5 cm', '7%'],
-	['M', '100–100.5 cm', '+6–6.5 cm', '6.5–7%'],
-	['L', '107–107.5 cm', '+7 cm', '7%'],
-	['XL', '116–117 cm', '+9–9.5 cm', '8.5%'],
-	['XXL', '126–128 cm', '+10–11 cm', '9%'],
 ];
 
 const productSchema = {
@@ -101,6 +93,7 @@ const productSchema = {
 
 					<div class="max-w-xl">
 						<p class="text-sm font-semibold uppercase tracking-[0.24em] text-[#626b43]">Size</p>
+						<p class="mt-2 text-sm font-semibold uppercase tracking-[0.24em] text-[#626b43]">{priceLabel}</p>
 
 						<div class="mt-3 flex flex-wrap gap-2">
 							{sizes.map((size, index) => (
@@ -117,16 +110,6 @@ const productSchema = {
 								</button>
 							))}
 						</div>
-
-						<button
-							type="button"
-							data-size-guide-open
-							aria-haspopup="dialog"
-							aria-controls="size-guide-modal"
-							class="mt-4 inline-flex text-sm font-semibold text-[#626b43] underline decoration-[#626b43]/40 underline-offset-4 hover:text-[#4e5631]"
-						>
-							View size chart
-						</button>
 
 						<div class="mt-8 grid gap-3">
 							<button type="button" class="cta-primary inline-flex items-center justify-center px-5 py-3 text-sm font-semibold">
@@ -159,28 +142,20 @@ const productSchema = {
 						This version keeps the commerce layer lighter and lets the images and description do most of the work.
 					</p>
 
-					<div class="max-w-xl md:ml-auto">
-						<p class="text-sm font-semibold uppercase tracking-[0.24em] text-[#626b43]">Size</p>
-						<div class="mt-3 flex flex-wrap gap-2">
-							{sizes.map((size) => (
-								<button type="button" class="min-w-10 rounded-[6px] border border-[#2c271f]/15 bg-[#efe8db] px-3 py-2 text-sm font-semibold text-[#2c271f]">
-									{size}
-								</button>
-							))}
+						<div class="max-w-xl md:ml-auto">
+							<p class="text-sm font-semibold uppercase tracking-[0.24em] text-[#626b43]">Size</p>
+							<p class="mt-2 text-sm font-semibold uppercase tracking-[0.24em] text-[#626b43]">{priceLabel}</p>
+							<div class="mt-3 flex flex-wrap gap-2">
+								{sizes.map((size) => (
+									<button type="button" class="min-w-10 rounded-[6px] border border-[#2c271f]/15 bg-[#efe8db] px-3 py-2 text-sm font-semibold text-[#2c271f]">
+										{size}
+									</button>
+								))}
+							</div>
 						</div>
-						<button
-							type="button"
-							data-size-guide-open
-							aria-haspopup="dialog"
-							aria-controls="size-guide-modal"
-							class="mt-4 inline-flex text-sm font-semibold text-[#626b43] underline decoration-[#626b43]/40 underline-offset-4 hover:text-[#4e5631]"
-						>
-							View size chart
-						</button>
 					</div>
 				</div>
-			</div>
-		)}
+			)}
 
 		{variant === 3 && (
 			<div class="mx-auto flex max-w-7xl flex-col px-5 sm:px-6 lg:flex-row lg:items-start lg:gap-12 lg:px-8">
@@ -221,24 +196,16 @@ const productSchema = {
 							<li>Custom made to fit you perfectly in Christchurch, New Zealand</li>
 						</ul>
 
-						<div class="pt-2">
-							<p class="text-sm font-semibold uppercase tracking-[0.24em] text-[#626b43]">Size</p>
-							<div class="mt-3 flex flex-wrap gap-2">
+							<div class="pt-2">
+								<p class="text-sm font-semibold uppercase tracking-[0.24em] text-[#626b43]">Size</p>
+								<p class="mt-2 text-sm font-semibold uppercase tracking-[0.24em] text-[#626b43]">{priceLabel}</p>
+								<div class="mt-3 flex flex-wrap gap-2">
 								{sizes.map((size) => (
 									<button type="button" class="min-w-10 rounded-[6px] border border-[#2c271f]/15 bg-[#efe8db] px-3 py-2 text-sm font-semibold text-[#2c271f]">
 										{size}
 									</button>
 								))}
 							</div>
-							<button
-								type="button"
-								data-size-guide-open
-								aria-haspopup="dialog"
-								aria-controls="size-guide-modal"
-								class="mt-4 inline-flex text-sm font-semibold text-[#626b43] underline decoration-[#626b43]/40 underline-offset-4 hover:text-[#4e5631]"
-							>
-								View size chart
-							</button>
 							<div class="mt-8 grid gap-3">
 								<button type="button" class="cta-primary inline-flex items-center justify-center px-5 py-3 text-sm font-semibold">
 									Place Order
@@ -265,9 +232,10 @@ const productSchema = {
 							This version gives more breathing room to the copy and pushes the image content closer to the top.
 						</p>
 
-						<div class="pt-2">
-							<p class="text-sm font-semibold uppercase tracking-[0.24em] text-[#626b43]">Size</p>
-							<div class="mt-3 flex flex-wrap gap-2">
+							<div class="pt-2">
+								<p class="text-sm font-semibold uppercase tracking-[0.24em] text-[#626b43]">Size</p>
+								<p class="mt-2 text-sm font-semibold uppercase tracking-[0.24em] text-[#626b43]">{priceLabel}</p>
+								<div class="mt-3 flex flex-wrap gap-2">
 								{sizes.map((size) => (
 									<button type="button" class="min-w-10 rounded-[6px] border border-[#2c271f]/15 bg-[#efe8db] px-3 py-2 text-sm font-semibold text-[#2c271f]">
 										{size}
@@ -283,16 +251,7 @@ const productSchema = {
 				</div>
 
 				<div class="mt-6 flex flex-wrap items-center gap-3">
-					<button
-						type="button"
-						data-size-guide-open
-						aria-haspopup="dialog"
-						aria-controls="size-guide-modal"
-						class="inline-flex text-sm font-semibold text-[#626b43] underline decoration-[#626b43]/40 underline-offset-4 hover:text-[#4e5631]"
-					>
-						View size chart
-					</button>
-					<button type="button" class="cta-primary inline-flex items-center justify-center px-5 py-3 text-sm font-semibold">
+						<button type="button" class="cta-primary inline-flex items-center justify-center px-5 py-3 text-sm font-semibold">
 						Add to cart
 					</button>
 				</div>
@@ -322,9 +281,10 @@ const productSchema = {
 
 				<div class="mt-6 grid gap-6 md:grid-cols-[1.1fr_0.9fr] md:items-end">
 						<div></div>
-					<div class="max-w-xl md:ml-auto">
-						<p class="text-sm font-semibold uppercase tracking-[0.24em] text-[#626b43]">Size</p>
-						<div class="mt-3 flex flex-wrap gap-2">
+						<div class="max-w-xl md:ml-auto">
+							<p class="text-sm font-semibold uppercase tracking-[0.24em] text-[#626b43]">Size</p>
+							<p class="mt-2 text-sm font-semibold uppercase tracking-[0.24em] text-[#626b43]">{priceLabel}</p>
+							<div class="mt-3 flex flex-wrap gap-2">
 							{sizes.map((size) => (
 								<button type="button" class="min-w-10 rounded-[6px] border border-[#2c271f]/15 bg-[#efe8db] px-3 py-2 text-sm font-semibold text-[#2c271f]">
 									{size}
@@ -332,16 +292,7 @@ const productSchema = {
 							))}
 						</div>
 						<div class="mt-5 flex items-center gap-4">
-							<button
-								type="button"
-								data-size-guide-open
-								aria-haspopup="dialog"
-								aria-controls="size-guide-modal"
-								class="inline-flex text-sm font-semibold text-[#626b43] underline decoration-[#626b43]/40 underline-offset-4 hover:text-[#4e5631]"
-							>
-								View size chart
-							</button>
-							<button type="button" class="cta-primary inline-flex items-center justify-center px-5 py-3 text-sm font-semibold">
+					<button type="button" class="cta-primary inline-flex items-center justify-center px-5 py-3 text-sm font-semibold">
 								Add to cart
 							</button>
 						</div>
@@ -417,85 +368,5 @@ const productSchema = {
 		</div>
 	</section>
 
-	<dialog id="size-guide-modal" class="size-guide-modal text-[#2c271f]" data-size-guide-modal>
-		<div class="size-guide-modal__panel">
-			<div class="size-guide-modal__shell">
-				<div class="flex items-start justify-between gap-6 border-b border-[#2c271f]/10 px-5 py-4 sm:px-6">
-					<div>
-						<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">Size guide</p>
-						<h2 class="mt-2 text-2xl font-semibold text-[#2c271f]">Rangitata Merino Hoodie</h2>
-					</div>
-					<button type="button" class="size-guide-modal__close" data-size-guide-close aria-label="Close size guide">
-						×
-					</button>
-				</div>
-
-				<div class="px-5 py-5 sm:px-6">
-					<div class="overflow-x-auto">
-						<table class="min-w-[760px] w-full border-collapse text-left">
-							<thead class="bg-[#e4d8c7]">
-								<tr class="text-xs font-semibold uppercase tracking-[0.22em] text-[#626b43]">
-									<th scope="col" class="px-4 py-4">Size</th>
-									<th scope="col" class="px-4 py-4">Proposed sewn chest</th>
-									<th scope="col" class="px-4 py-4">Increase</th>
-									<th scope="col" class="px-4 py-4">Approx. increase</th>
-								</tr>
-							</thead>
-							<tbody class="divide-y divide-[#2c271f]/10 bg-[#f8f3e9]">
-								{sizeGuideRows.map((row, index) => (
-									<tr class={index === 0 ? 'bg-[#f8f3e9]' : 'bg-[#fcfaf5]'}>
-										<th scope="row" class="px-4 py-4 text-sm font-semibold text-[#2c271f]">
-											{row[0]}
-										</th>
-										<td class="px-4 py-4 text-sm text-[#625a4d]">{row[1]}</td>
-										<td class="px-4 py-4 text-sm text-[#625a4d]">{row[2]}</td>
-										<td class="px-4 py-4 text-sm text-[#625a4d]">{row[3]}</td>
-									</tr>
-								))}
-							</tbody>
-						</table>
-					</div>
-
-					<div class="mt-6 grid gap-4 md:grid-cols-2">
-						<div class="border-t border-[#2c271f]/10 pt-4 text-sm leading-6 text-[#625a4d]">
-							<p class="font-semibold text-[#2c271f]">Fit note</p>
-							<p class="mt-2">The hoodie is intended to sit as a practical alpine layer with enough room to move.</p>
-						</div>
-						<div class="border-t border-[#2c271f]/10 pt-4 text-sm leading-6 text-[#625a4d]">
-							<p class="font-semibold text-[#2c271f]">Between sizes</p>
-							<p class="mt-2">If you want more room for a base layer, sizing up will usually be the safer call.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</dialog>
-
 	<script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
-	<script>
-		const sizeGuideModal = document.querySelector('[data-size-guide-modal]');
-		const sizeGuideOpen = document.querySelector('[data-size-guide-open]');
-		const sizeGuideClose = sizeGuideModal?.querySelector('[data-size-guide-close]');
-
-		const closeSizeGuide = () => {
-			if (!sizeGuideModal) return;
-
-			sizeGuideModal.close();
-		};
-
-		sizeGuideOpen?.addEventListener('click', () => {
-			if (!sizeGuideModal || typeof sizeGuideModal.showModal !== 'function') return;
-
-			sizeGuideModal.showModal();
-			sizeGuideClose?.focus();
-		});
-
-		sizeGuideClose?.addEventListener('click', closeSizeGuide);
-
-		sizeGuideModal?.addEventListener('click', (event) => {
-			if (event.target === sizeGuideModal) {
-				closeSizeGuide();
-			}
-		});
-	</script>
 </BaseLayout>

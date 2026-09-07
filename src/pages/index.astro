@@ -8,16 +8,18 @@ import { rangitataProducts } from '../data/rangitataProducts';
 import hero1Image from '../assets/img/WildBalance_Hero1.jpg';
 import hero1LandscapeImage from '../assets/img/WildBalance_Hero1_NarrowLandscape.jpg';
 import hero2Image from '../assets/img/WildBalance_Hero2.jpg';
-import lakeShotImage from '../assets/img/lifestyle/WildBalance_AlpineTerrain_LakeShot.jpg';
-import riverShotImage from '../assets/img/lifestyle/WildBalance_AlpineTerrain_RiverShot.jpg';
-import singerSewingMachineImage from '../assets/img/lifestyle/WildBalance_SingerSewingMachine_OurHistory.jpg';
+import beechGlassingImage from '../assets/img/lifestyle/WildBalance_AlpineTerrain_BeechGreenHiddenGlassing.jpg';
+import summitShotImage from '../assets/img/lifestyle/WildBalance_AlpineTerrain_SummitShot.jpg';
+import blackGlassingImage from '../assets/img/lifestyle/WildBalance_AlpineTerrain_BlackGreywackeGlassing1.jpg';
+import singerSewingMachineImage from '../assets/img/about/WildBalance_TheProcessOfMakingAHoodie.jpg';
 
 const placeholderImages = {
 	hero1: hero1Image.src,
 	hero1Landscape: hero1LandscapeImage.src,
 	hero2: hero2Image.src,
-	lakeShot: lakeShotImage.src,
-	riverShot: riverShotImage.src,
+	beechGlassing: beechGlassingImage.src,
+	summitShot: summitShotImage.src,
+	blackGlassing: blackGlassingImage.src,
 	singerSewingMachine: singerSewingMachineImage.src,
 	wool:
 		'https://images.unsplash.com/photo-1550376026-7375b92bb318?auto=format&fit=crop&q=80&w=1200',
@@ -85,30 +87,30 @@ const hoodieUses = ['Cold mornings', 'Long climbs', 'Glassing', 'Camp', 'Around 
 			We're excited to bring you merino gear shaped by years behind the machines and time in the hills.
 		</p>
 		<div class="-mx-5 -mb-16 mt-10 grid gap-4 sm:-mx-6 sm:-mb-20 md:mx-0 md:mb-0 md:grid-cols-3">
-			<a href={placeholderImages.lakeShot} target="_blank" rel="noreferrer" class="block">
+			<div>
 				<ImageFrame
-					src={placeholderImages.lakeShot}
-					alt="Wild Balance alpine terrain lake shot."
+					src={placeholderImages.blackGlassing}
+					alt="Wild Balance alpine terrain black and greywacke glassing shot."
 					aspect="square"
 					objectPosition="center"
 				/>
-			</a>
-			<a href={placeholderImages.hero2} target="_blank" rel="noreferrer" class="block">
+			</div>
+			<div>
 				<ImageFrame
-					src={placeholderImages.hero2}
-					alt="Placeholder image of a hunter in a hoodie standing in front of a rock wall."
+					src={placeholderImages.summitShot}
+					alt="Wild Balance alpine terrain summit shot."
 					aspect="square"
 					objectPosition="center"
 				/>
-			</a>
-			<a href={placeholderImages.riverShot} target="_blank" rel="noreferrer" class="block">
+			</div>
+			<div>
 				<ImageFrame
-					src={placeholderImages.riverShot}
-					alt="Wild Balance alpine terrain river shot."
+					src={placeholderImages.beechGlassing}
+					alt="Wild Balance alpine terrain beech green glassing shot."
 					aspect="square"
 					objectPosition="center"
 				/>
-			</a>
+			</div>
 		</div>
 	</Section>
 
@@ -158,7 +160,7 @@ const hoodieUses = ['Cold mornings', 'Long climbs', 'Glassing', 'Camp', 'Around 
 									{product.fitLabel === 'Men’s Fit' ? 'MEN’S MERINO' : 'WOMEN’S MERINO'}
 								</p>
 								<p class="text-sm leading-6 text-[#625a4d]">
-									{product.colourwayLabel === 'Greywacke / Black Shibori' ? 'Greywacke / Black / Shibori Dye' : product.colourwayLabel}
+									{product.colourwayLabel}
 								</p>
 								<p class="text-sm font-semibold leading-6 text-[#626b43] underline decoration-[#626b43]/40 underline-offset-4">
 									View / Order
@@ -204,7 +206,7 @@ Now, with new patterns refined and a sewing studio rebuilt, we are ready to make
 			<ImageFrame
 				src={placeholderImages.singerSewingMachine}
 				alt="Singer sewing machine used in Wild Balance's history."
-				aspect="wide"
+				aspect="square"
 				objectPosition="center"
 				className="-mx-5 -mb-16 sm:-mx-6 sm:-mb-20 lg:mx-0 lg:mb-0"
 			/>
