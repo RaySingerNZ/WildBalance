@@ -17,6 +17,7 @@ interface Props {
 	pageTitle: string;
 	priceLabel: string;
 	productName: string;
+	robots?: string;
 	schemaName: string;
 	schemaDescription: string;
 	summaryLead: string;
@@ -32,6 +33,7 @@ const {
 	pageTitle,
 	priceLabel,
 	productName,
+	robots,
 	schemaName,
 	schemaDescription,
 	summaryLead,
@@ -41,8 +43,6 @@ const {
 const isWomensFit = fitLabel === 'Women’s Fit';
 const sizes = isWomensFit ? ['6', '8', '10', '12', '14', '16'] : ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
 const defaultSize = isWomensFit ? '10' : 'M';
-const introSummaryParagraphs = summaryParagraphs.slice(0, 2);
-const bodySummaryParagraphs = summaryParagraphs.slice(2);
 
 const productSchema = {
 	'@context': 'https://schema.org',
@@ -59,7 +59,7 @@ const productSchema = {
 };
 ---
 
-<BaseLayout title={pageTitle} description={description} image={galleryImages[0]?.desktopSrc}>
+<BaseLayout title={pageTitle} description={description} image={galleryImages[0]?.desktopSrc} robots={robots}>
 	<section class="border-b border-[#2c271f]/10 bg-[#efe8db] pt-0 pb-10 sm:py-14">
 		<div class="mx-auto flex max-w-7xl flex-col px-5 sm:px-6 lg:flex-row lg:items-start lg:gap-10 lg:px-8">
 			<div class="product-gallery-wrap w-full min-w-0 flex-[0.92] space-y-6">
@@ -80,7 +80,7 @@ const productSchema = {
 					<p class="text-sm font-semibold uppercase tracking-[0.24em] text-[#626b43]">{priceLabel}</p>
 					<p class="max-w-3xl text-base leading-7 text-[#4c4438]">{summaryLead}</p>
 					<div class="max-w-3xl space-y-4 text-sm leading-6 text-[#625a4d] sm:text-base sm:leading-7">
-						{introSummaryParagraphs.map((paragraph) => <p>{paragraph}</p>)}
+						{summaryParagraphs.map((paragraph) => <p>{paragraph}</p>)}
 					</div>
 
 					<div class="pt-2">
@@ -115,7 +115,6 @@ const productSchema = {
 					</div>
 
 					<div class="space-y-4 pt-4 text-sm leading-6 text-[#625a4d] sm:text-base sm:leading-7">
-						{bodySummaryParagraphs.map((paragraph) => <p>{paragraph}</p>)}
 						<ul class="list-disc space-y-2 pl-5 pt-1 text-sm leading-6 text-[#625a4d] sm:text-base">
 							{bulletPoints.map((point) => <li>{point}</li>)}
 						</ul>

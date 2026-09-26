@@ -20,23 +20,84 @@ const {
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? 'https://wildbalance.nz').href;
 const socialImage = new URL(image, Astro.site ?? 'https://wildbalance.nz').href;
 const siteName = 'Wild Balance';
+const siteUrl = Astro.site ?? 'https://wildbalance.nz';
+const normalizedPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const pathSegments = normalizedPath === '/' ? [] : normalizedPath.split('/').filter(Boolean);
+
+const breadcrumbLabelMap: Record<string, string> = {
+	about: 'About',
+	contact: 'Contact',
+	products: 'Products',
+	shop: 'Shop',
+	thanks: 'Thanks',
+	'rangitata-merino-hoodie': 'Rangitata Merino Hoodie',
+	'mens-beech-green-tussock': "Men's Beech Green / Tussock",
+	'mens-greywacke-black-shibori': "Men's Greywacke / Black Shibori",
+	'womens-beech-green-tussock': "Women’s Beech Green / Tussock",
+	'womens-greywacke-black-shibori': "Women’s Greywacke / Black Shibori",
+};
+
+const toTitleCase = (segment: string) =>
+	segment
+		.split('-')
+		.map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+		.join(' ');
+
+const breadcrumbItems = normalizedPath === '/'
+	? []
+	: [
+			{
+				'@type': 'ListItem',
+				position: 1,
+				name: 'Home',
+				item: new URL('/', siteUrl).href,
+			},
+			...pathSegments.map((segment, index) => {
+				const href = `/${pathSegments.slice(0, index + 1).join('/')}/`;
+
+				return {
+					'@type': 'ListItem',
+					position: index + 2,
+					name: breadcrumbLabelMap[segment] ?? toTitleCase(segment),
+					item: new URL(href, siteUrl).href,
+				};
+			}),
+		];
 
 const structuredData = [
 	{
 		'@context': 'https://schema.org',
 		'@type': 'Organization',
 		name: siteName,
-		url: new URL('/', Astro.site ?? 'https://wildbalance.nz').href,
-		logo: new URL('/favicon.svg', Astro.site ?? 'https://wildbalance.nz').href,
+		url: new URL('/', siteUrl).href,
+		logo: new URL('/favicon.svg', siteUrl).href,
 		description,
+		sameAs: ['https://www.instagram.com/wildbalance.nz/'],
+		contactPoint: [
+			{
+				'@type': 'ContactPoint',
+				contactType: 'customer service',
+				email: 'ray@wildbalance.nz',
+				availableLanguage: ['English'],
+			},
+		],
 	},
 	{
 		'@context': 'https://schema.org',
 		'@type': 'WebSite',
 		name: siteName,
-		url: new URL('/', Astro.site ?? 'https://wildbalance.nz').href,
+		url: new URL('/', siteUrl).href,
 		description,
 	},
+	...(breadcrumbItems.length > 0
+		? [
+				{
+					'@context': 'https://schema.org',
+					'@type': 'BreadcrumbList',
+					itemListElement: breadcrumbItems,
+				},
+			]
+		: []),
 ];
 ---
 
