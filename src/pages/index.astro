@@ -10,7 +10,7 @@ import hero1LandscapeImage from '../assets/img/WildBalance_Hero1_NarrowLandscape
 import hero2Image from '../assets/img/WildBalance_Hero2.jpg';
 import beechGlassingImage from '../assets/img/lifestyle/WildBalance_AlpineTerrain_BeechGreenHiddenGlassing.jpg';
 import summitShotImage from '../assets/img/lifestyle/WildBalance_AlpineTerrain_SummitShot.jpg';
-import blackGlassingImage from '../assets/img/lifestyle/WildBalance_AlpineTerrain_BlackGreywackeGlassing1.jpg';
+import lakeImage from '../assets/img/lifestyle/WildBalance_AlpineTerrain_LakeShot.jpg';
 import singerSewingMachineImage from '../assets/img/about/WildBalance_TheProcessOfMakingAHoodie.jpg';
 
 const placeholderImages = {
@@ -19,7 +19,7 @@ const placeholderImages = {
 	hero2: hero2Image.src,
 	beechGlassing: beechGlassingImage.src,
 	summitShot: summitShotImage.src,
-	blackGlassing: blackGlassingImage.src,
+	lake: lakeImage.src,
 	singerSewingMachine: singerSewingMachineImage.src,
 	wool:
 		'https://images.unsplash.com/photo-1550376026-7375b92bb318?auto=format&fit=crop&q=80&w=1200',
@@ -89,16 +89,8 @@ const hoodieUses = ['Cold mornings', 'Long climbs', 'Glassing', 'Camp', 'Around 
 		<div class="-mx-5 -mb-16 mt-10 grid gap-4 sm:-mx-6 sm:-mb-20 md:mx-0 md:mb-0 md:grid-cols-3">
 			<div>
 				<ImageFrame
-					src={placeholderImages.blackGlassing}
-					alt="Wild Balance alpine terrain black and greywacke glassing shot."
-					aspect="square"
-					objectPosition="center"
-				/>
-			</div>
-			<div>
-				<ImageFrame
-					src={placeholderImages.summitShot}
-					alt="Wild Balance alpine terrain summit shot."
+					src={placeholderImages.lake}
+					alt="Wild Balance alpine terrain lake shot."
 					aspect="square"
 					objectPosition="center"
 				/>
@@ -107,6 +99,14 @@ const hoodieUses = ['Cold mornings', 'Long climbs', 'Glassing', 'Camp', 'Around 
 				<ImageFrame
 					src={placeholderImages.beechGlassing}
 					alt="Wild Balance alpine terrain beech green glassing shot."
+					aspect="square"
+					objectPosition="center"
+				/>
+			</div>
+			<div>
+				<ImageFrame
+					src={placeholderImages.summitShot}
+					alt="Wild Balance alpine terrain summit shot."
 					aspect="square"
 					objectPosition="center"
 				/>

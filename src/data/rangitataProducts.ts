@@ -7,11 +7,9 @@ import glassingHiddenMenBeech from '../assets/img/products/Mens_RangitataHoodie_
 import glassingCloseUpMenBeech from '../assets/img/products/Mens_RangitataHoodie_BeechGreenAndTussock/WildBalance_Mens200_GlassingCloseUp_Alpine.jpg';
 import backHoodieWalkingMenBeech from '../assets/img/products/Mens_RangitataHoodie_BeechGreenAndTussock/WildBalance_Mens200_BackHoodieWalking_Alpine.jpg';
 
-import blackGreywackeStandingMenGreywacke from '../assets/img/products/Mens_RangitataHoodie_GreywackeAndBlack/WildBalance_Mens200_BlackGreywacke_Standing.jpg';
-import blackGreywackeCrouchMenGreywacke from '../assets/img/products/Mens_RangitataHoodie_GreywackeAndBlack/WildBalance_Mens200_BlackGreywacke_Crouch.jpg';
-import blackGreywackeGlassingMenGreywacke from '../assets/img/products/Mens_RangitataHoodie_GreywackeAndBlack/WildBalance_Mens200_BlackGreywacke_Glassing.jpg';
-import blackGreywackeWalkingMenGreywacke from '../assets/img/products/Mens_RangitataHoodie_GreywackeAndBlack/WildBalance_Mens200_BlackGreywacke_Walking.jpg';
-import blackGreywackeWalkieTalkieMenGreywacke from '../assets/img/products/Mens_RangitataHoodie_GreywackeAndBlack/WildBalance_Mens200_BlackGreywacke_WalkieTalkie.jpg';
+import blackGreywackeStandingMenGreywacke from '../assets/img/products/Mens_RangitataHoodie_GreywackeAndBlack/WildBalance_Mens200_BlackGreywackeBlackDye_Standing.jpg';
+import blackGreywackeCrouchMenGreywacke from '../assets/img/products/Mens_RangitataHoodie_GreywackeAndBlack/WildBalance_Mens200_BlackGreywackeBlackDye_Crouch.jpg';
+import blackGreywackeWalkingMenGreywacke from '../assets/img/products/Mens_RangitataHoodie_GreywackeAndBlack/WildBalance_Mens200_BlackGreywackeBlackDye_Walking.jpg';
 
 import frontHoodDownWomenGreywacke from '../assets/img/products/Womens_RangitataHoodie_GreywackeAndBlack/WildBalance_WomensRangitata_Greywacke_FrontHoodDown_Alpine.jpg';
 import frontHoodDownWomenBeech from '../assets/img/products/Womens_RangitataHoodie_BeechGreenAndTussock/WildBalance_WomensRangitata_BeechGreen_FrontHoodDown_Alpine.jpg';
@@ -41,13 +39,14 @@ export interface ProductPageData {
 // Each block is used for both the men's and women's fit in that colourway.
 const beechCopy = {
 	description:
-		'Built for cold starts, breathable on long climbs, and warm while glassing the tops. Made from 200gsm pure merino wool, the lightweight fabric helps regulate temperature, moves moisture away from the skin, and stays comfortable as conditions change. Wear it on its own or layer it up. A generous hood gives extra coverage from the sun or when the weather turns, while the long sleeves add protection without the bulk of a heavier mid-layer. The fit is flexible, adaptable and made to move without getting in the way. Each hoodie is made to order in Christchurch, designed and sewn by people who spend time in the same country it’s made for. We only have a limited amount of Beech Green and Tussock fabric, so we’re making just 20 hoodies in these colours. If you’d like one, hit ‘Place Order’. We’ll get in touch to confirm your size and delivery details before taking payment and starting your hoodie.',
+		'Built for cold starts, breathable on long climbs, and warm while glassing the tops. Made from 200gsm pure merino wool, the lightweight fabric helps regulate temperature, moves moisture away from the skin, and stays comfortable as conditions change. Wear it on its own or layer it up. A generous hood gives extra coverage from the sun or when the weather turns, while the long sleeves add protection without the bulk of a heavier mid-layer. The fit is flexible, adaptable and made to move without getting in the way. Each hoodie is made to order in Christchurch, designed and sewn by people who spend time in the same country it’s made for. Engineered for the high country, the Tussock and Beech Green tones of this hoodie match the native sub-alpine scrub to help you stay concealed while glassing. The natural merino fabric eliminates the synthetic UV glow that game animals easily spot, while the contrasting block-coloured sleeves break up your outline against the hillside. We only have a limited amount of Beech Green and Tussock fabric, so we’re making just 20 hoodies in these colours. If you’d like one, hit ‘Place Order’. We’ll get in touch to confirm your size and delivery details before taking payment and starting your hoodie.',
 	priceLabel: 'Price: $195 NZD',
 	summaryLead: 'Built for cold starts, breathable on long climbs, and warm while glassing the tops.',
 	summaryParagraphs: [
 		'Made from 200gsm pure merino wool, the lightweight fabric helps regulate temperature, moves moisture away from the skin, and stays comfortable as conditions change. Wear it on its own or layer it up.',
 		'A generous hood gives extra coverage from the sun or when the weather turns, while the long sleeves add protection without the bulk of a heavier mid-layer. The fit is flexible, adaptable and made to move without getting in the way.',
 		'Each hoodie is made to order in Christchurch, designed and sewn by people who spend time in the same country it’s made for.',
+		'Engineered for the high country, the Tussock and Beech Green tones of this hoodie match the native sub-alpine scrub to help you stay concealed while glassing. The natural merino fabric eliminates the synthetic UV glow that game animals easily spot, while the contrasting block-coloured sleeves break up your outline against the hillside.',
 		'We only have a limited amount of Beech Green and Tussock fabric, so we’re making just 20 hoodies in these colours.',
 		'If you’d like one, hit ‘Place Order’. We’ll get in touch to confirm your size and delivery details before taking payment and starting your hoodie.',
 	],
@@ -55,16 +54,15 @@ const beechCopy = {
 
 const greywackeCopy = {
 	description:
-		'Almost ready. We’re still making a few final tweaks to the Greywacke colourway and dye process before launch, including finalising pricing. Each hoodie is made to order in Christchurch, New Zealand. Designed and sewn for real alpine use. Built for cold starts, breathable on long climbs, and warm while glassing the tops. Made from 200gsm pure merino wool, the fabric helps regulate temperature, moves moisture away from the skin, and stays comfortable across changing conditions. It works on its own or as part of a layering system. A generous hood gives extra coverage from the sun or when the weather turns, while the long sleeves add protection without the bulk of a heavier mid-layer. Greywacke uses a custom hand-dyed finish, so no two hoodies will be exactly the same.',
-	priceLabel: 'Price: $TBA',
-	summaryLead: 'Almost ready.',
+		'Built for cold starts, breathable on long climbs, and warm while glassing the tops. Made from 200gsm pure merino wool, the lightweight fabric helps regulate temperature, moves moisture away from the skin, and stays comfortable as conditions change. Wear it on its own or layer it up. A generous hood gives extra coverage from the sun or when the weather turns, while the long sleeves add protection without the bulk of a heavier mid-layer. The fit is flexible, adaptable and made to move without getting in the way. Each hoodie is made to order in Christchurch, designed and sewn by people who spend time in the same country it’s made for. Each Greywacke hoodie has a custom shibori dye job. The pattern creates natural camouflage that helps break up your outline to animals. Each garment is completely unique. If you’d like one, hit ‘Place Order’. We’ll get in touch to confirm your size and delivery details before taking payment and starting your hoodie.',
+	priceLabel: 'Price: $245 NZD',
+	summaryLead: 'Built for cold starts, breathable on long climbs, and warm while glassing the tops.',
 	summaryParagraphs: [
-		'We’re still making a few final tweaks to the Greywacke colourway and dye process before launch, including finalising pricing.',
-		'Each hoodie is made to order in Christchurch, New Zealand. Designed and sewn for real alpine use.',
-		'Built for cold starts, breathable on long climbs, and warm while glassing the tops.',
-		'Made from 200gsm pure merino wool, the fabric helps regulate temperature, moves moisture away from the skin, and stays comfortable across changing conditions. It works on its own or as part of a layering system.',
-		'A generous hood gives extra coverage from the sun or when the weather turns, while the long sleeves add protection without the bulk of a heavier mid-layer.',
-		'Greywacke uses a custom hand-dyed finish, so no two hoodies will be exactly the same.',
+		'Made from 200gsm pure merino wool, the lightweight fabric helps regulate temperature, moves moisture away from the skin, and stays comfortable as conditions change. Wear it on its own or layer it up.',
+		'A generous hood gives extra coverage from the sun or when the weather turns, while the long sleeves add protection without the bulk of a heavier mid-layer. The fit is flexible, adaptable and made to move without getting in the way.',
+		'Each hoodie is made to order in Christchurch, designed and sewn by people who spend time in the same country it’s made for.',
+		'Each Greywacke hoodie has a custom shibori dye job. The pattern creates natural camouflage that helps break up your outline to animals. Each garment is completely unique.',
+		'If you’d like one, hit ‘Place Order’. We’ll get in touch to confirm your size and delivery details before taking payment and starting your hoodie.',
 	],
 };
 
@@ -83,10 +81,12 @@ const createProduct = (
 	colourwayLabel: string,
 	gallery: {
 		frontDown: GalleryImage;
+		second?: GalleryImage;
 		frontUp?: GalleryImage;
 		side?: GalleryImage;
 		extraImages?: GalleryImage[];
 		backDown?: GalleryImage;
+		afterBackDown?: GalleryImage[];
 		backUp?: GalleryImage;
 	},
 	copy: { description: string; priceLabel: string; summaryLead: string; summaryParagraphs: string[] },
@@ -97,10 +97,12 @@ const createProduct = (
 	fitLabel,
 	galleryImages: [
 		gallery.frontDown,
+		...(gallery.second ? [gallery.second] : []),
 		...(gallery.frontUp ? [gallery.frontUp] : []),
 		...(gallery.side ? [gallery.side] : []),
 		...(gallery.extraImages ?? []),
 		...(gallery.backDown ? [gallery.backDown] : []),
+		...(gallery.afterBackDown ?? []),
 		...(gallery.backUp ? [gallery.backUp] : []),
 	],
 	pageTitle,
@@ -124,6 +126,11 @@ export const rangitataProducts = {
 				desktopSrc: frontHoodUpMenBeech.src,
 				mobileSrc: frontHoodUpMenBeech.src,
 			},
+			second: {
+				alt: 'Wild Balance men’s Rangitata hoodie hidden glassing view in Beech Green and Tussock.',
+				desktopSrc: glassingHiddenMenBeech.src,
+				mobileSrc: glassingHiddenMenBeech.src,
+			},
 			frontUp: {
 				alt: 'Wild Balance men’s Rangitata hoodie front view with hood down in Beech Green and Tussock.',
 				desktopSrc: frontHoodDownMenBeech.src,
@@ -136,19 +143,9 @@ export const rangitataProducts = {
 			},
 			extraImages: [
 				{
-					alt: 'Wild Balance men’s Rangitata hoodie hidden glassing view in Beech Green and Tussock.',
-					desktopSrc: glassingHiddenMenBeech.src,
-					mobileSrc: glassingHiddenMenBeech.src,
-				},
-				{
 					alt: 'Wild Balance men’s Rangitata hoodie glassing close-up in Beech Green and Tussock.',
 					desktopSrc: glassingCloseUpMenBeech.src,
 					mobileSrc: glassingCloseUpMenBeech.src,
-				},
-				{
-					alt: 'Wild Balance men’s Rangitata hoodie back walking view in Beech Green and Tussock.',
-					desktopSrc: backHoodieWalkingMenBeech.src,
-					mobileSrc: backHoodieWalkingMenBeech.src,
 				},
 			],
 			backDown: {
@@ -156,6 +153,13 @@ export const rangitataProducts = {
 				desktopSrc: backHoodDownMenBeech.src,
 				mobileSrc: backHoodDownMenBeech.src,
 			},
+			afterBackDown: [
+				{
+					alt: 'Wild Balance men’s Rangitata hoodie back walking view in Beech Green and Tussock.',
+					desktopSrc: backHoodieWalkingMenBeech.src,
+					mobileSrc: backHoodieWalkingMenBeech.src,
+				},
+			],
 			backUp: {
 				alt: 'Wild Balance men’s Rangitata hoodie back view with hood up in Beech Green and Tussock.',
 				desktopSrc: backHoodUpMenBeech.src,
@@ -165,35 +169,23 @@ export const rangitataProducts = {
 		beechCopy,
 	),
 	mensGreywacke: createProduct(
-		'Rangitata Merino Hoodie - Men\'s Fit - Greywacke / Black Shibori | Wild Balance',
+		'Rangitata Merino Hoodie - Men\'s Fit - Greywacke / Black Dye | Wild Balance',
 		'Rangitata Merino Hoodie',
 		'Men’s Fit',
-		'Greywacke / Black / Shibori Dye',
+		'Greywacke / Black Dye',
 		{
 			frontDown: {
-				alt: 'Wild Balance men’s Rangitata hoodie walking view in Greywacke and Black Shibori Dye.',
+				alt: 'Wild Balance men’s Rangitata hoodie walking view in Greywacke and Black Dye.',
 				desktopSrc: blackGreywackeWalkingMenGreywacke.src,
 				mobileSrc: blackGreywackeWalkingMenGreywacke.src,
 			},
 			frontUp: {
-				alt: 'Wild Balance men’s Rangitata hoodie crouching view in Greywacke and Black Shibori Dye.',
+				alt: 'Wild Balance men’s Rangitata hoodie crouching view in Greywacke and Black Dye.',
 				desktopSrc: blackGreywackeCrouchMenGreywacke.src,
 				mobileSrc: blackGreywackeCrouchMenGreywacke.src,
 			},
-			side: {
-				alt: 'Wild Balance men’s Rangitata hoodie glassing view in Greywacke and Black Shibori Dye.',
-				desktopSrc: blackGreywackeGlassingMenGreywacke.src,
-				mobileSrc: blackGreywackeGlassingMenGreywacke.src,
-			},
-			extraImages: [
-				{
-					alt: 'Wild Balance men’s Rangitata hoodie walkie talkie view in Greywacke and Black Shibori Dye.',
-					desktopSrc: blackGreywackeWalkieTalkieMenGreywacke.src,
-					mobileSrc: blackGreywackeWalkieTalkieMenGreywacke.src,
-				},
-			],
 			backDown: {
-				alt: 'Wild Balance men’s Rangitata hoodie standing view in Greywacke and Black Shibori Dye.',
+				alt: 'Wild Balance men’s Rangitata hoodie standing view in Greywacke and Black Dye.',
 				desktopSrc: blackGreywackeStandingMenGreywacke.src,
 				mobileSrc: blackGreywackeStandingMenGreywacke.src,
 			},
