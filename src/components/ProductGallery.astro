@@ -1,4 +1,7 @@
 ---
+import { getImage } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
 interface GalleryImage {
 	alt: string;
 	desktopSrc: string;
@@ -12,11 +15,19 @@ interface Props {
 
 const { images, className = '' } = Astro.props;
 const hasMultipleImages = images.length > 1;
+const localImages = Object.values(import.meta.glob<ImageMetadata>('../assets/img/products/**/*.jpg', { eager: true, import: 'default' }));
+const imageBySrc = new Map(localImages.map((image) => [image.src, image]));
+const thumbnailSources = await Promise.all(
+	images.map(async (image) => {
+		const source = imageBySrc.get(image.mobileSrc);
+		return source ? (await getImage({ src: source, width: 320, format: 'webp', quality: 70 })).src : image.mobileSrc;
+	}),
+);
 ---
 
 <div class:list={['product-gallery relative w-full overflow-hidden', className]} data-product-gallery data-zoomed="false">
 	<div class="product-gallery__stage">
-		<button type="button" class="product-gallery__main" data-gallery-main-toggle aria-label="Zoom image">
+		<button type="button" class="product-gallery__main" data-gallery-main-toggle data-image-state="loading" aria-label="Zoom image">
 			<picture class="block h-full w-full">
 				<source data-gallery-desktop-source media="(min-width: 1024px)" srcset={images[0]?.desktopSrc} />
 				<img
@@ -56,10 +67,11 @@ const hasMultipleImages = images.length > 1;
 						type="button"
 						class="product-gallery__thumb"
 						data-gallery-thumb
+						data-image-state="loading"
 						data-gallery-index={index}
 						aria-label={`Show image ${index + 1}`}
 					>
-						<img src={image.mobileSrc} alt={image.alt} class="product-gallery__thumb-image" loading="lazy" decoding="async" />
+						<img src={thumbnailSources[index]} alt={image.alt} class="product-gallery__thumb-image" loading="eager" decoding="async" width="320" height="320" />
 					</button>
 				))}
 			</div>
@@ -75,9 +87,27 @@ const hasMultipleImages = images.length > 1;
 	const prevButton = root?.querySelector('[data-gallery-prev]');
 	const nextButton = root?.querySelector('[data-gallery-next]');
 	const thumbButtons = Array.from(root?.querySelectorAll('[data-gallery-thumb]') ?? []);
+	thumbButtons.forEach((button) => {
+		const thumbnail = button.querySelector('img');
+		if (!thumbnail) return;
+		thumbnail.addEventListener('load', () => {
+			button.dataset.imageState = 'loaded';
+		});
+		thumbnail.addEventListener('error', () => {
+			button.dataset.imageState = 'error';
+		});
+		if (thumbnail.complete) button.dataset.imageState = thumbnail.naturalWidth ? 'loaded' : 'error';
+	});
 
 	if (root && galleryMainImage && galleryDesktopSource && galleryMainToggle) {
 		let currentIndex = 0;
+		galleryMainImage.addEventListener('load', () => {
+			galleryMainToggle.dataset.imageState = 'loaded';
+		});
+		galleryMainImage.addEventListener('error', () => {
+			galleryMainToggle.dataset.imageState = 'error';
+		});
+		if (galleryMainImage.complete) galleryMainToggle.dataset.imageState = galleryMainImage.naturalWidth ? 'loaded' : 'error';
 
 		const setZoom = (zoomed) => {
 			root.dataset.zoomed = zoomed ? 'true' : 'false';
@@ -88,9 +118,11 @@ const hasMultipleImages = images.length > 1;
 			currentIndex = (nextIndex + images.length) % images.length;
 			const image = images[currentIndex];
 
+			galleryMainToggle.dataset.imageState = 'loading';
 			galleryDesktopSource.setAttribute('srcset', image.desktopSrc);
 			galleryMainImage.setAttribute('src', image.mobileSrc);
 			galleryMainImage.setAttribute('alt', image.alt);
+			if (galleryMainImage.complete && galleryMainImage.naturalWidth) galleryMainToggle.dataset.imageState = 'loaded';
 
 			thumbButtons.forEach((button, index) => {
 				button.dataset.active = index === currentIndex ? 'true' : 'false';

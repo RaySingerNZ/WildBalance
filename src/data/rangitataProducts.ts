@@ -2,10 +2,14 @@ import frontHoodUpMenBeech from '../assets/img/products/Mens_RangitataHoodie_Bee
 import frontHoodDownMenBeech from '../assets/img/products/Mens_RangitataHoodie_BeechGreenAndTussock/WildBalance_Mens200_FrontHoodDown_Alpine.jpg';
 import backHoodUpMenBeech from '../assets/img/products/Mens_RangitataHoodie_BeechGreenAndTussock/WildBalance_Mens200_BackHoodUp_Alpine.jpg';
 import backHoodDownMenBeech from '../assets/img/products/Mens_RangitataHoodie_BeechGreenAndTussock/WildBalance_Mens200_BackHoodDown_Alpine.jpg';
-import sideCloseUpMenBeech from '../assets/img/products/Mens_RangitataHoodie_BeechGreenAndTussock/WildBalance_Mens200_SideCloseUp_Alpine.jpg';
 import glassingHiddenMenBeech from '../assets/img/products/Mens_RangitataHoodie_BeechGreenAndTussock/WildBalance_Mens200_GlassingHidden_Alpine.jpg';
 import glassingCloseUpMenBeech from '../assets/img/products/Mens_RangitataHoodie_BeechGreenAndTussock/WildBalance_Mens200_GlassingCloseUp_Alpine.jpg';
 import backHoodieWalkingMenBeech from '../assets/img/products/Mens_RangitataHoodie_BeechGreenAndTussock/WildBalance_Mens200_BackHoodieWalking_Alpine.jpg';
+import stJamesTagCloseUpMenBeech from '../assets/img/products/Mens_RangitataHoodie_BeechGreenAndTussock/WildBalance_Mens200_StJames_TagCloseUp_Alpine.jpg';
+import stJamesHikingUpMenBeech from '../assets/img/products/Mens_RangitataHoodie_BeechGreenAndTussock/WildBalance_Mens200_StJames_HikingUp_Alpine.jpg';
+import stJamesFromDistanceHikingUpMenBeech from '../assets/img/products/Mens_RangitataHoodie_BeechGreenAndTussock/WildBalance_Mens200_StJames_FromDistanceHikingUp_Alpine.jpg';
+import stJamesHuntingMenBeech from '../assets/img/products/Mens_RangitataHoodie_BeechGreenAndTussock/WildBalance_Mens200_StJames_Hunting_Alpine.jpg';
+import stJamesCamoHuntingMenBeech from '../assets/img/products/Mens_RangitataHoodie_BeechGreenAndTussock/WildBalance_Mens200_StJames_CamoHunting_Alpine.jpg';
 
 import blackGreywackeStandingMenGreywacke from '../assets/img/products/Mens_RangitataHoodie_GreywackeAndBlack/WildBalance_Mens200_BlackGreywackeBlackDye_Standing.jpg';
 import blackGreywackeCrouchMenGreywacke from '../assets/img/products/Mens_RangitataHoodie_GreywackeAndBlack/WildBalance_Mens200_BlackGreywackeBlackDye_Crouch.jpg';
@@ -83,7 +87,6 @@ const createProduct = (
 		frontDown: GalleryImage;
 		second?: GalleryImage;
 		frontUp?: GalleryImage;
-		side?: GalleryImage;
 		extraImages?: GalleryImage[];
 		backDown?: GalleryImage;
 		afterBackDown?: GalleryImage[];
@@ -99,7 +102,6 @@ const createProduct = (
 		gallery.frontDown,
 		...(gallery.second ? [gallery.second] : []),
 		...(gallery.frontUp ? [gallery.frontUp] : []),
-		...(gallery.side ? [gallery.side] : []),
 		...(gallery.extraImages ?? []),
 		...(gallery.backDown ? [gallery.backDown] : []),
 		...(gallery.afterBackDown ?? []),
@@ -122,9 +124,9 @@ export const rangitataProducts = {
 		'Beech Green / Tussock',
 		{
 			frontDown: {
-				alt: 'Wild Balance men’s Rangitata hoodie front view with hood up in Beech Green and Tussock.',
-				desktopSrc: frontHoodUpMenBeech.src,
-				mobileSrc: frontHoodUpMenBeech.src,
+				alt: 'Hunter in the men’s Beech Green and Tussock Rangitata hoodie hiking up an alpine hillside.',
+				desktopSrc: stJamesHikingUpMenBeech.src,
+				mobileSrc: stJamesHikingUpMenBeech.src,
 			},
 			second: {
 				alt: 'Wild Balance men’s Rangitata hoodie hidden glassing view in Beech Green and Tussock.',
@@ -136,16 +138,36 @@ export const rangitataProducts = {
 				desktopSrc: frontHoodDownMenBeech.src,
 				mobileSrc: frontHoodDownMenBeech.src,
 			},
-			side: {
-				alt: 'Wild Balance men’s Rangitata hoodie side close-up in Beech Green and Tussock.',
-				desktopSrc: sideCloseUpMenBeech.src,
-				mobileSrc: sideCloseUpMenBeech.src,
-			},
 			extraImages: [
 				{
 					alt: 'Wild Balance men’s Rangitata hoodie glassing close-up in Beech Green and Tussock.',
 					desktopSrc: glassingCloseUpMenBeech.src,
 					mobileSrc: glassingCloseUpMenBeech.src,
+				},
+				{
+					alt: 'Close-up of the Wild Balance label on the men’s Beech Green and Tussock Rangitata hoodie in alpine country.',
+					desktopSrc: stJamesTagCloseUpMenBeech.src,
+					mobileSrc: stJamesTagCloseUpMenBeech.src,
+				},
+				{
+					alt: 'Wild Balance men’s Rangitata hoodie front view with hood up in Beech Green and Tussock.',
+					desktopSrc: frontHoodUpMenBeech.src,
+					mobileSrc: frontHoodUpMenBeech.src,
+				},
+				{
+					alt: 'Distant view of a hunter in the men’s Beech Green and Tussock Rangitata hoodie on an alpine hillside.',
+					desktopSrc: stJamesFromDistanceHikingUpMenBeech.src,
+					mobileSrc: stJamesFromDistanceHikingUpMenBeech.src,
+				},
+				{
+					alt: 'Hunter in the men’s Beech Green and Tussock Rangitata hoodie looking across the alpine tops.',
+					desktopSrc: stJamesHuntingMenBeech.src,
+					mobileSrc: stJamesHuntingMenBeech.src,
+				},
+				{
+					alt: 'Hunter in the men’s Beech Green and Tussock Rangitata hoodie blending into an alpine hillside.',
+					desktopSrc: stJamesCamoHuntingMenBeech.src,
+					mobileSrc: stJamesCamoHuntingMenBeech.src,
 				},
 			],
 			backDown: {

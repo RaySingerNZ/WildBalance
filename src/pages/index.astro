@@ -8,22 +8,31 @@ import { rangitataProducts } from '../data/rangitataProducts';
 import hero1Image from '../assets/img/WildBalance_Hero1.jpg';
 import hero1LandscapeImage from '../assets/img/WildBalance_Hero1_NarrowLandscape.jpg';
 import hero2Image from '../assets/img/WildBalance_Hero2.jpg';
-import beechGlassingImage from '../assets/img/lifestyle/WildBalance_AlpineTerrain_BeechGreenHiddenGlassing.jpg';
-import summitShotImage from '../assets/img/lifestyle/WildBalance_AlpineTerrain_SummitShot.jpg';
-import lakeImage from '../assets/img/lifestyle/WildBalance_AlpineTerrain_LakeShot.jpg';
+import cuttingPatternsImage from '../assets/img/lifestyle/1_WildBalance_CuttingPatterns.jpg';
+import fabricRollImage from '../assets/img/lifestyle/2_WildBalance_FabricRollOnTable.jpg';
+import cuttingFabricImage from '../assets/img/lifestyle/3_WildBalance_CuttingFabricForHoodie.jpg';
+import hikingUpImage from '../assets/img/lifestyle/4_WildBalance_Mens200_StJames_FromDistanceHikingUp_Alpine.jpg';
+import huntingImage from '../assets/img/lifestyle/5_WildBalance_Mens200_StJames_Hunting2_Alpine.jpg';
+import hiddenGlassingImage from '../assets/img/lifestyle/6_WildBalance_AlpineTerrain_BeechGreenHiddenGlassing.jpg';
 import singerSewingMachineImage from '../assets/img/about/WildBalance_TheProcessOfMakingAHoodie.jpg';
 
 const placeholderImages = {
 	hero1: hero1Image.src,
 	hero1Landscape: hero1LandscapeImage.src,
 	hero2: hero2Image.src,
-	beechGlassing: beechGlassingImage.src,
-	summitShot: summitShotImage.src,
-	lake: lakeImage.src,
 	singerSewingMachine: singerSewingMachineImage.src,
 	wool:
 		'https://images.unsplash.com/photo-1550376026-7375b92bb318?auto=format&fit=crop&q=80&w=1200',
 };
+
+const journeyImages = [
+	{ src: cuttingPatternsImage.src, alt: 'Cutting paper patterns for a Wild Balance hoodie.' },
+	{ src: fabricRollImage.src, alt: 'A roll of merino fabric on the cutting table.' },
+	{ src: cuttingFabricImage.src, alt: 'Cutting fabric for a Wild Balance hoodie.' },
+	{ src: hikingUpImage.src, alt: 'A hunter wearing a Wild Balance hoodie hiking up an alpine hillside.' },
+	{ src: huntingImage.src, alt: 'A hunter wearing a Wild Balance hoodie in the alpine tops.' },
+	{ src: hiddenGlassingImage.src, alt: 'A hunter in a Beech Green hoodie concealed in alpine scrub while glassing.' },
+];
 
 const practicalNotes = [
 	{
@@ -87,30 +96,9 @@ const hoodieUses = ['Cold mornings', 'Long climbs', 'Glassing', 'Camp', 'Around 
 			We're excited to bring you merino gear shaped by years behind the machines and time in the hills.
 		</p>
 		<div class="-mx-5 -mb-16 mt-10 grid gap-4 sm:-mx-6 sm:-mb-20 md:mx-0 md:mb-0 md:grid-cols-3">
-			<div>
-				<ImageFrame
-					src={placeholderImages.lake}
-					alt="Wild Balance alpine terrain lake shot."
-					aspect="square"
-					objectPosition="center"
-				/>
-			</div>
-			<div>
-				<ImageFrame
-					src={placeholderImages.beechGlassing}
-					alt="Wild Balance alpine terrain beech green glassing shot."
-					aspect="square"
-					objectPosition="center"
-				/>
-			</div>
-			<div>
-				<ImageFrame
-					src={placeholderImages.summitShot}
-					alt="Wild Balance alpine terrain summit shot."
-					aspect="square"
-					objectPosition="center"
-				/>
-			</div>
+			{journeyImages.map((photo) => (
+				<ImageFrame src={photo.src} alt={photo.alt} aspect="square" objectPosition="center" />
+			))}
 		</div>
 	</Section>
 
