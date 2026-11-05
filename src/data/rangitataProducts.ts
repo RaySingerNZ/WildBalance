@@ -58,14 +58,14 @@ const beechCopy = {
 
 const greywackeCopy = {
 	description:
-		'Built for cold starts, breathable on long climbs, and warm while glassing the tops. Made from 200gsm pure merino wool, the lightweight fabric helps regulate temperature, moves moisture away from the skin, and stays comfortable as conditions change. Wear it on its own or layer it up. A generous hood gives extra coverage from the sun or when the weather turns, while the long sleeves add protection without the bulk of a heavier mid-layer. The fit is flexible, adaptable and made to move without getting in the way. Each hoodie is made to order in Christchurch, designed and sewn by people who spend time in the same country it’s made for. Each Greywacke hoodie has a custom shibori dye job. The pattern creates natural camouflage that helps break up your outline to animals. Each garment is completely unique. To order, select your preferred size and choose ‘Place Order’. We’ll be in touch to confirm the fit, delivery details and deposit to get your order underway.',
+		'Built for cold starts, breathable on long climbs, and warm while glassing the tops. Made from 200gsm pure merino wool, the lightweight fabric helps regulate temperature, moves moisture away from the skin, and stays comfortable as conditions change. Wear it on its own or layer it up. A generous hood gives extra coverage from the sun or when the weather turns, while the long sleeves add protection without the bulk of a heavier mid-layer. The fit is flexible, adaptable and made to move without getting in the way. Each hoodie is made to order in Christchurch, designed and sewn by people who spend time in the same country it’s made for. Each Greywacke hoodie is individually hand-dyed using the shibori technique, creating a unique pattern and natural variation in colour. The broken pattern helps break up your outline in the landscape. To order, select your preferred size and choose ‘Place Order’. We’ll be in touch to confirm the fit, delivery details and deposit to get your order underway.',
 	priceLabel: 'Price: $245 NZD',
 	summaryLead: 'Built for cold starts, breathable on long climbs, and warm while glassing the tops.',
 	summaryParagraphs: [
 		'Made from 200gsm pure merino wool, the lightweight fabric helps regulate temperature, moves moisture away from the skin, and stays comfortable as conditions change. Wear it on its own or layer it up.',
 		'A generous hood gives extra coverage from the sun or when the weather turns, while the long sleeves add protection without the bulk of a heavier mid-layer. The fit is flexible, adaptable and made to move without getting in the way.',
 		'Each hoodie is made to order in Christchurch, designed and sewn by people who spend time in the same country it’s made for.',
-		'Each Greywacke hoodie has a custom shibori dye job. The pattern creates natural camouflage that helps break up your outline to animals. Each garment is completely unique.',
+		'Each Greywacke hoodie is individually hand-dyed using the shibori technique, creating a unique pattern and natural variation in colour. The broken pattern helps break up your outline in the landscape.',
 		'To order, select your preferred size and choose ‘Place Order’. We’ll be in touch to confirm the fit, delivery details and deposit to get your order underway.',
 	],
 };
