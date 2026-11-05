@@ -7,6 +7,7 @@ interface Props {
 	subtitle?: string;
 	subtitleParagraphs?: string[];
 	support?: string;
+	announcement?: string;
 	supportParagraphs?: string[];
 	imageSrc?: string;
 	imageMobileSrc?: string;
@@ -26,6 +27,7 @@ const {
 	subtitle,
 	subtitleParagraphs,
 	support,
+	announcement,
 	supportParagraphs,
 	imageSrc,
 	imageMobileSrc,
@@ -39,6 +41,7 @@ const {
 	secondaryLabel,
 } = Astro.props;
 
+const isRangitataTitle = title === 'The Rangitata Merino Hoodie';
 const isBrandTagline = title.toLowerCase() === 'soft fibre. hard country.';
 const subtitleBlocks = subtitleParagraphs ?? (subtitle ? [subtitle] : []);
 const supportBlocks = supportParagraphs ?? (support ? [support] : []);
@@ -60,9 +63,14 @@ const supportBlocks = supportParagraphs ?? (support ? [support] : []);
 					</p>
 				)
 			}
-			<h1 class="max-w-3xl text-5xl font-semibold leading-[0.95] tracking-normal text-[#2c271f] sm:text-6xl lg:text-7xl">
+			<h1 class:list={["max-w-3xl font-semibold leading-[0.95] tracking-normal text-[#2c271f]", isRangitataTitle ? "text-[clamp(2rem,8.5vw,3rem)] sm:text-5xl lg:text-6xl" : isBrandTagline ? "text-5xl sm:text-6xl lg:text-7xl" : "text-4xl sm:text-5xl lg:text-6xl"]}>
 				{
-					isBrandTagline ? (
+					isRangitataTitle ? (
+						<>
+							<span class="block whitespace-nowrap"><span class="font-host-grotesk">The </span><span class="font-signpainter text-[1.16em] font-normal">Rangitata</span></span>
+							<span class="font-host-grotesk block whitespace-nowrap">Merino Hoodie</span>
+						</>
+					) : isBrandTagline ? (
 						<>
 							<span class="font-signpainter block whitespace-nowrap text-[1.16em] font-normal leading-[0.82]">
 								Soft fibre.
@@ -102,6 +110,7 @@ const supportBlocks = supportParagraphs ?? (support ? [support] : []);
 					</div>
 				)
 			}
+			{announcement && <p class="mt-5 text-base font-semibold leading-7 text-[#2c271f]">{announcement}</p>}
 			{
 				(primaryHref || secondaryHref) && (
 					<div class="mt-8 flex flex-wrap gap-3">

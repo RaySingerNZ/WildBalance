@@ -43,7 +43,7 @@ export interface ProductPageData {
 // Each block is used for both the men's and women's fit in that colourway.
 const beechCopy = {
 	description:
-		'Built for cold starts, breathable on long climbs, and warm while glassing the tops. Made from 200gsm pure merino wool, the lightweight fabric helps regulate temperature, moves moisture away from the skin, and stays comfortable as conditions change. Wear it on its own or layer it up. A generous hood gives extra coverage from the sun or when the weather turns, while the long sleeves add protection without the bulk of a heavier mid-layer. The fit is flexible, adaptable and made to move without getting in the way. Each hoodie is made to order in Christchurch, designed and sewn by people who spend time in the same country it’s made for. Engineered for the high country, the Tussock and Beech Green tones of this hoodie match the native sub-alpine scrub to help you stay concealed while glassing. The natural merino fabric eliminates the synthetic UV glow that game animals easily spot, while the contrasting block-coloured sleeves break up your outline against the hillside. We only have a limited amount of Beech Green and Tussock fabric, so we’re making just 20 hoodies in these colours. If you’d like one, hit ‘Place Order’. We’ll get in touch to confirm your size and delivery details before taking payment and starting your hoodie.',
+		'Built for cold starts, breathable on long climbs, and warm while glassing the tops. Made from 200gsm pure merino wool, the lightweight fabric helps regulate temperature, moves moisture away from the skin, and stays comfortable as conditions change. Wear it on its own or layer it up. A generous hood gives extra coverage from the sun or when the weather turns, while the long sleeves add protection without the bulk of a heavier mid-layer. The fit is flexible, adaptable and made to move without getting in the way. Each hoodie is made to order in Christchurch, designed and sewn by people who spend time in the same country it’s made for. Engineered for the high country, the Tussock and Beech Green tones of this hoodie match the native sub-alpine scrub to help you stay concealed while glassing. The natural merino fabric eliminates the synthetic UV glow that game animals easily spot, while the contrasting block-coloured sleeves break up your outline against the hillside. Orders for this hoodie close 30 November 2026. To order, select your preferred size and choose ‘Place Order’. We’ll be in touch to confirm the fit, delivery details and deposit to get your order underway.',
 	priceLabel: 'Price: $195 NZD',
 	summaryLead: 'Built for cold starts, breathable on long climbs, and warm while glassing the tops.',
 	summaryParagraphs: [
@@ -51,14 +51,14 @@ const beechCopy = {
 		'A generous hood gives extra coverage from the sun or when the weather turns, while the long sleeves add protection without the bulk of a heavier mid-layer. The fit is flexible, adaptable and made to move without getting in the way.',
 		'Each hoodie is made to order in Christchurch, designed and sewn by people who spend time in the same country it’s made for.',
 		'Engineered for the high country, the Tussock and Beech Green tones of this hoodie match the native sub-alpine scrub to help you stay concealed while glassing. The natural merino fabric eliminates the synthetic UV glow that game animals easily spot, while the contrasting block-coloured sleeves break up your outline against the hillside.',
-		'We only have a limited amount of Beech Green and Tussock fabric, so we’re making just 20 hoodies in these colours.',
-		'If you’d like one, hit ‘Place Order’. We’ll get in touch to confirm your size and delivery details before taking payment and starting your hoodie.',
+		'Orders for this hoodie close 30 November 2026.',
+		'To order, select your preferred size and choose ‘Place Order’. We’ll be in touch to confirm the fit, delivery details and deposit to get your order underway.',
 	],
 };
 
 const greywackeCopy = {
 	description:
-		'Built for cold starts, breathable on long climbs, and warm while glassing the tops. Made from 200gsm pure merino wool, the lightweight fabric helps regulate temperature, moves moisture away from the skin, and stays comfortable as conditions change. Wear it on its own or layer it up. A generous hood gives extra coverage from the sun or when the weather turns, while the long sleeves add protection without the bulk of a heavier mid-layer. The fit is flexible, adaptable and made to move without getting in the way. Each hoodie is made to order in Christchurch, designed and sewn by people who spend time in the same country it’s made for. Each Greywacke hoodie has a custom shibori dye job. The pattern creates natural camouflage that helps break up your outline to animals. Each garment is completely unique. If you’d like one, hit ‘Place Order’. We’ll get in touch to confirm your size and delivery details before taking payment and starting your hoodie.',
+		'Built for cold starts, breathable on long climbs, and warm while glassing the tops. Made from 200gsm pure merino wool, the lightweight fabric helps regulate temperature, moves moisture away from the skin, and stays comfortable as conditions change. Wear it on its own or layer it up. A generous hood gives extra coverage from the sun or when the weather turns, while the long sleeves add protection without the bulk of a heavier mid-layer. The fit is flexible, adaptable and made to move without getting in the way. Each hoodie is made to order in Christchurch, designed and sewn by people who spend time in the same country it’s made for. Each Greywacke hoodie has a custom shibori dye job. The pattern creates natural camouflage that helps break up your outline to animals. Each garment is completely unique. To order, select your preferred size and choose ‘Place Order’. We’ll be in touch to confirm the fit, delivery details and deposit to get your order underway.',
 	priceLabel: 'Price: $245 NZD',
 	summaryLead: 'Built for cold starts, breathable on long climbs, and warm while glassing the tops.',
 	summaryParagraphs: [
@@ -66,7 +66,7 @@ const greywackeCopy = {
 		'A generous hood gives extra coverage from the sun or when the weather turns, while the long sleeves add protection without the bulk of a heavier mid-layer. The fit is flexible, adaptable and made to move without getting in the way.',
 		'Each hoodie is made to order in Christchurch, designed and sewn by people who spend time in the same country it’s made for.',
 		'Each Greywacke hoodie has a custom shibori dye job. The pattern creates natural camouflage that helps break up your outline to animals. Each garment is completely unique.',
-		'If you’d like one, hit ‘Place Order’. We’ll get in touch to confirm your size and delivery details before taking payment and starting your hoodie.',
+		'To order, select your preferred size and choose ‘Place Order’. We’ll be in touch to confirm the fit, delivery details and deposit to get your order underway.',
 	],
 };
 

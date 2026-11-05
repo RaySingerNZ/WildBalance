@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ImageFrame from '../../components/ImageFrame.astro';
-import PageHeader from '../../components/PageHeader.astro';
 import { rangitataProducts } from '../../data/rangitataProducts';
 
 const shopItems = [
@@ -31,12 +30,15 @@ const shopItems = [
 >
 	<section class="border-b border-[#2c271f]/10 bg-[#efe8db] pb-12 pt-8 sm:pb-16 sm:pt-10 lg:py-16">
 		<div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-			<PageHeader
-				eyebrow="Shop"
-				title="Wild Balance launch collection"
-				intro="Each merino hoodie is made to order in Christchurch and confirmed with you before we start making it."
-				introClass="lg:whitespace-nowrap"
-			/>
+			<header class="max-w-3xl">
+				<h1 class="text-4xl font-semibold leading-[0.95] tracking-normal text-[#2c271f] sm:text-5xl">Made for the mountains.<br /><span class="whitespace-nowrap">Made here.</span></h1>
+				<div class="mt-5 space-y-4 text-base leading-7 text-[#625a4d]">
+					<p>Introducing the Rangitata Merino Hoodie. The first release from Wild Balance.</p>
+					<p>Made from natural merino and produced in Christchurch, the Rangitata is designed for life in the hills. Available in two colourways, with men's and women's fits.</p>
+					<p>Our first production run is now open for orders until 30 November 2026.</p>
+					<p class="font-semibold text-[#2c271f]">Explore the Rangitata below.</p>
+				</div>
+			</header>
 
 			<div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
 				{shopItems.map(({ href, product }) => (
@@ -61,7 +63,7 @@ const shopItems = [
 									{product.priceLabel}
 								</p>
 								<p class="text-sm font-semibold leading-6 text-[#626b43] underline decoration-[#626b43]/40 underline-offset-4">
-									View / Order
+									View / Pre-order
 								</p>
 							</div>
 						</div>
@@ -71,47 +73,21 @@ const shopItems = [
 		</div>
 	</section>
 
-	<section class="border-b border-[#2c271f]/10 bg-[#e4d8c7] py-14 sm:py-16">
-		<div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-			<div class="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
-				<div class="max-w-3xl">
-					<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">Made to order in Christchurch</p>
-					<h2 class="mt-4 text-3xl font-semibold leading-[0.95] tracking-normal text-[#2c271f] sm:text-4xl">
-						Each hoodie is cut and sewn after you order.
-					</h2>
-					<p class="mt-4 text-base leading-7 text-[#625a4d]">
-						We don't hold a warehouse of finished hoodies. We're opening to a first batch of orders for a limited time. When you place an order, we'll sort our your size, cut and sew it here in Christchurch. Then send it on once it is ready. We're doing this to ensure a great fit, high quality construction and a personalised service for you.
-					</p>
-				</div>
-
-				<div class="flex items-center">
-					<div class="w-full border-t border-[#2c271f]/15 pt-5 text-sm text-[#2c271f] sm:text-base">
-						<div class="grid gap-5 sm:grid-cols-3">
-							<div class="space-y-2">
-								<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">01</p>
-								<h3 class="text-lg font-semibold leading-tight text-[#2c271f]">Place your order</h3>
-								<p class="text-sm leading-6 text-[#625a4d]">
-									Choose the hoodie and colourway you want. Your selected size is only a starting point.
-								</p>
-							</div>
-							<div class="space-y-2">
-								<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">02</p>
-								<h3 class="text-lg font-semibold leading-tight text-[#2c271f]">We get the fit right</h3>
-								<p class="text-sm leading-6 text-[#625a4d]">
-									We will work with you on sizing and fit before we cut your garment.
-								</p>
-							</div>
-							<div class="space-y-2">
-								<p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#626b43]">03</p>
-								<h3 class="text-lg font-semibold leading-tight text-[#2c271f]">We make it here</h3>
-								<p class="text-sm leading-6 text-[#625a4d]">
-									Once the fit is sorted, we cut and sew your hoodie here in Christchurch.
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+	<section class="mx-auto max-w-7xl px-5 py-10 sm:px-6 lg:px-8">
+		<div class="max-w-3xl space-y-4 text-base leading-7 text-[#625a4d]">
+			<h2 class="text-3xl font-semibold leading-tight text-[#2c271f] sm:text-4xl">Ordering your Rangitata hoodie</h2>
+			<p class="font-semibold text-[#2c271f]">First production run. Orders close 30 November 2026.</p>
+			<p>Choose your preferred colour and size, then get in touch to place your order. We'll confirm the details with you and organise the deposit to get your order underway.</p>
+			<p>The remaining balance is payable before your hoodie is posted.</p>
+			<p class="font-semibold text-[#2c271f]">Pricing</p>
+			<ul class="list-disc space-y-2 pl-5">
+				<li>Standard green: NZ$195 (NZ$97.50 deposit)</li>
+				<li>Hand-dyed grey: NZ$245 (NZ$122.50 deposit)</li>
+			</ul>
+			<p>To order, <a href="mailto:ray@wildbalance.nz" class="underline underline-offset-4">email ray@wildbalance.nz</a> or get in touch <a href="/contact" class="underline underline-offset-4">through this website</a>.</p>
+			<h3 class="pt-2 text-xl font-semibold text-[#2c271f]">Production and delivery</h3>
+			<p>All hoodies are made in our Christchurch workshop. We'll be putting hunting trips on hold over December to focus on getting orders made and dispatched as quickly as possible!</p>
+			<p>We'll confirm shipping costs and delivery arrangements when we discuss your order.</p>
 		</div>
 	</section>
 </BaseLayout>
