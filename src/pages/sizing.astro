@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import ImageFrame from '../components/ImageFrame.astro';
+import chestImage from '../assets/img/faq/HowToMeasureAnotherGarment_ChestWidth.jpg';
+import sleeveImage from '../assets/img/faq/HowToMeasureAnotherGarment_SleeveUnder.jpg';
+import hemImage from '../assets/img/faq/HowToMeasureAnotherGarment_BottomHem.jpg';
+import backImage from '../assets/img/faq/HowToMeasureAnotherGarment_Back.jpg';
+
+const measurements = [
+	{
+		title: 'Armpit to Armpit (Chest Width)',
+		text: 'Measure straight across the garment from one armpit seam to the other.',
+		image: chestImage,
+		alt: 'A hoodie laid flat with an arrow showing the chest width from one armpit seam to the other.',
+	},
+	{
+		title: 'Inside Sleeve Length',
+		text: 'Measure from the armpit seam along the inside of the sleeve to the end of the cuff.',
+		image: sleeveImage,
+		alt: 'An arrow along the inside of a sleeve from the armpit seam to the end of the cuff.',
+	},
+	{
+		title: 'Bottom Hem Width',
+		text: 'Measure straight across the bottom hem, from one side seam to the other.',
+		image: hemImage,
+		alt: 'An arrow across the bottom hem of a hoodie laid flat, from side seam to side seam.',
+	},
+	{
+		title: 'Back Neck to Hem (Garment Length)',
+		text: 'Measure from the centre of the back neck seam straight down to the bottom edge of the hem.',
+		image: backImage,
+		alt: 'The back of a hoodie laid flat with an arrow from the centre back neck seam to the bottom hem.',
+	},
+];
+---
+
+<BaseLayout title="Sizing | Wild Balance" description="How to measure a garment you like the fit of, so we can help with sizing your Wild Balance hoodie." image={chestImage.src}>
+	<section class="border-b border-[#2c271f]/10 bg-[#efe8db] py-10 sm:py-14 lg:py-16">
+		<div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+			<PageHeader eyebrow="Sizing" title="Measurements to provide" intro="Please find a similar garment with a fit you're happy with and lay it flat on a hard, smooth surface. Pull it taut without stretching the fabric and measure seam to seam." />
+
+			<div class="mt-10 grid gap-x-10 gap-y-12 md:grid-cols-2">
+				{measurements.map((measurement, index) => (
+					<article class="min-w-0">
+						<h2 class="text-xl font-semibold leading-7 text-[#2c271f]">{index + 1}. {measurement.title}</h2>
+						<p class="mt-3 mb-5 text-base leading-7 text-[#625a4d]">{measurement.text}</p>
+						<ImageFrame src={measurement.image.src} alt={measurement.alt} aspect="square" />
+					</article>
+				))}
+			</div>
+
+			<div class="mt-12 max-w-3xl space-y-4 border-t border-[#2c271f]/15 pt-8 text-base leading-7 text-[#625a4d]">
+				<h2 class="text-2xl font-semibold text-[#2c271f]">A little more about the fit</h2>
+				<p>Please let us know the brand and size of the garment you've measured. This gives us a useful reference when discussing your fit.</p>
+				<p>You're also welcome to send us a photo of the garment to help us get a better idea of the fit and style you're after.</p>
+				<p>If you don't have a garment with a fit you're happy with, let us know. We can talk you through taking your body measurements instead.</p>
+				<p>Send your measurements and any photos to <a href="mailto:ray@wildbalance.nz" class="font-semibold text-[#2c271f] underline underline-offset-4">ray@wildbalance.nz</a>, or <a href="/contact" class="font-semibold text-[#2c271f] underline underline-offset-4">get in touch</a> if you'd like a hand.</p>
+			</div>
+		</div>
+	</section>
+</BaseLayout>
